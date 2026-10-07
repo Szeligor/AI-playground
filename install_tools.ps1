@@ -38,25 +38,31 @@ if (Test-Path "$shareDir\ms-playwright") {
     Write-Host "      Playwright Chromium bongeszo keszen all!" -ForegroundColor Green
 }
 
-# 2. Node.js LTS Letoltes es Telepites
+# 2. Node.js LTS Telepites (Offline elonyben reszesitve, fallback letoltesre)
 Write-Host "[3/5] Node.js LTS telepitese..." -ForegroundColor Yellow
-$nodeUrl = "https://nodejs.org/dist/v20.18.0/node-v20.18.0-x64.msi"
-$nodeMsi = "$workDir\nodejs.msi"
-Invoke-WebRequest -Uri $nodeUrl -OutFile $nodeMsi -UseBasicParsing
+$nodeMsi = "$shareDir\nodejs.msi"
+if (-not (Test-Path $nodeMsi)) {
+    $nodeMsi = "$workDir\nodejs.msi"
+    Invoke-WebRequest -Uri "https://nodejs.org/dist/v20.18.0/node-v20.18.0-x64.msi" -OutFile $nodeMsi -UseBasicParsing
+}
 Start-Process "msiexec.exe" -ArgumentList "/i `"$nodeMsi`" /qn /norestart" -Wait
 Write-Host "      Node.js sikeresen telepitve!" -ForegroundColor Green
 
-# 3. Git for Windows Letoltes es Telepites
+# 3. Git for Windows Telepites (Offline elonyben reszesitve, fallback letoltesre)
 Write-Host "[4/5] Git for Windows telepitese..." -ForegroundColor Yellow
-$gitUrl = "https://github.com/git-for-windows/git/releases/download/v2.46.2.windows.1/Git-2.46.2-64-bit.exe"
-$gitExe = "$workDir\git-installer.exe"
-Invoke-WebRequest -Uri $gitUrl -OutFile $gitExe -UseBasicParsing
+$gitExe = "$shareDir\git-installer.exe"
+if (-not (Test-Path $gitExe)) {
+    $gitExe = "$workDir\git-installer.exe"
+    Invoke-WebRequest -Uri "https://github.com/git-for-windows/git/releases/download/v2.46.2.windows.1/Git-2.46.2-64-bit.exe" -OutFile $gitExe -UseBasicParsing
+}
 Start-Process "$gitExe" -ArgumentList "/VERYSILENT /NORESTART /NOCANCEL /SP- /CLOSEAPPLICATIONS /RESTARTAPPLICATIONS" -Wait
 Write-Host "      Git for Windows sikeresen telepitve!" -ForegroundColor Green
 
 # 4. Git SChannel beallitasa es Bitbucket Hozzaferes elokeszitese
 Write-Host "[5/5] Astron Bitbucket tanusitvany-illesztes es hitelesites..." -ForegroundColor Yellow
 $gitCmd = "C:\Program Files\Git\cmd\git.exe"
+& $gitCmd config --global user.name "Astron QA Participant"
+& $gitCmd config --global user.email "workshop@astron.hu"
 & $gitCmd config --global http."https://bitbucket.astron.hu".sslBackend schannel
 & $gitCmd config --global http."https://bitbucket.astron.hu".sslVerify true
 & $gitCmd config --global http."https://bitbucket.astron.hu".sslAutoClientCert true
@@ -65,6 +71,7 @@ $gitCmd = "C:\Program Files\Git\cmd\git.exe"
 # Bitbucket Workshop hozzaferesi adatok rogzitese a Sandbox Git klienseben
 $credContent = "https://bd2837.aiws:vjWYxhgBZmYO4l@bitbucket.astron.hu`n"
 Set-Content -Path "C:\Users\WDAGUtilityAccount\.git-credentials" -Value $credContent -Encoding ASCII
+
 
 # Workshop repo frissitese / a legfrissebb tananyag azonnali behuzasa
 Write-Host "      Legfrissebb tananyag szinkronizalasa a Bitbucketrol..." -ForegroundColor Yellow
