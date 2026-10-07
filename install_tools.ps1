@@ -54,12 +54,23 @@ Invoke-WebRequest -Uri $gitUrl -OutFile $gitExe -UseBasicParsing
 Start-Process "$gitExe" -ArgumentList "/VERYSILENT /NORESTART /NOCANCEL /SP- /CLOSEAPPLICATIONS /RESTARTAPPLICATIONS" -Wait
 Write-Host "      Git for Windows sikeresen telepitve!" -ForegroundColor Green
 
-# 4. Git SChannel beallitasa az Astron Bitbuckethez
-Write-Host "[5/5] Astron Bitbucket tanusitvany-illesztes..." -ForegroundColor Yellow
-& "C:\Program Files\Git\cmd\git.exe" config --global http."https://bitbucket.astron.hu".sslBackend schannel
-& "C:\Program Files\Git\cmd\git.exe" config --global http."https://bitbucket.astron.hu".sslVerify true
-& "C:\Program Files\Git\cmd\git.exe" config --global http."https://bitbucket.astron.hu".sslAutoClientCert true
-Write-Host "      Git SChannel beallitva!" -ForegroundColor Green
+# 4. Git SChannel beallitasa es Bitbucket Hozzaferes elokeszitese
+Write-Host "[5/5] Astron Bitbucket tanusitvany-illesztes es hitelesites..." -ForegroundColor Yellow
+$gitCmd = "C:\Program Files\Git\cmd\git.exe"
+& $gitCmd config --global http."https://bitbucket.astron.hu".sslBackend schannel
+& $gitCmd config --global http."https://bitbucket.astron.hu".sslVerify true
+& $gitCmd config --global http."https://bitbucket.astron.hu".sslAutoClientCert true
+& $gitCmd config --global credential.helper store
+
+# Bitbucket Workshop hozzaferesi adatok rogzitese a Sandbox Git klienseben
+$credContent = "https://bd2837.aiws:vjWYxhgBZmYO4l@bitbucket.astron.hu`n"
+Set-Content -Path "C:\Users\WDAGUtilityAccount\.git-credentials" -Value $credContent -Encoding ASCII
+
+# Workshop repo frissitese / a legfrissebb tananyag azonnali behuzasa
+Write-Host "      Legfrissebb tananyag szinkronizalasa a Bitbucketrol..." -ForegroundColor Yellow
+Set-Location "$shareDir\project"
+& $gitCmd pull origin main
+Write-Host "      Git SChannel es Bitbucket hozzaferes keszen all!" -ForegroundColor Green
 
 Write-Host "==================================================" -ForegroundColor Green
 Write-Host "  MINDEN KESZEN ALL A WORKSHOPHOZ!               " -ForegroundColor Green
