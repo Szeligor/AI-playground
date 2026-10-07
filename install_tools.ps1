@@ -1,0 +1,88 @@
+# Windows Sandbox Teljes Workshop Elokeszito Szkript
+Write-Host "==================================================" -ForegroundColor Cyan
+Write-Host "   Astron QA Workshop - Sandbox Teljes Setup      " -ForegroundColor Cyan
+Write-Host "==================================================" -ForegroundColor Cyan
+
+$shareDir = "C:\Users\WDAGUtilityAccount\Desktop\AstronWorkshop"
+$workDir  = "C:\Users\WDAGUtilityAccount\Desktop\SetupTemp"
+New-Item -ItemType Directory -Path $workDir -Force | Out-Null
+
+# 0. Google Chrome Offline Telepites (Szukseges a Google OAuth bejelentkezeshez es tesztekhez)
+Write-Host "[1/5] Google Chrome bongeszo offline telepitese..." -ForegroundColor Yellow
+$chromeInstaller = "$shareDir\ChromeSetup64.exe"
+if (Test-Path $chromeInstaller) {
+    Start-Process "$chromeInstaller" -ArgumentList "/silent /install" -Wait
+    if (Test-Path "$shareDir\fix_browser_and_protocol.reg") {
+        & reg import "$shareDir\fix_browser_and_protocol.reg"
+    }
+    Write-Host "      Google Chrome sikeresen telepitve es tarsitva!" -ForegroundColor Green
+} else {
+    Write-Host "      ChromeSetup64.exe nem talalhato, kihagyva." -ForegroundColor DarkYellow
+}
+
+# Antigravity IDE osszekotese az Antigravity 2.0-val (hogy a 2.0 felismerje a telepitett IDE-t)
+$localPrograms = "C:\Users\WDAGUtilityAccount\AppData\Local\Programs"
+New-Item -ItemType Directory -Path $localPrograms -Force | Out-Null
+$ideSymlink = "$localPrograms\Antigravity IDE"
+if (-not (Test-Path $ideSymlink)) {
+    cmd.exe /c mklink /D "`"$ideSymlink`"" "`"$shareDir\antigravity_ide`"" | Out-Null
+    Write-Host "      Antigravity IDE integracio letrehozva a 2.0 szamara!" -ForegroundColor Green
+}
+
+# 1. Playwright Bongeszok Masolasa a helyere (Offline / Azonnali Start!)
+Write-Host "[2/5] Playwright Chromium bongeszo elokeszitese..." -ForegroundColor Yellow
+$localMsPlaywright = "C:\Users\WDAGUtilityAccount\AppData\Local\ms-playwright"
+if (Test-Path "$shareDir\ms-playwright") {
+    New-Item -ItemType Directory -Path "C:\Users\WDAGUtilityAccount\AppData\Local" -Force | Out-Null
+    Copy-Item -Path "$shareDir\ms-playwright" -Destination $localMsPlaywright -Recurse -Force
+    Write-Host "      Playwright Chromium bongeszo keszen all!" -ForegroundColor Green
+}
+
+# 2. Node.js LTS Letoltes es Telepites
+Write-Host "[3/5] Node.js LTS telepitese..." -ForegroundColor Yellow
+$nodeUrl = "https://nodejs.org/dist/v20.18.0/node-v20.18.0-x64.msi"
+$nodeMsi = "$workDir\nodejs.msi"
+Invoke-WebRequest -Uri $nodeUrl -OutFile $nodeMsi -UseBasicParsing
+Start-Process "msiexec.exe" -ArgumentList "/i `"$nodeMsi`" /qn /norestart" -Wait
+Write-Host "      Node.js sikeresen telepitve!" -ForegroundColor Green
+
+# 3. Git for Windows Letoltes es Telepites
+Write-Host "[4/5] Git for Windows telepitese..." -ForegroundColor Yellow
+$gitUrl = "https://github.com/git-for-windows/git/releases/download/v2.46.2.windows.1/Git-2.46.2-64-bit.exe"
+$gitExe = "$workDir\git-installer.exe"
+Invoke-WebRequest -Uri $gitUrl -OutFile $gitExe -UseBasicParsing
+Start-Process "$gitExe" -ArgumentList "/VERYSILENT /NORESTART /NOCANCEL /SP- /CLOSEAPPLICATIONS /RESTARTAPPLICATIONS" -Wait
+Write-Host "      Git for Windows sikeresen telepitve!" -ForegroundColor Green
+
+# 4. Git SChannel beallitasa az Astron Bitbuckethez
+Write-Host "[5/5] Astron Bitbucket tanusitvany-illesztes..." -ForegroundColor Yellow
+& "C:\Program Files\Git\cmd\git.exe" config --global http."https://bitbucket.astron.hu".sslBackend schannel
+& "C:\Program Files\Git\cmd\git.exe" config --global http."https://bitbucket.astron.hu".sslVerify true
+& "C:\Program Files\Git\cmd\git.exe" config --global http."https://bitbucket.astron.hu".sslAutoClientCert true
+Write-Host "      Git SChannel beallitva!" -ForegroundColor Green
+
+Write-Host "==================================================" -ForegroundColor Green
+Write-Host "  MINDEN KESZEN ALL A WORKSHOPHOZ!               " -ForegroundColor Green
+Write-Host "==================================================" -ForegroundColor Green
+
+# Parancsikonok letrehozasa a Sandbox Asztalan
+$wsh = New-Object -ComObject WScript.Shell
+
+$shortcut20 = $wsh.CreateShortcut("C:\Users\WDAGUtilityAccount\Desktop\Antigravity 2.0.lnk")
+$shortcut20.TargetPath = "$shareDir\antigravity_app\Antigravity.exe"
+$shortcut20.WorkingDirectory = "$shareDir\antigravity_app"
+$shortcut20.Save()
+
+$shortcutIde = $wsh.CreateShortcut("C:\Users\WDAGUtilityAccount\Desktop\Antigravity IDE.lnk")
+$shortcutIde.TargetPath = "$shareDir\antigravity_ide\Antigravity IDE.exe"
+$shortcutIde.Arguments = "`"$shareDir\project`""
+$shortcutIde.WorkingDirectory = "$shareDir\antigravity_ide"
+$shortcutIde.Save()
+
+Write-Host "      Asztali parancsikonok elkeszultek (Antigravity 2.0 & IDE)!" -ForegroundColor Green
+
+# Inditsuk el az Antigravity IDE-t a koddal
+Start-Process "cmd.exe" "/c `"$shareDir\START_ANTIGRAVITY_IDE.bat`""
+
+# Inditsuk el az Antigravity 2.0-t is
+Start-Process "cmd.exe" "/c `"$shareDir\START_ANTIGRAVITY_2.0.bat`""
