@@ -1,17 +1,20 @@
 import { test as setup, expect } from '@playwright/test';
-import { LoginPage } from '../pages/LoginPage';
 
 const authFile = 'playwright/.auth/user.json';
 
-setup('authenticate via UI and save storageState', async ({ page }) => {
-  const loginPage = new LoginPage(page);
-  await loginPage.goto();
-  await loginPage.login('standard_user', 'secret_sauce');
+setup('authenticate via API and save storageState', async ({ request }) => {
+  const response = await request.post('https://testacademy.hu/api/login', {
+    data: {
+      email: 'standard_user@astron.hu',
+      password: 'secret123'
+    }
+  });
 
-  // Verify successful login
-  await expect(page).toHaveURL(/.*inventory.html/);
-  await expect(page.getByText('Products')).toBeVisible();
+  expect(response.status()).toBe(200);
+  const body = await response.json();
+  expect(body.status).toBe('success');
+  expect(body.token).toBeDefined();
 
-  // Save authentication cookies & localStorage
-  await page.context().storageState({ path: authFile });
+  // Save auth token to storageState json for UI tests
+  await request.storageState({ path: authFile });
 });

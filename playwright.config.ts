@@ -15,25 +15,32 @@ export default defineConfig({
     ['html', { open: 'never' }]
   ],
   use: {
-    baseURL: 'https://www.saucedemo.com',
+    baseURL: process.env.BASE_URL || 'https://testacademy.hu',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
   },
   projects: [
-    // Setup project for auth
+    // Setup project for API auth & storageState
     {
       name: 'setup',
-      testMatch: /.*\.setup\.ts/,
+      testMatch: /.*auth\.setup\.ts/,
     },
-    // Main Chromium project with saved session
+    // API testing project (No browser overhead - instant execution)
+    {
+      name: 'api',
+      testMatch: /.*api.*\.spec\.ts/,
+      use: {
+        baseURL: process.env.BASE_URL || 'https://testacademy.hu',
+      },
+    },
+    // Main Chromium project
     {
       name: 'chromium',
+      testMatch: /.*(storefront|selectors).*\.spec\.ts/,
       use: {
         ...devices['Desktop Chrome'],
-        storageState: 'playwright/.auth/user.json',
       },
-      dependencies: ['setup'],
     },
   ],
 });
