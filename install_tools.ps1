@@ -7,27 +7,30 @@ $shareDir = "C:\Users\WDAGUtilityAccount\Desktop\AstronWorkshop"
 $workDir  = "C:\Users\WDAGUtilityAccount\Desktop\SetupTemp"
 New-Item -ItemType Directory -Path $workDir -Force | Out-Null
 
-# 0. Google Chrome Offline Telepites (Szukseges a Google OAuth bejelentkezeshez es tesztekhez)
-Write-Host "[1/5] Google Chrome bongeszo offline telepitese..." -ForegroundColor Yellow
+# 0. Google Chrome Telepites (Offline elonyben, fallback online letoltesre)
+Write-Host "[1/5] Google Chrome bongeszo telepitese..." -ForegroundColor Yellow
 $chromeInstaller = "$shareDir\ChromeSetup64.exe"
-if (Test-Path $chromeInstaller) {
-    Start-Process "$chromeInstaller" -ArgumentList "/silent /install" -Wait
-    if (Test-Path "$shareDir\fix_browser_and_protocol.reg") {
-        & reg import "$shareDir\fix_browser_and_protocol.reg"
-    }
-    Write-Host "      Google Chrome sikeresen telepitve es tarsitva!" -ForegroundColor Green
-} else {
-    Write-Host "      ChromeSetup64.exe nem talalhato, kihagyva." -ForegroundColor DarkYellow
+if (-not (Test-Path $chromeInstaller)) {
+    $chromeInstaller = "$workDir\ChromeSetup64.exe"
+    Write-Host "      Chrome letoltese a weprol..." -ForegroundColor Yellow
+    Invoke-WebRequest -Uri "https://dl.google.com/chrome/install/latest/chrome_installer.exe" -OutFile $chromeInstaller -UseBasicParsing
 }
+Start-Process "$chromeInstaller" -ArgumentList "/silent /install" -Wait
+if (Test-Path "$shareDir\fix_browser_and_protocol.reg") {
+    & reg import "$shareDir\fix_browser_and_protocol.reg"
+}
+Write-Host "      Google Chrome sikeresen telepitve es tarsitva!" -ForegroundColor Green
 
-# Antigravity IDE osszekotese az Antigravity 2.0-val (hogy a 2.0 felismerje a telepitett IDE-t)
+# Antigravity IDE es Antigravity 2.0 elokeszitese (Ha nincs mellekelve, online telepito futtatasa)
 $localPrograms = "C:\Users\WDAGUtilityAccount\AppData\Local\Programs"
 New-Item -ItemType Directory -Path $localPrograms -Force | Out-Null
 $ideSymlink = "$localPrograms\Antigravity IDE"
-if (-not (Test-Path $ideSymlink)) {
-    cmd.exe /c mklink /D "`"$ideSymlink`"" "`"$shareDir\antigravity_ide`"" | Out-Null
-    Write-Host "      Antigravity IDE integracio letrehozva a 2.0 szamara!" -ForegroundColor Green
+if (Test-Path "$shareDir\antigravity_ide") {
+    if (-not (Test-Path $ideSymlink)) {
+        cmd.exe /c mklink /D "`"$ideSymlink`"" "`"$shareDir\antigravity_ide`"" | Out-Null
+    }
 }
+
 
 # 1. Playwright Bongeszok Masolasa a helyere (Offline / Azonnali Start!)
 Write-Host "[2/5] Playwright Chromium bongeszo elokeszitese..." -ForegroundColor Yellow
