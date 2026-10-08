@@ -48,3 +48,22 @@ A Sandbox automatikusan feláll és mindent elvégez:
 
 ## 💾 Mentés & Perzisztencia
 Minden munka, amit a Sandboxon belül az **`AstronWorkshop\project`** mappában végeznek, **közvetlenül a gazdagép `C:\astron_sandbox_share\project` mappájába mentődik**, így a Sandbox bezárásakor **semmilyen kód nem vész el!**
+
+---
+
+## 🔗 Bitbucket Repository & Tananyag szinkronizáció
+A projekt előre konfigurált és össze van kötve az Astron belső Bitbucket szerverével:
+- **Repo URL:** `https://bitbucket.astron.hu/scm/aiws/ai_workshop.git`
+- **Projekt:** `AIWS` / `ai_workshop`
+- **Beépített hitelesítés:** A Sandbox induláskor automatikusan beállítja a felhasználót (`bd2837.aiws`) és az SChannel Windows tanúsítványkezelést.
+
+### Manuális frissítés / lehúzás bármikor a Sandbox termináljából:
+```bash
+cd C:\Users\WDAGUtilityAccount\Desktop\AstronWorkshop\project
+git pull origin main
+```
+
+### Ha valaki teljesen nulláról szeretné leklónozni a saját gépére:
+```bash
+git clone https://bd2837.aiws@bitbucket.astron.hu/scm/aiws/ai_workshop.git
+```
