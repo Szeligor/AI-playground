@@ -1,0 +1,15 @@
+{
+  "terminal.integrated.env.windows": {
+    "PATH": "C:\\Program Files\\nodejs;C:\\Program Files\\Git\\cmd;${env:PATH}"
+  },
+  "playwright.env": {
+    "PATH": "C:\\Program Files\\nodejs;C:\\Program Files\\Git\\cmd;${env:PATH}"
+  },
+  "playwright.configs": [
+    "playwright.config.ts"
+  ],
+  "playwright.configFile": "playwright.config.ts",
+  "playwright.configPath": "playwright.config.ts",
+  "playwrightrunner.playwrightConfigPath": "playwright.config.ts",
+  "playwright.reuseBrowser": true
+}

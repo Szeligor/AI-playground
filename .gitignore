@@ -6,6 +6,11 @@
 # Node artifact files
 node_modules/
 dist/
+test-results/
+playwright-report/
+blob-report/
+playwright/.auth/
+
 
 # Compiled Java class files
 *.class

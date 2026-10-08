@@ -37,7 +37,8 @@ export default defineConfig({
     // Main Chromium project
     {
       name: 'chromium',
-      testMatch: /.*(storefront|selectors).*\.spec\.ts/,
+      testMatch: '**/*.spec.ts',
+      testIgnore: ['**/*api*.spec.ts'],
       use: {
         ...devices['Desktop Chrome'],
       },

@@ -31,6 +31,19 @@ if (Test-Path "$shareDir\antigravity_ide") {
     }
 }
 
+# Antigravity IDE bovitmenyek (pl. Playwright) elokeszitese
+$ideExtensionsDir = "C:\Users\WDAGUtilityAccount\.antigravity-ide\extensions"
+$projPlaywrightExt = "$shareDir\project\extensions\ms-playwright.playwright"
+if (-not (Test-Path $projPlaywrightExt) -and (Test-Path "$PSScriptRoot\extensions\ms-playwright.playwright")) {
+    $projPlaywrightExt = "$PSScriptRoot\extensions\ms-playwright.playwright"
+}
+if (Test-Path $projPlaywrightExt) {
+    New-Item -ItemType Directory -Path $ideExtensionsDir -Force | Out-Null
+    Copy-Item -Path $projPlaywrightExt -Destination "$ideExtensionsDir\ms-playwright.playwright" -Recurse -Force
+    Write-Host "      Playwright IDE bovitmeny sikeresen telepitve az Antigravity IDE-be!" -ForegroundColor Green
+}
+
+
 
 # 1. Playwright Bongeszok Masolasa a helyere (Offline / Azonnali Start!)
 Write-Host "[2/5] Playwright Chromium bongeszo elokeszitese..." -ForegroundColor Yellow
