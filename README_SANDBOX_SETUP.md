@@ -4,6 +4,38 @@ Ez a csomag lehetővé teszi, hogy a workshop résztvevői egy teljesen **elszig
 
 ---
 
+## 🧠 Főbb Promptolási Technikák QA Tesztautomatizáláshoz (Példákkal)
+
+Az AI nem gondolatolvasó, hanem kontextus-feldolgozó partner. Ha profi tesztkódot várunk tőle, ezeket a technikákat alkalmazzuk:
+
+### 1. Role Prompting (Szerepkör kijelölése)
+* **Mire való?** Beállítja az AI gondolkodási keretét, stílusát és szakmai elvárásait (elkerülve az amatőr, kezdő megoldásokat).
+* **Példa:**
+  > *"Viselkedj úgy, mint egy Senior Playwright TypeScript QA Automation Engineer. Az Astron projektekhez készítünk teszteket. Szigorúan kövesd a Page Object Model (POM) elveket, és csak web-first szelektorokat használj."*
+
+### 2. Few-Shot Prompting (Példák adása a kontextusban)
+* **Mire való?** Ha megmutatunk 1 jó és 1 rossz mintát, az AI azonnal átveszi a cég kódolási konvencióit.
+* **Példa:**
+  > *"Ne használj CSS osztályokat (`.btn-buy`). Mutatok egy mintát:  
+  > ❌ Rossz: `page.locator('.submit-btn').click();`  
+  > ✅ Jó: `page.getByRole('button', { name: 'Vásárlás' }).click();`  
+  > Írd meg a következő űrlap kitöltését a jó minta alapján!"*
+
+### 3. Step-by-Step / Chain-of-Thought (Lépésről lépésre tervezés)
+* **Mire való?** Komplex üzleti folyamatoknál megakadályozza, hogy az AI kihagyjon lépéseket vagy hallucináljon.
+* **Példa:**
+  > *"Először sorold fel a vásárlási folyamat manuális lépéseit és az elvárt assertációkat pontokba szedve! Ne írj kódot, amíg nem hagyom jóvá a tervet!"*
+
+### 4. Constraint-Based Prompting (Szabályok és tiltások rögzítése)
+* **Mire való?** Megakadályozza a tipikus junior hibákat (hardcode-olt várakozások, törékeny XPath-ok).
+* **Példa:**
+  > *"Írj tesztet a kosár ürítésére. Szigorú korlátok:  
+  > 1. Tilos használni a `page.waitForTimeout()`-ot!  
+  > 2. Tilos XPath-ot használni!  
+  > 3. Csak auto-waiting `expect(locator).toBeVisible()` assertációt használhatsz!"*
+
+---
+
 ## 📦 Mi van a csomagban?
 1. **`astron_workshop_sandbox.wsb`**: A Sandbox indítófájl.
 2. **`astron_sandbox_share` mappa tartalma**:
