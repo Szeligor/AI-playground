@@ -1,0 +1,2145 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "-c",
+      "hge/playwright.config.ts"
+    ],
+    "configFile": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\playwright.config.ts",
+    "rootDir": "C:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/hge/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/hge/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests",
+        "snapshotDir": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "https://testacademy.hu",
+          "trace": "on-first-retry",
+          "screenshot": "only-on-failure",
+          "video": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "./test-results.json"
+        }
+      ],
+      [
+        "html",
+        {
+          "open": "never",
+          "outputFolder": "./playwright-report"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "00-gate-and-global.spec.ts",
+      "file": "00-gate-and-global.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "00 - Biztonsági Kapu & Globális Kezelőszervek",
+          "file": "00-gate-and-global.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-00-01: Zárolt Kapu Negatív teszt - Helytelen jelszóval a labor zárolva marad",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 846,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T11:59:35.781Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0bc071a462d23fb67db6-66a215ea72bc845bd057",
+              "file": "00-gate-and-global.spec.ts",
+              "line": 6,
+              "column": 3
+            },
+            {
+              "title": "TC-00-02: Kapu Feloldás - Helyes jelszóval a felület feloldódik",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 745,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T11:59:36.848Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0bc071a462d23fb67db6-d90ffbf870a74e375673",
+              "file": "00-gate-and-global.spec.ts",
+              "line": 18,
+              "column": 3
+            },
+            {
+              "title": "TC-00-03: Globális DB Seed Reset - Adatbázis visszaállítása kiinduló állapotra Toast értesítéssel",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 660,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T11:59:37.607Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0bc071a462d23fb67db6-8ae9314ce37ee0a634a0",
+              "file": "00-gate-and-global.spec.ts",
+              "line": 29,
+              "column": 3
+            },
+            {
+              "title": "TC-00-04: Fő Tab Navigáció - Mind az 5 fő nézet közötti váltás működik",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1044,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T11:59:38.283Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0bc071a462d23fb67db6-bd9e93e4bd43111f3438",
+              "file": "00-gate-and-global.spec.ts",
+              "line": 40,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "01-storefront-checkout.spec.ts",
+      "file": "01-storefront-checkout.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "01 - Storefront & Checkout (Megrendelési folyamatok)",
+          "file": "01-storefront-checkout.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-SF-01: Happy Path - Bankkártyás vásárlás sikeres lefutása",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 9323,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#prod-stock-1')\nExpected substring: \u001b[32m\"In Stock: 1\u001b[7m4\u001b[27m units\"\u001b[39m\nReceived string:    \u001b[31m\"In Stock: 1\u001b[7m5\u001b[27m units\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('#prod-stock-1') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#prod-stock-1')\u001b[22m\n\u001b[2m    14 × locator resolved to <div id=\"prod-stock-1\">In Stock: 15 units</div>\u001b[22m\n\u001b[2m       - unexpected value \"In Stock: 15 units\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#prod-stock-1')\nExpected substring: \u001b[32m\"In Stock: 1\u001b[7m4\u001b[27m units\"\u001b[39m\nReceived string:    \u001b[31m\"In Stock: 1\u001b[7m5\u001b[27m units\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('#prod-stock-1') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#prod-stock-1')\u001b[22m\n\u001b[2m    14 × locator resolved to <div id=\"prod-stock-1\">In Stock: 15 units</div>\u001b[22m\n\u001b[2m       - unexpected value \"In Stock: 15 units\"\u001b[22m\n\n    at C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\01-storefront-checkout.spec.ts:32:49",
+                        "location": {
+                          "file": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\01-storefront-checkout.spec.ts",
+                          "column": 49,
+                          "line": 32
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 30 |\u001b[39m\n \u001b[90m 31 |\u001b[39m     \u001b[90m// Készletcsökkenés (15-ről 14-re)\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 32 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'#prod-stock-1'\u001b[39m))\u001b[33m.\u001b[39mtoContainText(\u001b[32m'In Stock: 14 units'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 33 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 34 |\u001b[39m\n \u001b[90m 35 |\u001b[39m   test(\u001b[32m'TC-SF-02: Happy Path - Vállalati Corporate Invoice vásárlás PENDING státusszal'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\01-storefront-checkout.spec.ts",
+                            "column": 49,
+                            "line": 32
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#prod-stock-1')\nExpected substring: \u001b[32m\"In Stock: 1\u001b[7m4\u001b[27m units\"\u001b[39m\nReceived string:    \u001b[31m\"In Stock: 1\u001b[7m5\u001b[27m units\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('#prod-stock-1') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#prod-stock-1')\u001b[22m\n\u001b[2m    14 × locator resolved to <div id=\"prod-stock-1\">In Stock: 15 units</div>\u001b[22m\n\u001b[2m       - unexpected value \"In Stock: 15 units\"\u001b[22m\n\n\n  30 |\n  31 |     // Készletcsökkenés (15-ről 14-re)\n> 32 |     await expect(page.locator('#prod-stock-1')).toContainText('In Stock: 14 units');\n     |                                                 ^\n  33 |   });\n  34 |\n  35 |   test('TC-SF-02: Happy Path - Vállalati Corporate Invoice vásárlás PENDING státusszal', async ({ page }) => {\n    at C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\01-storefront-checkout.spec.ts:32:49"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T11:59:39.378Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\test-results\\01-storefront-checkout-01--25d2b-s-vásárlás-sikeres-lefutása-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\test-results\\01-storefront-checkout-01--25d2b-s-vásárlás-sikeres-lefutása-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\test-results\\01-storefront-checkout-01--25d2b-s-vásárlás-sikeres-lefutása-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\01-storefront-checkout.spec.ts",
+                        "column": 49,
+                        "line": 32
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "1ce73a11fe1a418eefa4-8e3aec8f22e32e18d766",
+              "file": "01-storefront-checkout.spec.ts",
+              "line": 13,
+              "column": 3
+            },
+            {
+              "title": "TC-SF-02: Happy Path - Vállalati Corporate Invoice vásárlás PENDING státusszal",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1026,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T11:59:50.105Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ce73a11fe1a418eefa4-364a3d301d5fb385b543",
+              "file": "01-storefront-checkout.spec.ts",
+              "line": 35,
+              "column": 3
+            },
+            {
+              "title": "TC-SF-03: Pénznemváltás & Árfolyamok (USD -> EUR -> HUF)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 676,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T11:59:51.337Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ce73a11fe1a418eefa4-6a9847a0f084bf508d94",
+              "file": "01-storefront-checkout.spec.ts",
+              "line": 50,
+              "column": 3
+            },
+            {
+              "title": "TC-SF-04: Mennyiség Határérték-elemzés (BVA: 1 db és 10 db kalkuláció)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 817,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T11:59:52.032Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ce73a11fe1a418eefa4-99a8f4f5fdba8c1a8b05",
+              "file": "01-storefront-checkout.spec.ts",
+              "line": 66,
+              "column": 3
+            },
+            {
+              "title": "TC-SF-05: Készlethiány Negatív Ág - Elérhető készlet feletti rendelés meghiúsul",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 711,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T11:59:52.868Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ce73a11fe1a418eefa4-adc2cdbeff243b57f16d",
+              "file": "01-storefront-checkout.spec.ts",
+              "line": 81,
+              "column": 3
+            },
+            {
+              "title": "TC-SF-06: Ország Adókulcsok Kalkulációja (US 0%, DE 19%, HU 27%)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 795,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T11:59:53.596Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ce73a11fe1a418eefa4-2800272bb1234fc498eb",
+              "file": "01-storefront-checkout.spec.ts",
+              "line": 99,
+              "column": 3
+            },
+            {
+              "title": "TC-SF-07: EU VAT Mentesítés - Reverse Charge B2B 0% ÁFA alkalmazása",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 5949,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#vat-feedback')\nExpected substring: \u001b[32m\"0% Reverse Charge\"\u001b[39m\nReceived string:    \u001b[31m\"❌ Invalid EU VAT syntax. Standard country VAT rate applies.\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('#vat-feedback') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#vat-feedback')\u001b[22m\n\u001b[2m    14 × locator resolved to <div id=\"vat-feedback\">❌ Invalid EU VAT syntax. Standard country VAT rat…</div>\u001b[22m\n\u001b[2m       - unexpected value \"❌ Invalid EU VAT syntax. Standard country VAT rate applies.\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#vat-feedback')\nExpected substring: \u001b[32m\"0% Reverse Charge\"\u001b[39m\nReceived string:    \u001b[31m\"❌ Invalid EU VAT syntax. Standard country VAT rate applies.\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('#vat-feedback') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#vat-feedback')\u001b[22m\n\u001b[2m    14 × locator resolved to <div id=\"vat-feedback\">❌ Invalid EU VAT syntax. Standard country VAT rat…</div>\u001b[22m\n\u001b[2m       - unexpected value \"❌ Invalid EU VAT syntax. Standard country VAT rate applies.\"\u001b[22m\n\n    at C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\01-storefront-checkout.spec.ts:130:42",
+                        "location": {
+                          "file": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\01-storefront-checkout.spec.ts",
+                          "column": 42,
+                          "line": 130
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 128 |\u001b[39m\n \u001b[90m 129 |\u001b[39m     \u001b[36mawait\u001b[39m expect(storefront\u001b[33m.\u001b[39mvatFeedback)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 130 |\u001b[39m     \u001b[36mawait\u001b[39m expect(storefront\u001b[33m.\u001b[39mvatFeedback)\u001b[33m.\u001b[39mtoContainText(\u001b[32m'0% Reverse Charge'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 131 |\u001b[39m     \u001b[36mawait\u001b[39m expect(storefront\u001b[33m.\u001b[39msummaryVatPercent)\u001b[33m.\u001b[39mtoHaveText(\u001b[32m'0'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 132 |\u001b[39m     \u001b[36mawait\u001b[39m expect(storefront\u001b[33m.\u001b[39msummaryTotal)\u001b[33m.\u001b[39mtoHaveText(\u001b[32m'$250'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 133 |\u001b[39m   })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\01-storefront-checkout.spec.ts",
+                            "column": 42,
+                            "line": 130
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#vat-feedback')\nExpected substring: \u001b[32m\"0% Reverse Charge\"\u001b[39m\nReceived string:    \u001b[31m\"❌ Invalid EU VAT syntax. Standard country VAT rate applies.\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('#vat-feedback') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#vat-feedback')\u001b[22m\n\u001b[2m    14 × locator resolved to <div id=\"vat-feedback\">❌ Invalid EU VAT syntax. Standard country VAT rat…</div>\u001b[22m\n\u001b[2m       - unexpected value \"❌ Invalid EU VAT syntax. Standard country VAT rate applies.\"\u001b[22m\n\n\n  128 |\n  129 |     await expect(storefront.vatFeedback).toBeVisible();\n> 130 |     await expect(storefront.vatFeedback).toContainText('0% Reverse Charge');\n      |                                          ^\n  131 |     await expect(storefront.summaryVatPercent).toHaveText('0');\n  132 |     await expect(storefront.summaryTotal).toHaveText('$250');\n  133 |   });\n    at C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\01-storefront-checkout.spec.ts:130:42"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T11:59:54.402Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\test-results\\01-storefront-checkout-01--408a8-harge-B2B-0-ÁFA-alkalmazása-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\test-results\\01-storefront-checkout-01--408a8-harge-B2B-0-ÁFA-alkalmazása-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\test-results\\01-storefront-checkout-01--408a8-harge-B2B-0-ÁFA-alkalmazása-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\01-storefront-checkout.spec.ts",
+                        "column": 42,
+                        "line": 130
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "1ce73a11fe1a418eefa4-d65c19228ba81978fea5",
+              "file": "01-storefront-checkout.spec.ts",
+              "line": 122,
+              "column": 3
+            },
+            {
+              "title": "TC-SF-08: EU VAT Érvénytelen Formátum - Szintaktikai hiba esetén adó marad érvényben",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 882,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:00:01.684Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ce73a11fe1a418eefa4-2f08f7613a83da396e0c",
+              "file": "01-storefront-checkout.spec.ts",
+              "line": 135,
+              "column": 3
+            },
+            {
+              "title": "TC-SF-09: Kupon - Százalékos Kedvezmény (AIWS25 = 25% OFF)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 777,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:00:02.735Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ce73a11fe1a418eefa4-ee2654658ff0f9daab06",
+              "file": "01-storefront-checkout.spec.ts",
+              "line": 147,
+              "column": 3
+            },
+            {
+              "title": "TC-SF-10: Kupon - Fix összeg & Minimum költési limit (SAVE50)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 728,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:00:03.533Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ce73a11fe1a418eefa4-4b9e2be54f471b8d012e",
+              "file": "01-storefront-checkout.spec.ts",
+              "line": 159,
+              "column": 3
+            },
+            {
+              "title": "TC-SF-11: Kupon - Lejárt Kupon Negatív Ág (EXPIRED2025)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 808,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:00:04.272Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ce73a11fe1a418eefa4-364047eb2e8668fed163",
+              "file": "01-storefront-checkout.spec.ts",
+              "line": 171,
+              "column": 3
+            },
+            {
+              "title": "TC-SF-12: Bankkártya - Elutasított Tranzakció (402 Declined)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 725,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:00:05.093Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ce73a11fe1a418eefa4-f79f7405a8e8192b1288",
+              "file": "01-storefront-checkout.spec.ts",
+              "line": 182,
+              "column": 3
+            },
+            {
+              "title": "TC-SF-13: Bankkártya - 3D Secure Challenge OTP Hitelesítés (123456)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4190,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:00:05.833Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ce73a11fe1a418eefa4-e06d328fd46f0f06d4fd",
+              "file": "01-storefront-checkout.spec.ts",
+              "line": 199,
+              "column": 3
+            },
+            {
+              "title": "TC-SF-14: Számlázási PO Szám Validáció - 5 karakternél rövidebb PO hiba",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 842,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:00:10.041Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ce73a11fe1a418eefa4-2e6cd6684fc54b4cb07f",
+              "file": "01-storefront-checkout.spec.ts",
+              "line": 218,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "02-rbac-and-auth.spec.ts",
+      "file": "02-rbac-and-auth.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "02 - RBAC Jogosultságkezelés & Bejelentkezés",
+          "file": "02-rbac-and-auth.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-RBAC-01: Actor Váltás - Dan Tester (USER) profil beállítása",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 860,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:00:10.941Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "32510a8762e91205b2da-60b35d355b70b5fd0e07",
+              "file": "02-rbac-and-auth.spec.ts",
+              "line": 13,
+              "column": 3
+            },
+            {
+              "title": "TC-RBAC-02: Felfüggesztett Felhasználó (BLOCKED) - Rendelés indítása tiltott (403)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 838,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:00:11.815Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "32510a8762e91205b2da-0069f13a27b65f8eabb8",
+              "file": "02-rbac-and-auth.spec.ts",
+              "line": 26,
+              "column": 3
+            },
+            {
+              "title": "TC-RBAC-03: Bejelentkezési Form - Email Szintaxis validáció (@ hiánya)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 723,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:00:12.666Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "32510a8762e91205b2da-2a2d615931bd99b7638d",
+              "file": "02-rbac-and-auth.spec.ts",
+              "line": 48,
+              "column": 3
+            },
+            {
+              "title": "TC-RBAC-04: Bejelentkezési Form - Jelszó Házirend validáció (< 8 karakter, nincs nagybetű/szám)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 834,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:00:13.403Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "32510a8762e91205b2da-4f59c8b2e52c3af7a7e6",
+              "file": "02-rbac-and-auth.spec.ts",
+              "line": 59,
+              "column": 3
+            },
+            {
+              "title": "TC-RBAC-05: Admin Jogosultságok - Tamás Admin láthatja a Refund és Delete gombokat",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 844,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:00:14.249Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "32510a8762e91205b2da-fe30e3c7b0e1224d0fbd",
+              "file": "02-rbac-and-auth.spec.ts",
+              "line": 70,
+              "column": 3
+            },
+            {
+              "title": "TC-RBAC-06: Junior QA Jogosultságok - Korlátozott nézet (Admin gombok rejtve maradnak)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1162,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:00:15.105Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "32510a8762e91205b2da-0c30b0117eee78d07dc6",
+              "file": "02-rbac-and-auth.spec.ts",
+              "line": 85,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "03-order-management.spec.ts",
+      "file": "03-order-management.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "03 - Order Management & Állapotgép (ERP Dashboard)",
+          "file": "03-order-management.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-OM-01: Dinamikus Keresés - Szűrés Order ID-re és felhasználói emailre",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 879,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:00:16.348Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f79e35283eb48b8f50bb-f3e769cbc7377b6098ad",
+              "file": "03-order-management.spec.ts",
+              "line": 14,
+              "column": 3
+            },
+            {
+              "title": "TC-OM-02: Státusz Szűrés - Csak a kiválasztott státuszú tételek jelennek meg",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 675,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:00:17.257Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f79e35283eb48b8f50bb-930383bb7476a6f97914",
+              "file": "03-order-management.spec.ts",
+              "line": 28,
+              "column": 3
+            },
+            {
+              "title": "TC-OM-03: Oszlopok Rendezése - ID és Végösszeg szerinti rendezés",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 655,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:00:17.945Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f79e35283eb48b8f50bb-20232391343dbfbe9312",
+              "file": "03-order-management.spec.ts",
+              "line": 41,
+              "column": 3
+            },
+            {
+              "title": "TC-OM-04: Állapotátmenet - PENDING -> PAID (Pay gomb)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 663,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:00:18.613Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f79e35283eb48b8f50bb-0775bb14a0db04212383",
+              "file": "03-order-management.spec.ts",
+              "line": 53,
+              "column": 3
+            },
+            {
+              "title": "TC-OM-05: Állapotátmenet - PENDING -> CANCELLED (Cancel gomb)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 759,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:00:19.288Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f79e35283eb48b8f50bb-d6bdf8177700d672c984",
+              "file": "03-order-management.spec.ts",
+              "line": 63,
+              "column": 3
+            },
+            {
+              "title": "TC-OM-06: Teljes Életciklus - PENDING -> PAID -> PROVISIONING -> COMPLETED",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4557,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:00:20.058Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f79e35283eb48b8f50bb-33b30d03903ac09097ab",
+              "file": "03-order-management.spec.ts",
+              "line": 72,
+              "column": 3
+            },
+            {
+              "title": "TC-OM-07: Visszatérítés (Refund) Admin jogosultsággal",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4514,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:00:24.629Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f79e35283eb48b8f50bb-67dced00f2e53dfa84ad",
+              "file": "03-order-management.spec.ts",
+              "line": 88,
+              "column": 3
+            },
+            {
+              "title": "TC-OM-08: Végállapot Integritás - CANCELLED rendelés zárt, nem léptethető",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 626,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:00:29.156Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f79e35283eb48b8f50bb-6b4d54a9c73f4b1cc32d",
+              "file": "03-order-management.spec.ts",
+              "line": 104,
+              "column": 3
+            },
+            {
+              "title": "TC-OM-09: Lapozó Működése (Pagination) információs felirat és gombok",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 724,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:00:29.793Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f79e35283eb48b8f50bb-d5e104da8e342b186a17",
+              "file": "03-order-management.spec.ts",
+              "line": 114,
+              "column": 3
+            },
+            {
+              "title": "TC-OM-10: CSV Export generálás és sikeres értesítés",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4311,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:00:30.530Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f79e35283eb48b8f50bb-8831e7e4de2e2c9ab498",
+              "file": "03-order-management.spec.ts",
+              "line": 121,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "04-selector-lab.spec.ts",
+      "file": "04-selector-lab.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "04 - Aszinkron & Interaktív DOM Lab",
+          "file": "04-selector-lab.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-LAB-01: Debounced Kereső - 300ms késleltetés és automatikus találati lista",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1042,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:00:34.889Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ade0fbaa333af6b7203c-f769ad0f56380e9baf1a",
+              "file": "04-selector-lab.spec.ts",
+              "line": 13,
+              "column": 3
+            },
+            {
+              "title": "TC-LAB-02: Ephemeral Toast Értesítés - Megjelenés, siker üzenet és manuális bezárás",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1129,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:00:35.946Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ade0fbaa333af6b7203c-c9c6b80f616994ff0f82",
+              "file": "04-selector-lab.spec.ts",
+              "line": 23,
+              "column": 3
+            },
+            {
+              "title": "TC-LAB-03: Akadálymentes Terms Modális Ablak - ESC billentyűvel és Accept gombbal",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1008,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:00:37.085Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ade0fbaa333af6b7203c-a93ff5de5811686ba8f0",
+              "file": "04-selector-lab.spec.ts",
+              "line": 37,
+              "column": 3
+            },
+            {
+              "title": "TC-LAB-04: Fájlfeltöltés Érvényes Ág - .pdf vagy .png elfogadása",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 711,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:00:38.106Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ade0fbaa333af6b7203c-3f5beb328e07fb7076a8",
+              "file": "04-selector-lab.spec.ts",
+              "line": 56,
+              "column": 3
+            },
+            {
+              "title": "TC-LAB-05: Fájlfeltöltés Mérethatár Negatív Ág - 2MB feletti fájl elutasítása (413)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 947,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:00:38.832Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ade0fbaa333af6b7203c-4c055b5bd76343ec2874",
+              "file": "04-selector-lab.spec.ts",
+              "line": 69,
+              "column": 3
+            },
+            {
+              "title": "TC-LAB-06: Fájlfeltöltés Negatív Ág - Nem támogatott formátum elutasítása (415)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 737,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:00:39.793Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ade0fbaa333af6b7203c-0dfa41ab3915ec7e7212",
+              "file": "04-selector-lab.spec.ts",
+              "line": 82,
+              "column": 3
+            },
+            {
+              "title": "TC-LAB-07: Resilient DOM vs Fragile Rebuild - DOM mutáció után is stabil web-first lokátor",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 883,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:00:40.541Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ade0fbaa333af6b7203c-b75edee49d060fec1e5b",
+              "file": "04-selector-lab.spec.ts",
+              "line": 95,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "05-swagger-api.spec.ts",
+      "file": "05-swagger-api.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "05 - REST API Swagger Interaktív Konzol",
+          "file": "05-swagger-api.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-API-01: POST /api/v1/auth/login - Hitelesítés és hibakezelés",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 864,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:00:41.484Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0a154759d8de66389a68-d258ee39006795fde4e6",
+              "file": "05-swagger-api.spec.ts",
+              "line": 14,
+              "column": 3
+            },
+            {
+              "title": "TC-API-02: GET /api/v1/orders - Hozzáférés-védelem (401 vs 200)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 846,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:00:42.366Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0a154759d8de66389a68-604505d5e4ae80a69561",
+              "file": "05-swagger-api.spec.ts",
+              "line": 35,
+              "column": 3
+            },
+            {
+              "title": "TC-API-03: POST /api/v1/orders - Idempotencia (409) és Készletellenőrzés (422)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1082,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:00:43.226Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0a154759d8de66389a68-480d461fec9387f8c2d0",
+              "file": "05-swagger-api.spec.ts",
+              "line": 51,
+              "column": 3
+            },
+            {
+              "title": "TC-API-04: POST /api/v1/coupons/validate - Kupon szerződés és validációs státuszok",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 963,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:00:44.318Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0a154759d8de66389a68-f274ded1f397283d3c19",
+              "file": "05-swagger-api.spec.ts",
+              "line": 83,
+              "column": 3
+            },
+            {
+              "title": "TC-API-05: DELETE /api/v1/orders/{id} - Szerepkör alapú törlés (403 vs 200)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 875,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:00:45.299Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0a154759d8de66389a68-d89d3334ed8f720ecac4",
+              "file": "05-swagger-api.spec.ts",
+              "line": 112,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "06-sql-and-integrity.spec.ts",
+      "file": "06-sql-and-integrity.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "06 - Adatintegritás, SQL & Tréner Szimuláció",
+          "file": "06-sql-and-integrity.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-INT-01: SQL Workbench - Relációs lekérdezések és eredménytábla ellenőrzése",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 5861,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('sql-results-box')\nExpected substring: \u001b[32m\"5 rows in set\"\u001b[39m\nReceived string:    \u001b[31m\"Query executed against in-memory tables.\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('sql-results-box') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('sql-results-box')\u001b[22m\n\u001b[2m    14 × locator resolved to <div class=\"sql-results-box\" id=\"sql-results-container\" data-testid=\"sql-results-box\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"Query executed against in-memory tables.\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('sql-results-box')\nExpected substring: \u001b[32m\"5 rows in set\"\u001b[39m\nReceived string:    \u001b[31m\"Query executed against in-memory tables.\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('sql-results-box') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('sql-results-box')\u001b[22m\n\u001b[2m    14 × locator resolved to <div class=\"sql-results-box\" id=\"sql-results-container\" data-testid=\"sql-results-box\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"Query executed against in-memory tables.\"\u001b[22m\n\n    at C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\06-sql-and-integrity.spec.ts:23:38",
+                        "location": {
+                          "file": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\06-sql-and-integrity.spec.ts",
+                          "column": 38,
+                          "line": 23
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 21 |\u001b[39m\n \u001b[90m 22 |\u001b[39m     \u001b[36mawait\u001b[39m expect(sqlPage\u001b[33m.\u001b[39mresultsBox)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 23 |\u001b[39m     \u001b[36mawait\u001b[39m expect(sqlPage\u001b[33m.\u001b[39mresultsBox)\u001b[33m.\u001b[39mtoContainText(\u001b[32m'5 rows in set'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 24 |\u001b[39m     \u001b[36mawait\u001b[39m expect(sqlPage\u001b[33m.\u001b[39mresultsBox\u001b[33m.\u001b[39mlocator(\u001b[32m'table.e2e-table'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 25 |\u001b[39m\n \u001b[90m 26 |\u001b[39m     \u001b[90m// Gyorslekérdezés chip: All Users\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\06-sql-and-integrity.spec.ts",
+                            "column": 38,
+                            "line": 23
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('sql-results-box')\nExpected substring: \u001b[32m\"5 rows in set\"\u001b[39m\nReceived string:    \u001b[31m\"Query executed against in-memory tables.\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('sql-results-box') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('sql-results-box')\u001b[22m\n\u001b[2m    14 × locator resolved to <div class=\"sql-results-box\" id=\"sql-results-container\" data-testid=\"sql-results-box\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"Query executed against in-memory tables.\"\u001b[22m\n\n\n  21 |\n  22 |     await expect(sqlPage.resultsBox).toBeVisible();\n> 23 |     await expect(sqlPage.resultsBox).toContainText('5 rows in set');\n     |                                      ^\n  24 |     await expect(sqlPage.resultsBox.locator('table.e2e-table')).toBeVisible();\n  25 |\n  26 |     // Gyorslekérdezés chip: All Users\n    at C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\06-sql-and-integrity.spec.ts:23:38"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:00:46.235Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\test-results\\06-sql-and-integrity-06----b7cbb-s-eredménytábla-ellenőrzése-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\test-results\\06-sql-and-integrity-06----b7cbb-s-eredménytábla-ellenőrzése-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\test-results\\06-sql-and-integrity-06----b7cbb-s-eredménytábla-ellenőrzése-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\06-sql-and-integrity.spec.ts",
+                        "column": 38,
+                        "line": 23
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "6e9fefb064fd95858a65-a176b25cb717f351375b",
+              "file": "06-sql-and-integrity.spec.ts",
+              "line": 13,
+              "column": 3
+            },
+            {
+              "title": "TC-INT-02: SQL Workbench - Közvetlen UPDATE parancs azonnali szinkronizációja a UI-jal",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 5956,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('sql-results-box')\nTimeout: 5000ms\n\u001b[32m- Expected substring  - 1\u001b[39m\n\u001b[31m+ Received string     + 5\u001b[39m\n\n\u001b[32m- Query OK, 1 row affected\u001b[39m\n\u001b[31m+\u001b[39m\n\u001b[31m+ \u001b[43m          \u001b[49m\u001b[39m\n\u001b[31m+             Click \"Run Query\" to execute SQL against the live database tables.\u001b[39m\n\u001b[31m+ \u001b[43m          \u001b[49m\u001b[39m\n\u001b[31m+ \u001b[43m        \u001b[49m\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('sql-results-box') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('sql-results-box')\u001b[22m\n\u001b[2m    14 × locator resolved to <div class=\"sql-results-box\" id=\"sql-results-container\" data-testid=\"sql-results-box\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"\u001b[22m\n\u001b[2m          \u001b[22m\n\u001b[2m            Click \"Run Query\" to execute SQL against the live database tables.\u001b[22m\n\u001b[2m          \u001b[22m\n\u001b[2m        \"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('sql-results-box')\nTimeout: 5000ms\n\u001b[32m- Expected substring  - 1\u001b[39m\n\u001b[31m+ Received string     + 5\u001b[39m\n\n\u001b[32m- Query OK, 1 row affected\u001b[39m\n\u001b[31m+\u001b[39m\n\u001b[31m+ \u001b[43m          \u001b[49m\u001b[39m\n\u001b[31m+             Click \"Run Query\" to execute SQL against the live database tables.\u001b[39m\n\u001b[31m+ \u001b[43m          \u001b[49m\u001b[39m\n\u001b[31m+ \u001b[43m        \u001b[49m\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('sql-results-box') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('sql-results-box')\u001b[22m\n\u001b[2m    14 × locator resolved to <div class=\"sql-results-box\" id=\"sql-results-container\" data-testid=\"sql-results-box\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"\u001b[22m\n\u001b[2m          \u001b[22m\n\u001b[2m            Click \"Run Query\" to execute SQL against the live database tables.\u001b[22m\n\u001b[2m          \u001b[22m\n\u001b[2m        \"\u001b[22m\n\n    at C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\06-sql-and-integrity.spec.ts:41:38",
+                        "location": {
+                          "file": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\06-sql-and-integrity.spec.ts",
+                          "column": 38,
+                          "line": 41
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 39 |\u001b[39m     \u001b[90m// Force Refund query futtatása\u001b[39m\n \u001b[90m 40 |\u001b[39m     \u001b[36mawait\u001b[39m sqlPage\u001b[33m.\u001b[39mclickChip(\u001b[32m'Force Refund (ID 101)'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 41 |\u001b[39m     \u001b[36mawait\u001b[39m expect(sqlPage\u001b[33m.\u001b[39mresultsBox)\u001b[33m.\u001b[39mtoContainText(\u001b[32m'Query OK, 1 row affected'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 42 |\u001b[39m\n \u001b[90m 43 |\u001b[39m     \u001b[90m// Átlépés az Order Management fülre: #101 státuszának ellenőrzése\u001b[39m\n \u001b[90m 44 |\u001b[39m     \u001b[36mawait\u001b[39m header\u001b[33m.\u001b[39mswitchTab(\u001b[32m'orders'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\06-sql-and-integrity.spec.ts",
+                            "column": 38,
+                            "line": 41
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('sql-results-box')\nTimeout: 5000ms\n\u001b[32m- Expected substring  - 1\u001b[39m\n\u001b[31m+ Received string     + 5\u001b[39m\n\n\u001b[32m- Query OK, 1 row affected\u001b[39m\n\u001b[31m+\u001b[39m\n\u001b[31m+ \u001b[43m          \u001b[49m\u001b[39m\n\u001b[31m+             Click \"Run Query\" to execute SQL against the live database tables.\u001b[39m\n\u001b[31m+ \u001b[43m          \u001b[49m\u001b[39m\n\u001b[31m+ \u001b[43m        \u001b[49m\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('sql-results-box') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('sql-results-box')\u001b[22m\n\u001b[2m    14 × locator resolved to <div class=\"sql-results-box\" id=\"sql-results-container\" data-testid=\"sql-results-box\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"\u001b[22m\n\u001b[2m          \u001b[22m\n\u001b[2m            Click \"Run Query\" to execute SQL against the live database tables.\u001b[22m\n\u001b[2m          \u001b[22m\n\u001b[2m        \"\u001b[22m\n\n\n  39 |     // Force Refund query futtatása\n  40 |     await sqlPage.clickChip('Force Refund (ID 101)');\n> 41 |     await expect(sqlPage.resultsBox).toContainText('Query OK, 1 row affected');\n     |                                      ^\n  42 |\n  43 |     // Átlépés az Order Management fülre: #101 státuszának ellenőrzése\n  44 |     await header.switchTab('orders');\n    at C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\06-sql-and-integrity.spec.ts:41:38"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:00:53.532Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\test-results\\06-sql-and-integrity-06----ff2a1-i-szinkronizációja-a-UI-jal-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\test-results\\06-sql-and-integrity-06----ff2a1-i-szinkronizációja-a-UI-jal-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\test-results\\06-sql-and-integrity-06----ff2a1-i-szinkronizációja-a-UI-jal-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\06-sql-and-integrity.spec.ts",
+                        "column": 38,
+                        "line": 41
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "6e9fefb064fd95858a65-2955ec5bd1fe1700fcb3",
+              "file": "06-sql-and-integrity.spec.ts",
+              "line": 32,
+              "column": 3
+            },
+            {
+              "title": "TC-INT-03: Audit Naplózás Konzisztencia - Új rendelés létrehozása után keletkező audit rekord",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 6161,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('sql-results-box')\nExpected substring: \u001b[32m\"ORDER_CREATED\"\u001b[39m\nReceived string:    \u001b[31m\"Query executed against in-memory tables.\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('sql-results-box') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('sql-results-box')\u001b[22m\n\u001b[2m    14 × locator resolved to <div class=\"sql-results-box\" id=\"sql-results-container\" data-testid=\"sql-results-box\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"Query executed against in-memory tables.\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('sql-results-box')\nExpected substring: \u001b[32m\"ORDER_CREATED\"\u001b[39m\nReceived string:    \u001b[31m\"Query executed against in-memory tables.\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('sql-results-box') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('sql-results-box')\u001b[22m\n\u001b[2m    14 × locator resolved to <div class=\"sql-results-box\" id=\"sql-results-container\" data-testid=\"sql-results-box\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"Query executed against in-memory tables.\"\u001b[22m\n\n    at C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\06-sql-and-integrity.spec.ts:62:38",
+                        "location": {
+                          "file": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\06-sql-and-integrity.spec.ts",
+                          "column": 38,
+                          "line": 62
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 60 |\u001b[39m     \u001b[36mawait\u001b[39m sqlPage\u001b[33m.\u001b[39mclickChip(\u001b[32m'Audit Trail'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 61 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 62 |\u001b[39m     \u001b[36mawait\u001b[39m expect(sqlPage\u001b[33m.\u001b[39mresultsBox)\u001b[33m.\u001b[39mtoContainText(\u001b[32m'ORDER_CREATED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 63 |\u001b[39m     \u001b[36mawait\u001b[39m expect(sqlPage\u001b[33m.\u001b[39mresultsBox)\u001b[33m.\u001b[39mtoContainText(\u001b[32m'audit.check@astron.hu'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 64 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 65 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\06-sql-and-integrity.spec.ts",
+                            "column": 38,
+                            "line": 62
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('sql-results-box')\nExpected substring: \u001b[32m\"ORDER_CREATED\"\u001b[39m\nReceived string:    \u001b[31m\"Query executed against in-memory tables.\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('sql-results-box') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('sql-results-box')\u001b[22m\n\u001b[2m    14 × locator resolved to <div class=\"sql-results-box\" id=\"sql-results-container\" data-testid=\"sql-results-box\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"Query executed against in-memory tables.\"\u001b[22m\n\n\n  60 |     await sqlPage.clickChip('Audit Trail');\n  61 |\n> 62 |     await expect(sqlPage.resultsBox).toContainText('ORDER_CREATED');\n     |                                      ^\n  63 |     await expect(sqlPage.resultsBox).toContainText('audit.check@astron.hu');\n  64 |   });\n  65 |\n    at C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\06-sql-and-integrity.spec.ts:62:38"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:01:01.085Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\test-results\\06-sql-and-integrity-06----69371-után-keletkező-audit-rekord-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\test-results\\06-sql-and-integrity-06----69371-után-keletkező-audit-rekord-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\test-results\\06-sql-and-integrity-06----69371-után-keletkező-audit-rekord-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\06-sql-and-integrity.spec.ts",
+                        "column": 38,
+                        "line": 62
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "6e9fefb064fd95858a65-b23c077bd50bd0c22e71",
+              "file": "06-sql-and-integrity.spec.ts",
+              "line": 48,
+              "column": 3
+            },
+            {
+              "title": "TC-INT-04: Tréner UI v2 Változás Követése - Dinamikus gombfelirat és testid ellenőrzése",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 826,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:01:08.833Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6e9fefb064fd95858a65-f6c1825be375890a1d4e",
+              "file": "06-sql-and-integrity.spec.ts",
+              "line": 66,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-09T11:59:33.236Z",
+    "duration": 96682.573,
+    "expected": 45,
+    "skipped": 0,
+    "unexpected": 5,
+    "flaky": 0
+  }
+}

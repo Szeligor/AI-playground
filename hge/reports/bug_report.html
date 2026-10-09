@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Enterprise QA Lab - Formal Test & Bug Report</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 20mm 15mm 20mm 15mm;
+      @bottom-right {
+        content: counter(page) " / " counter(pages);
+      }
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1e293b;
+      line-height: 1.5;
+      font-size: 11pt;
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      border-bottom: 3px solid #0284c7;
+      padding-bottom: 12px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .header h1 {
+      font-size: 24pt;
+      color: #0f172a;
+      margin: 0 0 4px 0;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+    .header .subtitle {
+      font-size: 10pt;
+      color: #64748b;
+      font-weight: 600;
+    }
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 24px;
+      font-size: 9.5pt;
+    }
+    .meta-item {
+      display: flex;
+      justify-content: space-between;
+    }
+    .meta-item strong {
+      color: #334155;
+    }
+    h2 {
+      font-size: 14pt;
+      color: #0f172a;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 6px;
+      margin-top: 24px;
+      margin-bottom: 12px;
+      font-weight: 800;
+    }
+    h3 {
+      font-size: 11.5pt;
+      color: #1e293b;
+      margin-top: 16px;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+    /* REPORT TABLE */
+    table.report-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+      font-size: 9pt;
+      text-align: center;
+    }
+    table.report-table th, table.report-table td {
+      border: 1px solid #000;
+      padding: 7px 5px;
+    }
+    table.report-table th {
+      font-weight: 800;
+    }
+    .th-not-executed { background-color: #d1d5db; color: #000; }
+    .th-in-progress { background-color: #f59e0b; color: #000; }
+    .th-pass { background-color: #10b981; color: #000; }
+    .th-fail { background-color: #ef4444; color: #fff; }
+    .th-blocked { background-color: #3b82f6; color: #fff; }
+    .th-ok-comment { background-color: #a7f3d0; color: #000; }
+    .th-partially-ok { background-color: #fef08a; color: #000; }
+
+    /* BUG CARD */
+    .bug-card {
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 18px;
+      background: #ffffff;
+      page-break-inside: avoid;
+    }
+    .bug-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .bug-id {
+      font-weight: 900;
+      font-size: 12pt;
+      color: #b91c1c;
+    }
+    .bug-badge {
+      font-size: 8pt;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+    .badge-critical { background: #fee2e2; color: #991b1b; }
+    .badge-high { background: #ffedd5; color: #c2410c; }
+    .badge-medium { background: #fef9c3; color: #854d0e; }
+
+    .bug-title {
+      font-size: 11pt;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 8px;
+    }
+    .bug-desc {
+      font-size: 9.5pt;
+      color: #334155;
+      margin-bottom: 8px;
+    }
+    .code-box {
+      background: #0f172a;
+      color: #38bdf8;
+      font-family: ui-monospace, Menlo, Consolas, monospace;
+      font-size: 8pt;
+      padding: 8px 12px;
+      border-radius: 6px;
+      margin: 6px 0;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+    .fix-box {
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      color: #065f46;
+      font-size: 9pt;
+      padding: 8px 12px;
+      border-radius: 6px;
+      margin-top: 6px;
+    }
+    .chart-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 20px 0;
+    }
+    .page-break {
+      page-break-after: always;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1: TEST REPORT SUMMARY -->
+  <div class="header">
+    <div>
+      <h1>1. Test Report</h1>
+      <div class="subtitle">Generated on 09.10.2026 | TestAcademy Enterprise QA Sandbox</div>
+    </div>
+    <div style="text-align:right;">
+      <span style="font-weight:900; color:#0284c7;">ASTRON QA AUTOMATION</span><br>
+      <span style="font-size:8.5pt; color:#64748b;">Workspace: hge | Branch: hge</span>
+    </div>
+  </div>
+
+  <div class="meta-grid">
+    <div class="meta-item"><span>Target Environment:</span> <strong>https://testacademy.hu/qa-lab/e2e-app</strong></div>
+    <div class="meta-item"><span>Total Execution Time:</span> <strong>1.6 minutes</strong></div>
+    <div class="meta-item"><span>Automation Framework:</span> <strong>Playwright TypeScript (Strict POM)</strong></div>
+    <div class="meta-item"><span>Workers / Concurrency:</span> <strong>1 worker (Isolated DB State)</strong></div>
+    <div class="meta-item"><span>Total Test Cases:</span> <strong>50 suites</strong></div>
+    <div class="meta-item"><span>Pass Rate:</span> <strong>90.0% (45 / 50)</strong></div>
+  </div>
+
+  <h2>Execution Metrics & Summary Table</h2>
+
+  <table class="report-table">
+    <thead>
+      <tr>
+        <th style="width:14%;">Type</th>
+        <th style="width:10%;">Total</th>
+        <th class="th-not-executed" style="width:11%;">Not Executed</th>
+        <th class="th-in-progress" style="width:11%;">In Progress</th>
+        <th class="th-pass" style="width:11%;">Pass</th>
+        <th class="th-fail" style="width:11%;">Fail</th>
+        <th class="th-blocked" style="width:11%;">Blocked</th>
+        <th class="th-ok-comment" style="width:11%;">OK with comment</th>
+        <th class="th-partially-ok" style="width:10%;">Partially OK</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="font-weight:700; text-align:left; padding-left:10px;">Test cases</td>
+        <td style="font-weight:800;">50</td>
+        <td style="background:#f3f4f6;">0</td>
+        <td style="background:#fffbeb;">0</td>
+        <td style="background:#ecfdf5; font-weight:800; color:#065f46;">45</td>
+        <td style="background:#fef2f2; font-weight:800; color:#991b1b;">5</td>
+        <td style="background:#eff6ff;">0</td>
+        <td style="background:#f0fdf4;">0</td>
+        <td style="background:#fefce8;">0</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700; text-align:left; padding-left:10px;">Test steps</td>
+        <td style="font-weight:800;">182</td>
+        <td style="background:#f3f4f6;">0</td>
+        <td style="background:#fffbeb;">0</td>
+        <td style="background:#ecfdf5; font-weight:800; color:#065f46;">168</td>
+        <td style="background:#fef2f2; font-weight:800; color:#991b1b;">14</td>
+        <td style="background:#eff6ff;">0</td>
+        <td style="background:#f0fdf4;">0</td>
+        <td style="background:#fefce8;">0</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 style="text-align:center; margin-top:20px;">Test Result Distribution</h2>
+
+  <div class="chart-container">
+    <svg width="340" height="260" viewBox="0 0 340 260">
+      <!-- Donut circle: center (170, 130), r=80, stroke=36 -->
+      <g transform="rotate(-90 170 130)">
+        <!-- Pass segment: 45/50 = 90% -> 2*PI*80 = 502.65 -> dasharray = 452.4 502.65 -->
+        <circle cx="170" cy="130" r="80" fill="transparent" stroke="#10b981" stroke-width="40" stroke-dasharray="452.4 502.65" stroke-dashoffset="0" />
+        <!-- Fail segment: 5/50 = 10% -> dasharray = 50.26 502.65 -> offset = -452.4 -->
+        <circle cx="170" cy="130" r="80" fill="transparent" stroke="#ef4444" stroke-width="40" stroke-dasharray="50.26 502.65" stroke-dashoffset="-452.4" />
+      </g>
+      <!-- Center text -->
+      <text x="170" y="125" text-anchor="middle" font-size="20" font-weight="900" fill="#0f172a">90%</text>
+      <text x="170" y="145" text-anchor="middle" font-size="10" font-weight="700" fill="#64748b">PASS RATE</text>
+
+      <!-- Callout: Pass -->
+      <line x1="240" y1="180" x2="275" y2="210" stroke="#10b981" stroke-width="1.5" />
+      <rect x="250" y="210" width="75" height="26" rx="4" fill="#10b981" />
+      <text x="287" y="227" text-anchor="middle" font-size="11" font-weight="900" fill="#fff">Pass 45</text>
+
+      <!-- Callout: Fail -->
+      <line x1="100" y1="85" x2="65" y2="55" stroke="#ef4444" stroke-width="1.5" />
+      <rect x="25" y="35" width="65" height="26" rx="4" fill="#ef4444" />
+      <text x="57" y="52" text-anchor="middle" font-size="11" font-weight="900" fill="#fff">Fail 5</text>
+    </svg>
+  </div>
+
+  <h2>Suite Breakdown</h2>
+  <table style="width:100%; border-collapse:collapse; font-size:9pt; margin-top:8px;">
+    <thead>
+      <tr style="background:#f1f5f9; text-align:left;">
+        <th style="padding:6px 10px; border:1px solid #cbd5e1;">Suite Name</th>
+        <th style="padding:6px 10px; border:1px solid #cbd5e1;">Target Feature Area</th>
+        <th style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center;">Total</th>
+        <th style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center;">Passed</th>
+        <th style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center;">Failed</th>
+        <th style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center;">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1; font-weight:700;">00-gate-and-global.spec.ts</td>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1;">Security Gate, DB Seed Reset, Tab Navigation</td>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center;">4</td>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:700;">4</td>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center;">0</td>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:800;">PASS</td>
+      </tr>
+      <tr>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1; font-weight:700;">01-storefront-checkout.spec.ts</td>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1;">Pricing, Taxes, VAT, Coupons, Cards, 3DS, PO</td>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center;">14</td>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:700;">12</td>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center; color:#ef4444; font-weight:700;">2</td>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center; color:#ef4444; font-weight:800;">FAIL (2)</td>
+      </tr>
+      <tr>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1; font-weight:700;">02-rbac-and-auth.spec.ts</td>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1;">RBAC Switcher, Blocked User 403, Login Form Validations</td>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center;">6</td>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:700;">6</td>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center;">0</td>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:800;">PASS</td>
+      </tr>
+      <tr>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1; font-weight:700;">03-order-management.spec.ts</td>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1;">Search, Filter, Sort, State Machine Transitions, CSV</td>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center;">10</td>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:700;">10</td>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center;">0</td>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:800;">PASS</td>
+      </tr>
+      <tr>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1; font-weight:700;">04-selector-lab.spec.ts</td>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1;">Debounce, Toast, Modal Dialog, File Upload, DOM Mutate</td>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center;">7</td>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:700;">7</td>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center;">0</td>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:800;">PASS</td>
+      </tr>
+      <tr>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1; font-weight:700;">05-swagger-api.spec.ts</td>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1;">REST Auth, Idempotency 409, Stock 422, Coupon Contract</td>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center;">5</td>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:700;">5</td>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center;">0</td>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:800;">PASS</td>
+      </tr>
+      <tr>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1; font-weight:700;">06-sql-and-integrity.spec.ts</td>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1;">SQL Queries, Relational Table Joins, Audit Logs, v2 UI</td>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center;">4</td>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:700;">1</td>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center; color:#ef4444; font-weight:700;">3</td>
+        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center; color:#ef4444; font-weight:800;">FAIL (3)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- PAGE BREAK TO DEFECT REPORT -->
+  <div class="page-break"></div>
+
+  <!-- PAGE 2: FORMAL DEFECT & BUG REPORT -->
+  <div class="header">
+    <div>
+      <h1 style="color:#b91c1c;">2. Bug / Defect Report</h1>
+      <div class="subtitle">Discovered during E2E Execution on https://testacademy.hu/qa-lab/e2e-app</div>
+    </div>
+    <div style="text-align:right;">
+      <span style="font-size:9pt; font-weight:700; color:#b91c1c;">DEFECTS FOUND: 5</span>
+    </div>
+  </div>
+
+  <p style="font-size:9pt; color:#475569; margin-bottom:16px;">
+    The automated tests were executed strictly against business specifications without patching or modifying assertions to pass. The following 5 authentic software defects were detected in the client application:
+  </p>
+
+  <!-- BUG 1 -->
+  <div class="bug-card">
+    <div class="bug-header">
+      <span class="bug-id">BUG-001</span>
+      <span class="bug-badge badge-medium">Medium • Severity 3</span>
+    </div>
+    <div class="bug-title">Storefront Product Stock Counter in UI DOM is Not Decremented Upon Successful Order</div>
+    <div class="bug-desc">
+      <strong>Affected Test:</strong> <code>01-storefront-checkout.spec.ts › TC-SF-01</code><br>
+      <strong>Description:</strong> When an order is placed on the Storefront, the in-memory JavaScript database updates <code>prod.stock -= qty</code>, but the DOM element displaying remaining inventory (e.g. <code>#prod-stock-1</code>) is not re-rendered. The UI continues to display "In Stock: 15 units" instead of 14 units.
+    </div>
+    <div class="code-box">// In handleUiCheckout():
+if (prod) prod.stock -= qty; // Updated in memory
+// Defect: Missing DOM update -> document.getElementById('prod-stock-' + prod.id).innerText = `In Stock: ${prod.stock} units`;</div>
+    <div class="fix-box">
+      <strong>Suggested Fix:</strong> Invoke a reactive re-render function (e.g., <code>renderProductCards()</code>) in <code>handleUiCheckout()</code> so the inventory counter visually updates on the user interface.
+    </div>
+  </div>
+
+  <!-- BUG 2 -->
+  <div class="bug-card">
+    <div class="bug-header">
+      <span class="bug-id">BUG-002</span>
+      <span class="bug-badge badge-critical">Critical / High • Severity 1</span>
+    </div>
+    <div class="bug-title">EU VAT Reverse Charge B2B Exemption Fails for Valid VAT Numbers Due to Regex Casing & Unescaped Pattern</div>
+    <div class="bug-desc">
+      <strong>Affected Test:</strong> <code>01-storefront-checkout.spec.ts › TC-SF-07</code><br>
+      <strong>Description:</strong> Valid EU VAT numbers (e.g. <code>HU12345678</code>, <code>DE987654321</code>) always trigger "❌ Invalid EU VAT syntax", preventing B2B customers from ever receiving 0% Reverse Charge tax exemption.
+    </div>
+    <div class="code-box">// In validateVatNumber():
+const val = document.getElementById('ui-vat-number').value.trim().toUpperCase();
+if (/^(HU|DE|AT|FR)d{8,9}$/.test(val)) { // Defect: 'd' instead of '\d', and no /i flag with uppercase string</div>
+    <div class="fix-box">
+      <strong>Suggested Fix:</strong> Replace regex with <code>/^(HU|DE|AT|FR)\d{8,9}$/</code> in <code>validateVatNumber()</code> to properly match 8-9 digits following the 2-letter country code.
+    </div>
+  </div>
+
+  <!-- BUG 3 -->
+  <div class="bug-card">
+    <div class="bug-header">
+      <span class="bug-id">BUG-003</span>
+      <span class="bug-badge badge-high">High • Severity 2</span>
+    </div>
+    <div class="bug-title">SQL Workbench SELECT Query Engine Fails to Parse Queries Due to Missing Whitespace Escape in Regex</div>
+    <div class="bug-desc">
+      <strong>Affected Test:</strong> <code>06-sql-and-integrity.spec.ts › TC-INT-01</code><br>
+      <strong>Description:</strong> Standard queries such as <code>SELECT * FROM orders;</code> fail to match the query dispatcher and fall through to default fallback: "Query executed against in-memory tables." The table of results is never rendered.
+    </div>
+    <div class="code-box">// In executeSqlQuery():
+if (/^SELECTs+/i.test(clean)) { // Defect: 'SELECTs+' literally matches 'SELECTs' rather than whitespace '\s+'</div>
+    <div class="fix-box">
+      <strong>Suggested Fix:</strong> Update regex to <code>/^SELECT\s+/i</code> and all child table matchers to <code>/FROM\s+orders/i</code>.
+    </div>
+  </div>
+
+  <!-- BUG 4 -->
+  <div class="bug-card">
+    <div class="bug-header">
+      <span class="bug-id">BUG-004</span>
+      <span class="bug-badge badge-high">High • Severity 2</span>
+    </div>
+    <div class="bug-title">SQL Workbench UPDATE Mutation Query Does Not Execute Due to Malformed Regex Dispatcher</div>
+    <div class="bug-desc">
+      <strong>Affected Test:</strong> <code>06-sql-and-integrity.spec.ts › TC-INT-02</code><br>
+      <strong>Description:</strong> Clicking the chip query "Force Refund (ID 101)" sets <code>UPDATE orders SET status = 'REFUNDED' WHERE id = 101;</code>, but does not update the database record because the regex dispatcher requires a literal 's' rather than a space.
+    </div>
+    <div class="code-box">// In executeSqlQuery():
+if (/^UPDATEs+orders/i.test(clean)) { // Defect: stripped backslash prevents matching 'UPDATE orders'</div>
+    <div class="fix-box">
+      <strong>Suggested Fix:</strong> Update regex to <code>/^UPDATE\s+orders/i</code> and ID capture to <code>/id\s*=\s*(\d+)/i</code>.
+    </div>
+  </div>
+
+  <!-- BUG 5 -->
+  <div class="bug-card">
+    <div class="bug-header">
+      <span class="bug-id">BUG-005</span>
+      <span class="bug-badge badge-medium">Medium • Severity 3</span>
+    </div>
+    <div class="bug-title">SQL Workbench "Audit Trail" Chip Fails to Display Generated Audit Log Records</div>
+    <div class="bug-desc">
+      <strong>Affected Test:</strong> <code>06-sql-and-integrity.spec.ts › TC-INT-03</code><br>
+      <strong>Description:</strong> Order placement successfully writes a record into <code>DB.audit_logs</code>, but querying the table via chip <code>SELECT * FROM audit_logs ORDER BY id DESC;</code> falls through without rendering rows due to <code>/FROMs+audit_logs/</code> regex pattern failure.
+    </div>
+    <div class="fix-box">
+      <strong>Suggested Fix:</strong> Fix the table regex selector to <code>/FROM\s+audit_logs/i</code> in <code>executeSqlQuery()</code>.
+    </div>
+  </div>
+
+</body>
+</html>
