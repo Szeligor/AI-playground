@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Enterprise QA Lab - Formal Test & Bug Report</title>
+  <title>Enterprise QA Lab - Consolidated Test & Bug Report</title>
   <style>
     @page {
       size: A4;
-      margin: 20mm 15mm 20mm 15mm;
+      margin: 18mm 15mm 18mm 15mm;
       @bottom-right {
         content: counter(page) " / " counter(pages);
       }
@@ -14,41 +14,41 @@
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       color: #1e293b;
-      line-height: 1.5;
-      font-size: 11pt;
+      line-height: 1.45;
+      font-size: 10.5pt;
       margin: 0;
       padding: 0;
     }
     .header {
       border-bottom: 3px solid #0284c7;
-      padding-bottom: 12px;
-      margin-bottom: 24px;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
     }
     .header h1 {
-      font-size: 24pt;
+      font-size: 22pt;
       color: #0f172a;
       margin: 0 0 4px 0;
       font-weight: 900;
       letter-spacing: -0.02em;
     }
     .header .subtitle {
-      font-size: 10pt;
+      font-size: 9.5pt;
       color: #64748b;
       font-weight: 600;
     }
     .meta-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
+      gap: 10px;
       background: #f8fafc;
       border: 1px solid #e2e8f0;
       border-radius: 8px;
-      padding: 12px 16px;
-      margin-bottom: 24px;
-      font-size: 9.5pt;
+      padding: 10px 14px;
+      margin-bottom: 20px;
+      font-size: 9pt;
     }
     .meta-item {
       display: flex;
@@ -58,32 +58,24 @@
       color: #334155;
     }
     h2 {
-      font-size: 14pt;
+      font-size: 13pt;
       color: #0f172a;
       border-bottom: 1px solid #e2e8f0;
-      padding-bottom: 6px;
-      margin-top: 24px;
-      margin-bottom: 12px;
+      padding-bottom: 5px;
+      margin-top: 20px;
+      margin-bottom: 10px;
       font-weight: 800;
     }
-    h3 {
-      font-size: 11.5pt;
-      color: #1e293b;
-      margin-top: 16px;
-      margin-bottom: 8px;
-      font-weight: 700;
-    }
-    /* REPORT TABLE */
     table.report-table {
       width: 100%;
       border-collapse: collapse;
-      margin-bottom: 20px;
-      font-size: 9pt;
+      margin-bottom: 18px;
+      font-size: 8.5pt;
       text-align: center;
     }
     table.report-table th, table.report-table td {
       border: 1px solid #000;
-      padding: 7px 5px;
+      padding: 6px 4px;
     }
     table.report-table th {
       font-weight: 800;
@@ -100,8 +92,8 @@
     .bug-card {
       border: 1px solid #cbd5e1;
       border-radius: 8px;
-      padding: 14px 18px;
-      margin-bottom: 18px;
+      padding: 12px 16px;
+      margin-bottom: 14px;
       background: #ffffff;
       page-break-inside: avoid;
     }
@@ -109,17 +101,17 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     .bug-id {
       font-weight: 900;
-      font-size: 12pt;
+      font-size: 11pt;
       color: #b91c1c;
     }
     .bug-badge {
-      font-size: 8pt;
+      font-size: 7.5pt;
       font-weight: 800;
-      padding: 2px 8px;
+      padding: 2px 7px;
       border-radius: 4px;
       text-transform: uppercase;
     }
@@ -128,24 +120,24 @@
     .badge-medium { background: #fef9c3; color: #854d0e; }
 
     .bug-title {
-      font-size: 11pt;
+      font-size: 10.5pt;
       font-weight: 800;
       color: #0f172a;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     .bug-desc {
-      font-size: 9.5pt;
+      font-size: 9pt;
       color: #334155;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     .code-box {
       background: #0f172a;
       color: #38bdf8;
       font-family: ui-monospace, Menlo, Consolas, monospace;
-      font-size: 8pt;
-      padding: 8px 12px;
+      font-size: 7.5pt;
+      padding: 6px 10px;
       border-radius: 6px;
-      margin: 6px 0;
+      margin: 4px 0;
       white-space: pre-wrap;
       word-break: break-all;
     }
@@ -153,16 +145,16 @@
       background: #ecfdf5;
       border: 1px solid #a7f3d0;
       color: #065f46;
-      font-size: 9pt;
-      padding: 8px 12px;
+      font-size: 8.5pt;
+      padding: 6px 10px;
       border-radius: 6px;
-      margin-top: 6px;
+      margin-top: 4px;
     }
     .chart-container {
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 20px 0;
+      margin: 14px 0;
     }
     .page-break {
       page-break-after: always;
@@ -185,11 +177,11 @@
 
   <div class="meta-grid">
     <div class="meta-item"><span>Target Environment:</span> <strong>https://testacademy.hu/qa-lab/e2e-app</strong></div>
-    <div class="meta-item"><span>Total Execution Time:</span> <strong>1.6 minutes</strong></div>
+    <div class="meta-item"><span>Total Execution Time:</span> <strong>2.3 minutes</strong></div>
     <div class="meta-item"><span>Automation Framework:</span> <strong>Playwright TypeScript (Strict POM)</strong></div>
     <div class="meta-item"><span>Workers / Concurrency:</span> <strong>1 worker (Isolated DB State)</strong></div>
-    <div class="meta-item"><span>Total Test Cases:</span> <strong>50 suites</strong></div>
-    <div class="meta-item"><span>Pass Rate:</span> <strong>90.0% (45 / 50)</strong></div>
+    <div class="meta-item"><span>Total Test Cases:</span> <strong>60 suites</strong></div>
+    <div class="meta-item"><span>Pass Rate:</span> <strong>90.0% (54 / 60)</strong></div>
   </div>
 
   <h2>Execution Metrics & Summary Table</h2>
@@ -210,23 +202,23 @@
     </thead>
     <tbody>
       <tr>
-        <td style="font-weight:700; text-align:left; padding-left:10px;">Test cases</td>
-        <td style="font-weight:800;">50</td>
+        <td style="font-weight:700; text-align:left; padding-left:8px;">Test cases</td>
+        <td style="font-weight:800;">60</td>
         <td style="background:#f3f4f6;">0</td>
         <td style="background:#fffbeb;">0</td>
-        <td style="background:#ecfdf5; font-weight:800; color:#065f46;">45</td>
-        <td style="background:#fef2f2; font-weight:800; color:#991b1b;">5</td>
+        <td style="background:#ecfdf5; font-weight:800; color:#065f46;">54</td>
+        <td style="background:#fef2f2; font-weight:800; color:#991b1b;">6</td>
         <td style="background:#eff6ff;">0</td>
         <td style="background:#f0fdf4;">0</td>
         <td style="background:#fefce8;">0</td>
       </tr>
       <tr>
-        <td style="font-weight:700; text-align:left; padding-left:10px;">Test steps</td>
-        <td style="font-weight:800;">182</td>
+        <td style="font-weight:700; text-align:left; padding-left:8px;">Test steps</td>
+        <td style="font-weight:800;">218</td>
         <td style="background:#f3f4f6;">0</td>
         <td style="background:#fffbeb;">0</td>
-        <td style="background:#ecfdf5; font-weight:800; color:#065f46;">168</td>
-        <td style="background:#fef2f2; font-weight:800; color:#991b1b;">14</td>
+        <td style="background:#ecfdf5; font-weight:800; color:#065f46;">203</td>
+        <td style="background:#fef2f2; font-weight:800; color:#991b1b;">15</td>
         <td style="background:#eff6ff;">0</td>
         <td style="background:#f0fdf4;">0</td>
         <td style="background:#fefce8;">0</td>
@@ -234,101 +226,125 @@
     </tbody>
   </table>
 
-  <h2 style="text-align:center; margin-top:20px;">Test Result Distribution</h2>
+  <h2 style="text-align:center; margin-top:16px;">Test Result Distribution</h2>
 
   <div class="chart-container">
-    <svg width="340" height="260" viewBox="0 0 340 260">
-      <!-- Donut circle: center (170, 130), r=80, stroke=36 -->
-      <g transform="rotate(-90 170 130)">
-        <!-- Pass segment: 45/50 = 90% -> 2*PI*80 = 502.65 -> dasharray = 452.4 502.65 -->
-        <circle cx="170" cy="130" r="80" fill="transparent" stroke="#10b981" stroke-width="40" stroke-dasharray="452.4 502.65" stroke-dashoffset="0" />
-        <!-- Fail segment: 5/50 = 10% -> dasharray = 50.26 502.65 -> offset = -452.4 -->
-        <circle cx="170" cy="130" r="80" fill="transparent" stroke="#ef4444" stroke-width="40" stroke-dasharray="50.26 502.65" stroke-dashoffset="-452.4" />
+    <svg width="340" height="240" viewBox="0 0 340 240">
+      <!-- Donut circle: center (170, 120), r=75, stroke=36 -->
+      <g transform="rotate(-90 170 120)">
+        <!-- Pass segment: 54/60 = 90% -> 2*PI*75 = 471.24 -> dasharray = 424.1 471.24 -->
+        <circle cx="170" cy="120" r="75" fill="transparent" stroke="#10b981" stroke-width="38" stroke-dasharray="424.1 471.24" stroke-dashoffset="0" />
+        <!-- Fail segment: 6/60 = 10% -> dasharray = 47.1 471.24 -> offset = -424.1 -->
+        <circle cx="170" cy="120" r="75" fill="transparent" stroke="#ef4444" stroke-width="38" stroke-dasharray="47.1 471.24" stroke-dashoffset="-424.1" />
       </g>
       <!-- Center text -->
-      <text x="170" y="125" text-anchor="middle" font-size="20" font-weight="900" fill="#0f172a">90%</text>
-      <text x="170" y="145" text-anchor="middle" font-size="10" font-weight="700" fill="#64748b">PASS RATE</text>
+      <text x="170" y="115" text-anchor="middle" font-size="19" font-weight="900" fill="#0f172a">90%</text>
+      <text x="170" y="133" text-anchor="middle" font-size="9" font-weight="700" fill="#64748b">PASS RATE</text>
 
       <!-- Callout: Pass -->
-      <line x1="240" y1="180" x2="275" y2="210" stroke="#10b981" stroke-width="1.5" />
-      <rect x="250" y="210" width="75" height="26" rx="4" fill="#10b981" />
-      <text x="287" y="227" text-anchor="middle" font-size="11" font-weight="900" fill="#fff">Pass 45</text>
+      <line x1="235" y1="165" x2="270" y2="195" stroke="#10b981" stroke-width="1.5" />
+      <rect x="245" y="195" width="75" height="24" rx="4" fill="#10b981" />
+      <text x="282" y="211" text-anchor="middle" font-size="10.5" font-weight="900" fill="#fff">Pass 54</text>
 
       <!-- Callout: Fail -->
-      <line x1="100" y1="85" x2="65" y2="55" stroke="#ef4444" stroke-width="1.5" />
-      <rect x="25" y="35" width="65" height="26" rx="4" fill="#ef4444" />
-      <text x="57" y="52" text-anchor="middle" font-size="11" font-weight="900" fill="#fff">Fail 5</text>
+      <line x1="105" y1="75" x2="70" y2="45" stroke="#ef4444" stroke-width="1.5" />
+      <rect x="30" y="28" width="65" height="24" rx="4" fill="#ef4444" />
+      <text x="62" y="44" text-anchor="middle" font-size="10.5" font-weight="900" fill="#fff">Fail 6</text>
     </svg>
   </div>
 
-  <h2>Suite Breakdown</h2>
-  <table style="width:100%; border-collapse:collapse; font-size:9pt; margin-top:8px;">
+  <h2>Suite Breakdown (All 10 Test Suites)</h2>
+  <table style="width:100%; border-collapse:collapse; font-size:8pt; margin-top:6px;">
     <thead>
       <tr style="background:#f1f5f9; text-align:left;">
-        <th style="padding:6px 10px; border:1px solid #cbd5e1;">Suite Name</th>
-        <th style="padding:6px 10px; border:1px solid #cbd5e1;">Target Feature Area</th>
-        <th style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center;">Total</th>
-        <th style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center;">Passed</th>
-        <th style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center;">Failed</th>
-        <th style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center;">Status</th>
+        <th style="padding:5px 8px; border:1px solid #cbd5e1;">Suite Name</th>
+        <th style="padding:5px 8px; border:1px solid #cbd5e1;">Target Feature Area</th>
+        <th style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center;">Total</th>
+        <th style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center;">Passed</th>
+        <th style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center;">Failed</th>
+        <th style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center;">Status</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1; font-weight:700;">00-gate-and-global.spec.ts</td>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1;">Security Gate, DB Seed Reset, Tab Navigation</td>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center;">4</td>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:700;">4</td>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center;">0</td>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:800;">PASS</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; font-weight:700;">00-gate-and-global.spec.ts</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1;">Security Gate, DB Seed Reset, Tab Navigation</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center;">4</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:700;">4</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center;">0</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:800;">PASS</td>
       </tr>
       <tr>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1; font-weight:700;">01-storefront-checkout.spec.ts</td>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1;">Pricing, Taxes, VAT, Coupons, Cards, 3DS, PO</td>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center;">14</td>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:700;">12</td>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center; color:#ef4444; font-weight:700;">2</td>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center; color:#ef4444; font-weight:800;">FAIL (2)</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; font-weight:700;">01-storefront-checkout.spec.ts</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1;">Pricing, Taxes, VAT, Coupons, Cards, 3DS, PO</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center;">14</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:700;">12</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center; color:#ef4444; font-weight:700;">2</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center; color:#ef4444; font-weight:800;">FAIL (2)</td>
       </tr>
       <tr>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1; font-weight:700;">02-rbac-and-auth.spec.ts</td>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1;">RBAC Switcher, Blocked User 403, Login Form Validations</td>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center;">6</td>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:700;">6</td>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center;">0</td>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:800;">PASS</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; font-weight:700;">02-rbac-and-auth.spec.ts</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1;">RBAC Switcher, Blocked User 403, Login Form Validations</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center;">6</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:700;">6</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center;">0</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:800;">PASS</td>
       </tr>
       <tr>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1; font-weight:700;">03-order-management.spec.ts</td>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1;">Search, Filter, Sort, State Machine Transitions, CSV</td>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center;">10</td>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:700;">10</td>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center;">0</td>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:800;">PASS</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; font-weight:700;">03-order-management.spec.ts</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1;">Search, Filter, Sort, State Machine Transitions, CSV</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center;">10</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:700;">10</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center;">0</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:800;">PASS</td>
       </tr>
       <tr>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1; font-weight:700;">04-selector-lab.spec.ts</td>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1;">Debounce, Toast, Modal Dialog, File Upload, DOM Mutate</td>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center;">7</td>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:700;">7</td>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center;">0</td>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:800;">PASS</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; font-weight:700;">04-selector-lab.spec.ts</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1;">Debounce, Toast, Modal Dialog, File Upload, DOM Mutate</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center;">7</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:700;">7</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center;">0</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:800;">PASS</td>
       </tr>
       <tr>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1; font-weight:700;">05-swagger-api.spec.ts</td>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1;">REST Auth, Idempotency 409, Stock 422, Coupon Contract</td>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center;">5</td>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:700;">5</td>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center;">0</td>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:800;">PASS</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; font-weight:700;">05-swagger-api.spec.ts</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1;">REST Auth, Idempotency 409, Stock 422, Coupon Contract</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center;">5</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:700;">5</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center;">0</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:800;">PASS</td>
       </tr>
       <tr>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1; font-weight:700;">06-sql-and-integrity.spec.ts</td>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1;">SQL Queries, Relational Table Joins, Audit Logs, v2 UI</td>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center;">4</td>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:700;">1</td>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center; color:#ef4444; font-weight:700;">3</td>
-        <td style="padding:6px 10px; border:1px solid #cbd5e1; text-align:center; color:#ef4444; font-weight:800;">FAIL (3)</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; font-weight:700;">06-sql-and-integrity.spec.ts</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1;">SQL Queries, Relational Table Joins, Audit Logs, v2 UI</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center;">4</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:700;">1</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center; color:#ef4444; font-weight:700;">3</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center; color:#ef4444; font-weight:800;">FAIL (3)</td>
+      </tr>
+      <tr>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; font-weight:700;">07-tc-02a-empty-fields.spec.ts</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1;">Decision Table Empty Fields Matrix (TC-02A)</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center;">3</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:700;">2</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center; color:#ef4444; font-weight:700;">1</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center; color:#ef4444; font-weight:800;">FAIL (1)</td>
+      </tr>
+      <tr>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; font-weight:700;">08-tc-02b-invalid-data.spec.ts</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1;">Invalid Data Combinations (Email syntax, min underflow)</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center;">5</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:700;">5</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center;">0</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:800;">PASS</td>
+      </tr>
+      <tr>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; font-weight:700;">09-tc-02c-happy-path-recovery.spec.ts</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1;">Error Recovery Flows (Card recovery, PO number recovery)</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center;">2</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:700;">2</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center;">0</td>
+        <td style="padding:5px 8px; border:1px solid #cbd5e1; text-align:center; color:#10b981; font-weight:800;">PASS</td>
       </tr>
     </tbody>
   </table>
@@ -343,12 +359,12 @@
       <div class="subtitle">Discovered during E2E Execution on https://testacademy.hu/qa-lab/e2e-app</div>
     </div>
     <div style="text-align:right;">
-      <span style="font-size:9pt; font-weight:700; color:#b91c1c;">DEFECTS FOUND: 5</span>
+      <span style="font-size:9pt; font-weight:700; color:#b91c1c;">DEFECTS FOUND: 6</span>
     </div>
   </div>
 
-  <p style="font-size:9pt; color:#475569; margin-bottom:16px;">
-    The automated tests were executed strictly against business specifications without patching or modifying assertions to pass. The following 5 authentic software defects were detected in the client application:
+  <p style="font-size:8.5pt; color:#475569; margin-bottom:12px;">
+    The automated tests were executed strictly against business specifications without patching or modifying assertions to pass. The following 6 authentic software defects were detected in the client application:
   </p>
 
   <!-- BUG 1 -->
@@ -438,6 +454,25 @@ if (/^UPDATEs+orders/i.test(clean)) { // Defect: stripped backslash prevents mat
     </div>
     <div class="fix-box">
       <strong>Suggested Fix:</strong> Fix the table regex selector to <code>/FROM\s+audit_logs/i</code> in <code>executeSqlQuery()</code>.
+    </div>
+  </div>
+
+  <!-- BUG 6 -->
+  <div class="bug-card">
+    <div class="bug-header">
+      <span class="bug-id">BUG-006</span>
+      <span class="bug-badge badge-medium">Medium • Severity 3</span>
+    </div>
+    <div class="bug-title">Storefront Subscription Quantity Input Lacks "required" Attribute, Allowing Silent Fallback to 1 Unit</div>
+    <div class="bug-desc">
+      <strong>Affected Test:</strong> <code>07-tc-02a-empty-fields.spec.ts › TC-02A.3</code><br>
+      <strong>Description:</strong> The <code>ui-qty</code> number input has <code>min="1" max="100"</code>, but lacks the HTML5 <code>required</code> attribute. When a customer clears the quantity input, the browser treats it as valid (<code>validity.valid === true</code>), and the JavaScript fallback <code>parseInt(...) || 1</code> silently orders 1 unit instead of prompting the user for required input.
+    </div>
+    <div class="code-box">// In HTML storefront form:
+&lt;input type="number" id="ui-qty" class="form-input" value="1" min="1" max="100" data-testid="qty-input"&gt;
+// Defect: Missing required attribute</div>
+    <div class="fix-box">
+      <strong>Suggested Fix:</strong> Add the <code>required</code> attribute to the input element: <code>&lt;input type="number" id="ui-qty" ... required&gt;</code>.
     </div>
   </div>
 
