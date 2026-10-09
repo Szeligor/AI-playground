@@ -1,10 +1,10 @@
 # 1. Test Report
 *Generated on 09.10.2026 | astron-workshop / branch: hge*
 
-| Type | Total | Not Executed | In Progress | Pass | Fail | Blocked | OK with comment | Partially OK |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Test cases** | **70** | 0 | 0 | **57** | **13** | 0 | 0 | 0 |
-| **Test steps** | **275** | 0 | 0 | **245** | **30** | 0 | 0 | 0 |
+| Type | Total | Not Executed | Pass | Fail | Blocked | Partially OK |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Test cases** | **70** | 0 | **57** | **13** | 0 | 0 |
+| **Test steps** | **275** | 0 | **245** | **30** | 0 | 0 |
 
 ---
 
