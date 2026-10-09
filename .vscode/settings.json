@@ -6,10 +6,11 @@
     "PATH": "C:\\Program Files\\nodejs;C:\\Program Files\\Git\\cmd;${env:PATH}"
   },
   "playwright.configs": [
+    "hge/playwright.config.ts",
     "playwright.config.ts"
   ],
-  "playwright.configFile": "playwright.config.ts",
-  "playwright.configPath": "playwright.config.ts",
-  "playwrightrunner.playwrightConfigPath": "playwright.config.ts",
+  "playwright.configFile": "hge/playwright.config.ts",
+  "playwright.configPath": "hge/playwright.config.ts",
+  "playwrightrunner.playwrightConfigPath": "hge/playwright.config.ts",
   "playwright.reuseBrowser": true
 }
