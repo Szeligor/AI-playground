@@ -3,9 +3,7 @@
     "argv": [
       "C:\\Program Files\\nodejs\\node.exe",
       "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\node_modules\\@playwright\\test\\cli.js",
-      "test",
-      "-c",
-      "hge/playwright.config.ts"
+      "test"
     ],
     "configFile": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\playwright.config.ts",
     "rootDir": "C:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/hge/tests",
@@ -142,12 +140,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 838,
+                      "duration": 785,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:18:26.184Z",
+                      "startTime": "2026-10-09T12:28:55.728Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -176,12 +174,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 664,
+                      "duration": 668,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:18:27.217Z",
+                      "startTime": "2026-10-09T12:28:56.715Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -210,12 +208,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 623,
+                      "duration": 637,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:18:27.897Z",
+                      "startTime": "2026-10-09T12:28:57.396Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -244,12 +242,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 965,
+                      "duration": 1056,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:18:28.534Z",
+                      "startTime": "2026-10-09T12:28:58.048Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -295,7 +293,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 9445,
+                      "duration": 9788,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#prod-stock-1')\nExpected substring: \u001b[32m\"In Stock: 1\u001b[7m4\u001b[27m units\"\u001b[39m\nReceived string:    \u001b[31m\"In Stock: 1\u001b[7m5\u001b[27m units\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('#prod-stock-1') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#prod-stock-1')\u001b[22m\n\u001b[2m    14 × locator resolved to <div id=\"prod-stock-1\">In Stock: 15 units</div>\u001b[22m\n\u001b[2m       - unexpected value \"In Stock: 15 units\"\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#prod-stock-1')\nExpected substring: \u001b[32m\"In Stock: 1\u001b[7m4\u001b[27m units\"\u001b[39m\nReceived string:    \u001b[31m\"In Stock: 1\u001b[7m5\u001b[27m units\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('#prod-stock-1') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#prod-stock-1')\u001b[22m\n\u001b[2m    14 × locator resolved to <div id=\"prod-stock-1\">In Stock: 15 units</div>\u001b[22m\n\u001b[2m       - unexpected value \"In Stock: 15 units\"\u001b[22m\n\n    at C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\01-storefront-checkout.spec.ts:32:49",
@@ -319,7 +317,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:18:29.563Z",
+                      "startTime": "2026-10-09T12:28:59.175Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -369,12 +367,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 882,
+                      "duration": 1143,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:18:40.326Z",
+                      "startTime": "2026-10-09T12:29:10.538Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -403,12 +401,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 667,
+                      "duration": 815,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:18:41.391Z",
+                      "startTime": "2026-10-09T12:29:11.869Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -437,12 +435,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 720,
+                      "duration": 783,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:18:42.075Z",
+                      "startTime": "2026-10-09T12:29:12.710Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -471,12 +469,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 711,
+                      "duration": 989,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:18:42.810Z",
+                      "startTime": "2026-10-09T12:29:13.506Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -505,12 +503,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 701,
+                      "duration": 1012,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:18:43.534Z",
+                      "startTime": "2026-10-09T12:29:14.512Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -539,7 +537,7 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 6038,
+                      "duration": 6273,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#vat-feedback')\nExpected substring: \u001b[32m\"0% Reverse Charge\"\u001b[39m\nReceived string:    \u001b[31m\"❌ Invalid EU VAT syntax. Standard country VAT rate applies.\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('#vat-feedback') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#vat-feedback')\u001b[22m\n\u001b[2m    14 × locator resolved to <div id=\"vat-feedback\">❌ Invalid EU VAT syntax. Standard country VAT rat…</div>\u001b[22m\n\u001b[2m       - unexpected value \"❌ Invalid EU VAT syntax. Standard country VAT rate applies.\"\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#vat-feedback')\nExpected substring: \u001b[32m\"0% Reverse Charge\"\u001b[39m\nReceived string:    \u001b[31m\"❌ Invalid EU VAT syntax. Standard country VAT rate applies.\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('#vat-feedback') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#vat-feedback')\u001b[22m\n\u001b[2m    14 × locator resolved to <div id=\"vat-feedback\">❌ Invalid EU VAT syntax. Standard country VAT rat…</div>\u001b[22m\n\u001b[2m       - unexpected value \"❌ Invalid EU VAT syntax. Standard country VAT rate applies.\"\u001b[22m\n\n    at C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\01-storefront-checkout.spec.ts:130:42",
@@ -563,7 +561,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:18:44.247Z",
+                      "startTime": "2026-10-09T12:29:15.543Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -613,12 +611,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 811,
+                      "duration": 892,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:18:51.679Z",
+                      "startTime": "2026-10-09T12:29:23.193Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -647,12 +645,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 762,
+                      "duration": 813,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:18:52.660Z",
+                      "startTime": "2026-10-09T12:29:24.246Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -681,12 +679,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 775,
+                      "duration": 805,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:18:53.441Z",
+                      "startTime": "2026-10-09T12:29:25.074Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -715,12 +713,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 736,
+                      "duration": 836,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:18:54.227Z",
+                      "startTime": "2026-10-09T12:29:25.901Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -749,12 +747,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 832,
+                      "duration": 888,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:18:54.976Z",
+                      "startTime": "2026-10-09T12:29:26.752Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -783,12 +781,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4187,
+                      "duration": 4469,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:18:55.819Z",
+                      "startTime": "2026-10-09T12:29:27.653Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -817,12 +815,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 702,
+                      "duration": 1486,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:19:00.019Z",
+                      "startTime": "2026-10-09T12:29:32.146Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -868,12 +866,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 779,
+                      "duration": 944,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:19:00.770Z",
+                      "startTime": "2026-10-09T12:29:33.716Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -902,12 +900,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 778,
+                      "duration": 1103,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:19:01.564Z",
+                      "startTime": "2026-10-09T12:29:34.680Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -936,12 +934,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 782,
+                      "duration": 883,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:19:02.355Z",
+                      "startTime": "2026-10-09T12:29:35.799Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -970,12 +968,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 737,
+                      "duration": 946,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:19:03.151Z",
+                      "startTime": "2026-10-09T12:29:36.693Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1004,12 +1002,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 777,
+                      "duration": 849,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:19:03.905Z",
+                      "startTime": "2026-10-09T12:29:37.650Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1038,12 +1036,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 828,
+                      "duration": 973,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:19:04.695Z",
+                      "startTime": "2026-10-09T12:29:38.512Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1089,12 +1087,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 907,
+                      "duration": 660,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:19:05.584Z",
+                      "startTime": "2026-10-09T12:29:39.545Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1123,12 +1121,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 869,
+                      "duration": 648,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:19:06.504Z",
+                      "startTime": "2026-10-09T12:29:40.216Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1157,12 +1155,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 818,
+                      "duration": 651,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:19:07.385Z",
+                      "startTime": "2026-10-09T12:29:40.876Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1191,12 +1189,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 746,
+                      "duration": 627,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:19:08.216Z",
+                      "startTime": "2026-10-09T12:29:41.538Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1225,12 +1223,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 887,
+                      "duration": 730,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:19:08.974Z",
+                      "startTime": "2026-10-09T12:29:42.177Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1259,12 +1257,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4484,
+                      "duration": 4623,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:19:09.875Z",
+                      "startTime": "2026-10-09T12:29:42.920Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1293,12 +1291,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4608,
+                      "duration": 4681,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:19:14.375Z",
+                      "startTime": "2026-10-09T12:29:47.560Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1327,12 +1325,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 656,
+                      "duration": 658,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:19:18.995Z",
+                      "startTime": "2026-10-09T12:29:52.259Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1361,12 +1359,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 772,
+                      "duration": 675,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:19:19.666Z",
+                      "startTime": "2026-10-09T12:29:52.932Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1395,12 +1393,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4185,
+                      "duration": 4229,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:19:20.452Z",
+                      "startTime": "2026-10-09T12:29:53.618Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1446,12 +1444,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1305,
+                      "duration": 989,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:19:24.719Z",
+                      "startTime": "2026-10-09T12:29:57.918Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1480,12 +1478,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1510,
+                      "duration": 1186,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:19:26.054Z",
+                      "startTime": "2026-10-09T12:29:58.919Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1514,12 +1512,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1375,
+                      "duration": 919,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:19:27.613Z",
+                      "startTime": "2026-10-09T12:30:00.118Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1548,12 +1546,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1083,
+                      "duration": 687,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:19:29.022Z",
+                      "startTime": "2026-10-09T12:30:01.049Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1582,12 +1580,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1356,
+                      "duration": 877,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:19:30.137Z",
+                      "startTime": "2026-10-09T12:30:01.748Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1616,12 +1614,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 980,
+                      "duration": 738,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:19:31.534Z",
+                      "startTime": "2026-10-09T12:30:02.637Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1650,12 +1648,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1182,
+                      "duration": 980,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:19:32.554Z",
+                      "startTime": "2026-10-09T12:30:03.392Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1701,12 +1699,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1296,
+                      "duration": 1154,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:19:33.843Z",
+                      "startTime": "2026-10-09T12:30:04.448Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1735,12 +1733,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1416,
+                      "duration": 1031,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:19:35.168Z",
+                      "startTime": "2026-10-09T12:30:05.624Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1769,12 +1767,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1516,
+                      "duration": 1004,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:19:36.619Z",
+                      "startTime": "2026-10-09T12:30:06.672Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1803,12 +1801,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1615,
+                      "duration": 856,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:19:38.188Z",
+                      "startTime": "2026-10-09T12:30:07.687Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1837,12 +1835,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1356,
+                      "duration": 1229,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:19:39.852Z",
+                      "startTime": "2026-10-09T12:30:08.556Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1888,10 +1886,10 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 6207,
+                      "duration": 5728,
                       "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('sql-results-box')\nExpected substring: \u001b[32m\"5 rows in set\"\u001b[39m\nReceived string:    \u001b[31m\"Query executed against in-memory tables.\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('sql-results-box') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('sql-results-box')\u001b[22m\n\u001b[2m    13 × locator resolved to <div class=\"sql-results-box\" id=\"sql-results-container\" data-testid=\"sql-results-box\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"Query executed against in-memory tables.\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('sql-results-box')\nExpected substring: \u001b[32m\"5 rows in set\"\u001b[39m\nReceived string:    \u001b[31m\"Query executed against in-memory tables.\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('sql-results-box') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('sql-results-box')\u001b[22m\n\u001b[2m    13 × locator resolved to <div class=\"sql-results-box\" id=\"sql-results-container\" data-testid=\"sql-results-box\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"Query executed against in-memory tables.\"\u001b[22m\n\n    at C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\06-sql-and-integrity.spec.ts:23:38",
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('sql-results-box')\nExpected substring: \u001b[32m\"5 rows in set\"\u001b[39m\nReceived string:    \u001b[31m\"Query executed against in-memory tables.\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('sql-results-box') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('sql-results-box')\u001b[22m\n\u001b[2m    14 × locator resolved to <div class=\"sql-results-box\" id=\"sql-results-container\" data-testid=\"sql-results-box\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"Query executed against in-memory tables.\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('sql-results-box')\nExpected substring: \u001b[32m\"5 rows in set\"\u001b[39m\nReceived string:    \u001b[31m\"Query executed against in-memory tables.\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('sql-results-box') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('sql-results-box')\u001b[22m\n\u001b[2m    14 × locator resolved to <div class=\"sql-results-box\" id=\"sql-results-container\" data-testid=\"sql-results-box\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"Query executed against in-memory tables.\"\u001b[22m\n\n    at C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\06-sql-and-integrity.spec.ts:23:38",
                         "location": {
                           "file": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\06-sql-and-integrity.spec.ts",
                           "column": 38,
@@ -1906,13 +1904,13 @@
                             "column": 38,
                             "line": 23
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('sql-results-box')\nExpected substring: \u001b[32m\"5 rows in set\"\u001b[39m\nReceived string:    \u001b[31m\"Query executed against in-memory tables.\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('sql-results-box') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('sql-results-box')\u001b[22m\n\u001b[2m    13 × locator resolved to <div class=\"sql-results-box\" id=\"sql-results-container\" data-testid=\"sql-results-box\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"Query executed against in-memory tables.\"\u001b[22m\n\n\n  21 |\n  22 |     await expect(sqlPage.resultsBox).toBeVisible();\n> 23 |     await expect(sqlPage.resultsBox).toContainText('5 rows in set');\n     |                                      ^\n  24 |     await expect(sqlPage.resultsBox.locator('table.e2e-table')).toBeVisible();\n  25 |\n  26 |     // Gyorslekérdezés chip: All Users\n    at C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\06-sql-and-integrity.spec.ts:23:38"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('sql-results-box')\nExpected substring: \u001b[32m\"5 rows in set\"\u001b[39m\nReceived string:    \u001b[31m\"Query executed against in-memory tables.\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('sql-results-box') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('sql-results-box')\u001b[22m\n\u001b[2m    14 × locator resolved to <div class=\"sql-results-box\" id=\"sql-results-container\" data-testid=\"sql-results-box\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"Query executed against in-memory tables.\"\u001b[22m\n\n\n  21 |\n  22 |     await expect(sqlPage.resultsBox).toBeVisible();\n> 23 |     await expect(sqlPage.resultsBox).toContainText('5 rows in set');\n     |                                      ^\n  24 |     await expect(sqlPage.resultsBox.locator('table.e2e-table')).toBeVisible();\n  25 |\n  26 |     // Gyorslekérdezés chip: All Users\n    at C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\06-sql-and-integrity.spec.ts:23:38"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:19:41.340Z",
+                      "startTime": "2026-10-09T12:30:09.842Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1962,7 +1960,7 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 5915,
+                      "duration": 5997,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('sql-results-box')\nTimeout: 5000ms\n\u001b[32m- Expected substring  - 1\u001b[39m\n\u001b[31m+ Received string     + 5\u001b[39m\n\n\u001b[32m- Query OK, 1 row affected\u001b[39m\n\u001b[31m+\u001b[39m\n\u001b[31m+ \u001b[43m          \u001b[49m\u001b[39m\n\u001b[31m+             Click \"Run Query\" to execute SQL against the live database tables.\u001b[39m\n\u001b[31m+ \u001b[43m          \u001b[49m\u001b[39m\n\u001b[31m+ \u001b[43m        \u001b[49m\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('sql-results-box') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('sql-results-box')\u001b[22m\n\u001b[2m    14 × locator resolved to <div class=\"sql-results-box\" id=\"sql-results-container\" data-testid=\"sql-results-box\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"\u001b[22m\n\u001b[2m          \u001b[22m\n\u001b[2m            Click \"Run Query\" to execute SQL against the live database tables.\u001b[22m\n\u001b[2m          \u001b[22m\n\u001b[2m        \"\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('sql-results-box')\nTimeout: 5000ms\n\u001b[32m- Expected substring  - 1\u001b[39m\n\u001b[31m+ Received string     + 5\u001b[39m\n\n\u001b[32m- Query OK, 1 row affected\u001b[39m\n\u001b[31m+\u001b[39m\n\u001b[31m+ \u001b[43m          \u001b[49m\u001b[39m\n\u001b[31m+             Click \"Run Query\" to execute SQL against the live database tables.\u001b[39m\n\u001b[31m+ \u001b[43m          \u001b[49m\u001b[39m\n\u001b[31m+ \u001b[43m        \u001b[49m\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('sql-results-box') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('sql-results-box')\u001b[22m\n\u001b[2m    14 × locator resolved to <div class=\"sql-results-box\" id=\"sql-results-container\" data-testid=\"sql-results-box\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"\u001b[22m\n\u001b[2m          \u001b[22m\n\u001b[2m            Click \"Run Query\" to execute SQL against the live database tables.\u001b[22m\n\u001b[2m          \u001b[22m\n\u001b[2m        \"\u001b[22m\n\n    at C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\06-sql-and-integrity.spec.ts:41:38",
@@ -1986,7 +1984,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:19:49.142Z",
+                      "startTime": "2026-10-09T12:30:17.081Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -2036,7 +2034,7 @@
                       "workerIndex": 4,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 6135,
+                      "duration": 6190,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('sql-results-box')\nExpected substring: \u001b[32m\"ORDER_CREATED\"\u001b[39m\nReceived string:    \u001b[31m\"Query executed against in-memory tables.\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('sql-results-box') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('sql-results-box')\u001b[22m\n\u001b[2m    14 × locator resolved to <div class=\"sql-results-box\" id=\"sql-results-container\" data-testid=\"sql-results-box\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"Query executed against in-memory tables.\"\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('sql-results-box')\nExpected substring: \u001b[32m\"ORDER_CREATED\"\u001b[39m\nReceived string:    \u001b[31m\"Query executed against in-memory tables.\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('sql-results-box') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('sql-results-box')\u001b[22m\n\u001b[2m    14 × locator resolved to <div class=\"sql-results-box\" id=\"sql-results-container\" data-testid=\"sql-results-box\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"Query executed against in-memory tables.\"\u001b[22m\n\n    at C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\06-sql-and-integrity.spec.ts:62:38",
@@ -2060,7 +2058,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:19:56.608Z",
+                      "startTime": "2026-10-09T12:30:24.692Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -2110,12 +2108,12 @@
                       "workerIndex": 5,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 758,
+                      "duration": 751,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:20:04.113Z",
+                      "startTime": "2026-10-09T12:30:32.367Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2161,12 +2159,12 @@
                       "workerIndex": 5,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4173,
+                      "duration": 4216,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:20:05.074Z",
+                      "startTime": "2026-10-09T12:30:33.313Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2195,12 +2193,12 @@
                       "workerIndex": 5,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4594,
+                      "duration": 4210,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:20:09.269Z",
+                      "startTime": "2026-10-09T12:30:37.546Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2229,7 +2227,7 @@
                       "workerIndex": 5,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 865,
+                      "duration": 778,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m\n    at C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\07-tc-02a-empty-fields.spec.ts:58:24",
@@ -2253,7 +2251,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:20:13.877Z",
+                      "startTime": "2026-10-09T12:30:41.771Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -2320,12 +2318,12 @@
                       "workerIndex": 6,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4271,
+                      "duration": 4297,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:20:16.021Z",
+                      "startTime": "2026-10-09T12:30:44.401Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2354,12 +2352,12 @@
                       "workerIndex": 6,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4303,
+                      "duration": 4252,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:20:20.447Z",
+                      "startTime": "2026-10-09T12:30:48.880Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2388,12 +2386,12 @@
                       "workerIndex": 6,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4154,
+                      "duration": 4485,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:20:24.772Z",
+                      "startTime": "2026-10-09T12:30:53.160Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2422,12 +2420,12 @@
                       "workerIndex": 6,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4405,
+                      "duration": 4167,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:20:28.939Z",
+                      "startTime": "2026-10-09T12:30:57.657Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2458,12 +2456,12 @@
                       "workerIndex": 6,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4640,
+                      "duration": 4046,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:20:33.357Z",
+                      "startTime": "2026-10-09T12:31:01.837Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2509,12 +2507,12 @@
                       "workerIndex": 6,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4412,
+                      "duration": 4804,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:20:38.070Z",
+                      "startTime": "2026-10-09T12:31:05.959Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2543,12 +2541,12 @@
                       "workerIndex": 6,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1066,
+                      "duration": 1086,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-09T12:20:42.495Z",
+                      "startTime": "2026-10-09T12:31:10.776Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2564,15 +2562,282 @@
           ]
         }
       ]
+    },
+    {
+      "title": "10-security-owasp.spec.ts",
+      "file": "10-security-owasp.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "10 - Security & OWASP Defense Suite",
+          "file": "10-security-owasp.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-SEC-01: Stored and Reflected XSS injection defense in customer inputs",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 854,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:31:11.904Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "13d19443388df9c9baa3-334bae34175a3e676ebe",
+              "file": "10-security-owasp.spec.ts",
+              "line": 18,
+              "column": 3
+            },
+            {
+              "title": "TC-SEC-02: SQL Injection syntax injection defense in Order Management search filter",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 657,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:31:12.774Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "13d19443388df9c9baa3-6647a92674b56837f939",
+              "file": "10-security-owasp.spec.ts",
+              "line": 53,
+              "column": 3
+            },
+            {
+              "title": "TC-SEC-03: Sensitive Cardholder Data (PCI DSS) masking in DOM and order history",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 899,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:31:13.442Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "13d19443388df9c9baa3-b40334d7687b2a9c348b",
+              "file": "10-security-owasp.spec.ts",
+              "line": 77,
+              "column": 3
+            },
+            {
+              "title": "TC-SEC-04: Client-side DOM parameter tampering defense (Price Integrity)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 6105,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('tr[data-testid^=\"order-row-\"]').first()\nTimeout: 5000ms\n\u001b[32m- Expected substring  -  1\u001b[39m\n\u001b[31m+ Received string     + 10\u001b[39m\n\n\u001b[32m- 29\u001b[39m\n\u001b[31m+\u001b[39m\n\u001b[31m+           #106\u001b[39m\n\u001b[31m+           tamper_test@secops.com\u001b[39m\n\u001b[31m+           QA Automation Runner License\u001b[39m\n\u001b[31m+           1\u001b[39m\n\u001b[31m+           $1\u001b[39m\n\u001b[31m+           INVOICE\u001b[39m\n\u001b[31m+           PENDING\u001b[39m\n\u001b[31m+           Pay Cancel\u001b[39m\n\u001b[31m+ \u001b[43m        \u001b[49m\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('tr[data-testid^=\"order-row-\"]').first() with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('tr[data-testid^=\"order-row-\"]').first()\u001b[22m\n\u001b[2m    14 × locator resolved to <tr data-testid=\"order-row-106\">…</tr>\u001b[22m\n\u001b[2m       - unexpected value \"\u001b[22m\n\u001b[2m          #106\u001b[22m\n\u001b[2m          tamper_test@secops.com\u001b[22m\n\u001b[2m          QA Automation Runner License\u001b[22m\n\u001b[2m          1\u001b[22m\n\u001b[2m          $1\u001b[22m\n\u001b[2m          INVOICE\u001b[22m\n\u001b[2m          PENDING\u001b[22m\n\u001b[2m          Pay Cancel\u001b[22m\n\u001b[2m        \"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('tr[data-testid^=\"order-row-\"]').first()\nTimeout: 5000ms\n\u001b[32m- Expected substring  -  1\u001b[39m\n\u001b[31m+ Received string     + 10\u001b[39m\n\n\u001b[32m- 29\u001b[39m\n\u001b[31m+\u001b[39m\n\u001b[31m+           #106\u001b[39m\n\u001b[31m+           tamper_test@secops.com\u001b[39m\n\u001b[31m+           QA Automation Runner License\u001b[39m\n\u001b[31m+           1\u001b[39m\n\u001b[31m+           $1\u001b[39m\n\u001b[31m+           INVOICE\u001b[39m\n\u001b[31m+           PENDING\u001b[39m\n\u001b[31m+           Pay Cancel\u001b[39m\n\u001b[31m+ \u001b[43m        \u001b[49m\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('tr[data-testid^=\"order-row-\"]').first() with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('tr[data-testid^=\"order-row-\"]').first()\u001b[22m\n\u001b[2m    14 × locator resolved to <tr data-testid=\"order-row-106\">…</tr>\u001b[22m\n\u001b[2m       - unexpected value \"\u001b[22m\n\u001b[2m          #106\u001b[22m\n\u001b[2m          tamper_test@secops.com\u001b[22m\n\u001b[2m          QA Automation Runner License\u001b[22m\n\u001b[2m          1\u001b[22m\n\u001b[2m          $1\u001b[22m\n\u001b[2m          INVOICE\u001b[22m\n\u001b[2m          PENDING\u001b[22m\n\u001b[2m          Pay Cancel\u001b[22m\n\u001b[2m        \"\u001b[22m\n\n    at C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\10-security-owasp.spec.ts:129:30",
+                        "location": {
+                          "file": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\10-security-owasp.spec.ts",
+                          "column": 30,
+                          "line": 129
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 127 |\u001b[39m     \u001b[90m// Price must be computed server-side / model-side, not taken from tampered DOM '$0.01'\u001b[39m\n \u001b[90m 128 |\u001b[39m     \u001b[36mawait\u001b[39m expect(createdRow)\u001b[33m.\u001b[39mnot\u001b[33m.\u001b[39mtoContainText(\u001b[32m'$0.01'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 129 |\u001b[39m     \u001b[36mawait\u001b[39m expect(createdRow)\u001b[33m.\u001b[39mtoContainText(\u001b[32m'29'\u001b[39m)\u001b[33m;\u001b[39m \u001b[90m// Base unit price is $29\u001b[39m\n \u001b[90m     |\u001b[39m                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 130 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 131 |\u001b[39m\n \u001b[90m 132 |\u001b[39m   test(\u001b[32m'TC-SEC-05: Double submission and click storm defense on checkout'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\10-security-owasp.spec.ts",
+                            "column": 30,
+                            "line": 129
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('tr[data-testid^=\"order-row-\"]').first()\nTimeout: 5000ms\n\u001b[32m- Expected substring  -  1\u001b[39m\n\u001b[31m+ Received string     + 10\u001b[39m\n\n\u001b[32m- 29\u001b[39m\n\u001b[31m+\u001b[39m\n\u001b[31m+           #106\u001b[39m\n\u001b[31m+           tamper_test@secops.com\u001b[39m\n\u001b[31m+           QA Automation Runner License\u001b[39m\n\u001b[31m+           1\u001b[39m\n\u001b[31m+           $1\u001b[39m\n\u001b[31m+           INVOICE\u001b[39m\n\u001b[31m+           PENDING\u001b[39m\n\u001b[31m+           Pay Cancel\u001b[39m\n\u001b[31m+ \u001b[43m        \u001b[49m\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('tr[data-testid^=\"order-row-\"]').first() with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('tr[data-testid^=\"order-row-\"]').first()\u001b[22m\n\u001b[2m    14 × locator resolved to <tr data-testid=\"order-row-106\">…</tr>\u001b[22m\n\u001b[2m       - unexpected value \"\u001b[22m\n\u001b[2m          #106\u001b[22m\n\u001b[2m          tamper_test@secops.com\u001b[22m\n\u001b[2m          QA Automation Runner License\u001b[22m\n\u001b[2m          1\u001b[22m\n\u001b[2m          $1\u001b[22m\n\u001b[2m          INVOICE\u001b[22m\n\u001b[2m          PENDING\u001b[22m\n\u001b[2m          Pay Cancel\u001b[22m\n\u001b[2m        \"\u001b[22m\n\n\n  127 |     // Price must be computed server-side / model-side, not taken from tampered DOM '$0.01'\n  128 |     await expect(createdRow).not.toContainText('$0.01');\n> 129 |     await expect(createdRow).toContainText('29'); // Base unit price is $29\n      |                              ^\n  130 |   });\n  131 |\n  132 |   test('TC-SEC-05: Double submission and click storm defense on checkout', async ({ page }) => {\n    at C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\10-security-owasp.spec.ts:129:30"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:31:14.353Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\test-results\\10-security-owasp-10---Sec-f06d4-ng-defense-Price-Integrity--chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\test-results\\10-security-owasp-10---Sec-f06d4-ng-defense-Price-Integrity--chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\test-results\\10-security-owasp-10---Sec-f06d4-ng-defense-Price-Integrity--chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\10-security-owasp.spec.ts",
+                        "column": 30,
+                        "line": 129
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "13d19443388df9c9baa3-c9775bc80d3c11d71564",
+              "file": "10-security-owasp.spec.ts",
+              "line": 103,
+              "column": 3
+            },
+            {
+              "title": "TC-SEC-05: Double submission and click storm defense on checkout",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 6050,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('tr[data-testid^=\"order-row-\"]')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m2\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('tr[data-testid^=\"order-row-\"]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('tr[data-testid^=\"order-row-\"]')\u001b[22m\n\u001b[2m    14 × locator resolved to 2 elements\u001b[22m\n\u001b[2m       - unexpected value \"2\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('tr[data-testid^=\"order-row-\"]')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m2\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('tr[data-testid^=\"order-row-\"]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('tr[data-testid^=\"order-row-\"]')\u001b[22m\n\u001b[2m    14 × locator resolved to 2 elements\u001b[22m\n\u001b[2m       - unexpected value \"2\"\u001b[22m\n\n    at C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\10-security-owasp.spec.ts:150:45",
+                        "location": {
+                          "file": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\10-security-owasp.spec.ts",
+                          "column": 45,
+                          "line": 150
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 148 |\u001b[39m\n \u001b[90m 149 |\u001b[39m     \u001b[90m// Exactly 1 order should exist, avoiding duplicate transaction generation\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 150 |\u001b[39m     \u001b[36mawait\u001b[39m expect(orderManagement\u001b[33m.\u001b[39morderRows)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 151 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 152 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 153 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\10-security-owasp.spec.ts",
+                            "column": 45,
+                            "line": 150
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('tr[data-testid^=\"order-row-\"]')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m2\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('tr[data-testid^=\"order-row-\"]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('tr[data-testid^=\"order-row-\"]')\u001b[22m\n\u001b[2m    14 × locator resolved to 2 elements\u001b[22m\n\u001b[2m       - unexpected value \"2\"\u001b[22m\n\n\n  148 |\n  149 |     // Exactly 1 order should exist, avoiding duplicate transaction generation\n> 150 |     await expect(orderManagement.orderRows).toHaveCount(1);\n      |                                             ^\n  151 |   });\n  152 | });\n  153 |\n    at C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\10-security-owasp.spec.ts:150:45"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-09T12:31:21.837Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\test-results\\10-security-owasp-10---Sec-5da0d-k-storm-defense-on-checkout-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\test-results\\10-security-owasp-10---Sec-5da0d-k-storm-defense-on-checkout-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\test-results\\10-security-owasp-10---Sec-5da0d-k-storm-defense-on-checkout-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\WDAGUtilityAccount\\Desktop\\AstronWorkshop\\project\\hge\\tests\\10-security-owasp.spec.ts",
+                        "column": 45,
+                        "line": 150
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "13d19443388df9c9baa3-28bc47b949263ae923cb",
+              "file": "10-security-owasp.spec.ts",
+              "line": 132,
+              "column": 3
+            }
+          ]
+        }
+      ]
     }
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-09T12:18:24.159Z",
-    "duration": 139537.66700000002,
-    "expected": 54,
+    "startTime": "2026-10-09T12:28:53.382Z",
+    "duration": 154799.056,
+    "expected": 57,
     "skipped": 0,
-    "unexpected": 6,
+    "unexpected": 8,
     "flaky": 0
   }
 }

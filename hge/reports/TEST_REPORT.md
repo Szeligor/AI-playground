@@ -3,22 +3,22 @@
 
 | Type | Total | Not Executed | In Progress | Pass | Fail | Blocked | OK with comment | Partially OK |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Test cases** | **60** | 0 | 0 | **54** | **6** | 0 | 0 | 0 |
-| **Test steps** | **230** | 0 | 0 | **212** | **18** | 0 | 0 | 0 |
+| **Test cases** | **65** | 0 | 0 | **57** | **8** | 0 | 0 | 0 |
+| **Test steps** | **250** | 0 | 0 | **230** | **20** | 0 | 0 | 0 |
 
 ---
 
 ## 📊 Test Result Distribution
 
 ```mermaid
-pie title Test Result (60 Test Cases)
-    "Pass (54)" : 54
-    "Fail (6)" : 6
+pie title Test Result (65 Test Cases)
+    "Pass (57)" : 57
+    "Fail (8)" : 8
 ```
 
-- **Összes teszteset:** 60
-- **Pass (Sikeres):** 54 (90.0%)
-- **Fail (Bukott a valós hibák miatt):** 6 (10.0%)
+- **Összes teszteset:** 65 (11 tesztcsomag)
+- **Pass (Sikeres):** 57 (87.7%)
+- **Fail (Bukott a valós alkalmazásbeli hibák miatt):** 8 (12.3%)
 - **Blocked / In Progress / Not Executed:** 0 (0.0%)
 
 ---
@@ -34,56 +34,63 @@ pie title Test Result (60 Test Cases)
 | `04-selector-lab.spec.ts` | 300ms Debounce, 3.5s Toast, Modal, Fájlfeltöltés | 7 | 7 | 0 | **PASS (100%)** |
 | `05-swagger-api.spec.ts` | REST API Auth, Idempotencia, Készlet, Kuponok | 5 | 5 | 0 | **PASS (100%)** |
 | `06-sql-and-integrity.spec.ts` | SQL Lekérdezések, UPDATE, Audit Log, v2 Mód | 4 | 1 | 3 | **FAIL (25.0%)** |
-| `07-tc-02a-empty-fields.spec.ts` | TC-02A: Üres mezők kombinatorikája (Email, Név, Cím, Mennyiség) | 3 | 2 | 1 | **FAIL (66.7%)** |
-| `08-tc-02b-invalid-data.spec.ts` | TC-02B: Helytelen adatformátumok (Email, Kártya, Lejárat, CVC) | 5 | 5 | 0 | **PASS (100%)** |
-| `09-tc-02c-happy-path-recovery.spec.ts` | TC-02C: Hibából visszajavított érvényes folyamat (Happy Path) | 2 | 2 | 0 | **PASS (100%)** |
-| **ÖSSZESEN** | **10 Modul / E2E Tesztcsomag** | **60** | **54** | **6** | **90.0%** |
+| `07-tc-02a-empty-fields.spec.ts` | TC-02A: Üres mezők kombinációi | 3 | 2 | 1 | **FAIL (66.7%)** |
+| `08-tc-02b-invalid-data.spec.ts` | TC-02B: Helytelen adatformátumok | 5 | 5 | 0 | **PASS (100%)** |
+| `09-tc-02c-happy-path-recovery.spec.ts` | TC-02C: Hibából visszajavított érvényes folyamat | 2 | 2 | 0 | **PASS (100%)** |
+| `10-security-owasp.spec.ts` | **OWASP Biztonság: XSS, SQLi, PCI DSS, Ármanipuláció, Race Condition** | 5 | 3 | 2 | **FAIL (60.0%)** |
+| **ÖSSZESEN** | **11 Modul / E2E Tesztcsomag** | **65** | **57** | **8** | **87.7%** |
 
 ---
 
-# 2. Bug / Defect Report (Feltárt Valós Hibák)
+# 2. 🐛 Feltárt Valós Hibák és Biztonsági Sérülékenységek
 
-A tesztek szigorúan **módosítás, engedmények és szándékos kódmódosítás nélkül** futottak le az elvárt üzleti specifikációk ellen. Ennek eredményeképp az alkalmazásban az alábbi **6 valós szoftverhibát** azonosítottuk és dokumentáltuk:
+A tesztek szigorúan a valós specifikációk szerint futottak le, a valós sérülékenységeket felszínre hozva:
 
 ### 🔴 BUG-001: Storefront készletszámláló DOM eleme nem frissül vásárlás után
 - **Súlyosság:** Medium (S3)
 - **Érintett teszt:** `01-storefront-checkout.spec.ts › TC-SF-01`
-- **Leírás:** Sikeres megrendelés leadása után a belső állapotban lefut a készletlevonás (`prod.stock -= qty`), de a kártya felületi címkéje (`#prod-stock-1`) nem renderelődik újra, továbbra is "In Stock: 15 units" marad.
-- **Javítási javaslat:** A `handleUiCheckout()` metódusban meg kell hívni a termékkártya DOM elemének szövegfrissítését.
+- **Leírás:** Sikeres rendelés után a memóriában lefut a készletlevonás, de a kártya felületi címkéje (`#prod-stock-1`) nem renderelődik újra, továbbra is "In Stock: 15 units" marad.
 
 ### 🔴 BUG-002: EU VAT B2B mentesítés érvényes adószámmal is elbukik (RegEx hiba)
 - **Súlyosság:** Critical / High (S1)
 - **Érintett teszt:** `01-storefront-checkout.spec.ts › TC-SF-07`
-- **Leírás:** Bármilyen érvényes EU adószám (pl. `HU12345678`) beírásakor a rendszer "❌ Invalid EU VAT syntax" hibát jelez. A forráskódban a reguláris kifejezésből hiányzik a backslash (`/^(HU|DE|AT|FR)d{8,9}$/` - `\d` helyett `d`), miközben a mező értéke nagybetűsítésre kerül, így egyetlen adószám sem tud érvényesülni.
-- **Javítási javaslat:** A reguláris kifejezést `/^(HU|DE|AT|FR)\d{8,9}$/`-re kell javítani a `validateVatNumber()` metódusban.
+- **Leírás:** Helyes EU adószám beírásakor a rendszer "❌ Invalid EU VAT syntax" hibát jelez. A reguláris kifejezés elírásra került (`/^(HU|DE|AT|FR)d{8,9}$/` - `\d` helyett `d`).
 
 ### 🔴 BUG-003: SQL Workbench SELECT feldolgozó reguláris kifejezés szintaktikai hiba
 - **Súlyosság:** High (S2)
 - **Érintett teszt:** `06-sql-and-integrity.spec.ts › TC-INT-01`
-- **Leírás:** A terminálba írt `SELECT * FROM orders;` lekérdezések nem illeszkednek a regex feldolgozóra, mert a kódban `/^SELECTs+/i` szerepel (`\s` helyett `s`), így mindig az alapértelmezett "Query executed against in-memory tables" ágra fut, táblázat nem jelenik meg.
-- **Javítási javaslat:** A regex illesztést `/^SELECT\s+/i`-re kell cserélni.
+- **Leírás:** A terminálba írt `SELECT * FROM orders;` lekérdezések nem illeszkednek a regex feldolgozóra (`/^SELECTs+/i`), táblázat nem jelenik meg.
 
 ### 🔴 BUG-004: SQL Workbench UPDATE parancs nem hajtódik végre
 - **Súlyosság:** High (S2)
 - **Érintett teszt:** `06-sql-and-integrity.spec.ts › TC-INT-02`
-- **Leírás:** A "Force Refund (ID 101)" gyorsgomb által beillesztett `UPDATE orders SET status = 'REFUNDED' WHERE id = 101;` nem módosítja a rendelést, mert a feldolgozó regex itt is hibás: `/^UPDATEs+orders/i`.
-- **Javítási javaslat:** A regexet `/^UPDATE\s+orders/i`-re kell javítani az `executeSqlQuery()` metódusban.
+- **Leírás:** Az `UPDATE orders SET status = 'REFUNDED' WHERE id = 101;` nem módosítja a rekordot a regex hiányos backslash-e miatt (`/^UPDATEs+orders/i`).
 
 ### 🔴 BUG-005: SQL Workbench "Audit Trail" lekérdezés nem listázza az audit naplókat
 - **Súlyosság:** Medium / High (S2)
 - **Érintett teszt:** `06-sql-and-integrity.spec.ts › TC-INT-03`
-- **Leírás:** A rendelések létrehozásakor keletkező naplóbejegyzések nem kérdezhetők le a terminálban, mert a `FROM audit_logs` illesztő regex hiányos backslasht tartalmaz (`/FROMs+audit_logs/`).
-- **Javítási javaslat:** `/FROM\s+audit_logs/i` illesztést kell használni.
+- **Leírás:** A `FROM audit_logs` illesztő regex hibás (`/FROMs+audit_logs/`), így az audit tábla üres marad.
 
 ### 🔴 BUG-006: Mennyiség mező (`#ui-qty`) nem rendelkezik kötelező (required) validációval
 - **Súlyosság:** Medium (S3)
-- **Érintett teszt:** `07-tc-02a-empty-fields.spec.ts › TC-02A-04`
-- **Leírás:** Amikor a felhasználó teljesen kitörli a mennyiséget (`#ui-qty`), az űrlap beküldhető marad hibaüzenet nélkül, mivel a mezőn nincs HTML5 `required` attribútum, és az űrlapfeldolgozó csendben `parseInt(val) || 1`-gyel 1 darabra kerekít ahelyett, hogy megkövetelné az érték megadását.
-- **Javítási javaslat:** A `#ui-qty` HTML input mezőre fel kell venni a `required` és `min="1"` attribútumokat, és az eseménykezelőben validációs hibaüzenetet kell megjeleníteni üresen hagyás esetén.
+- **Érintett teszt:** `07-tc-02a-empty-fields.spec.ts › TC-02A.3`
+- **Leírás:** Amikor a felhasználó kitörli a mennyiséget, az űrlap beküldhető marad hibaüzenet nélkül, és az alkalmazás csendben 1 darabra kerekíti.
+
+### 🔴 BUG-007 (ÚJ - Biztonsági Sérülékenység): Kliensoldali Ármanipuláció (OWASP A08: Parameter Tampering)
+- **Súlyosság:** **Critical / High (S1)**
+- **Érintett teszt:** `10-security-owasp.spec.ts › TC-SEC-04`
+- **Leírás:** A pénztár (`handleUiCheckout`) a leadott tranzakció végösszegét közvetlenül a böngésző DOM elemének szövegéből (`#ui-sum-total`) olvassa ki ahelyett, hogy szerver-/modelloldalon számolná újra. Amennyiben egy támadó a DOM-ban átírja az összeget (pl. `$0.01`-re), a rendszer manipulált áron (`$1`) hozza létre a megrendelést!
+- **Javítási javaslat:** A fizetendő összeget soha nem szabad a kliens DOM szövegéből átvenni; a végösszeget a termékkatalógus fix egységáraiból és a kedvezménymodellekből kell kötelezően újraszámolni és hitelesíteni.
+
+### 🔴 BUG-008 (ÚJ - Biztonsági Sérülékenység): Hiányzó gomb tiltás / Duplikált tranzakció létrehozása (Race Condition / CWE-362)
+- **Súlyosság:** **High (S2)**
+- **Érintett teszt:** `10-security-owasp.spec.ts › TC-SEC-05`
+- **Leírás:** A megrendelés gomb (`#btn-ui-submit`) nincs azonnal letiltva a kattintás pillanatában a feldolgozás ideje alatt. Gyors dupla kattintás (click storm) hatására az alkalmazás két független megrendelést generál azonos paraméterekkel.
+- **Javítási javaslat:** A gombra azonnali `disabled = true` állapotot kell tenni a beküldés pillanatában, és idempotencia tokent kell használni a kérésekhez.
 
 ---
 
-### 📄 Letölthető Jelentések
+### 📄 Letölthető Riportok
 - **PDF Hibajegyzék:** [`BUG_REPORT.pdf`](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/hge/reports/BUG_REPORT.pdf)
 - **Böngészhető HTML Riport:** [`bug_report.html`](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/hge/reports/bug_report.html)
 - **Markdown Riport:** [`TEST_REPORT.md`](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/hge/reports/TEST_REPORT.md)
