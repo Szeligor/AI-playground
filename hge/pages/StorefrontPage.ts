@@ -117,6 +117,10 @@ export class StorefrontPage extends BasePage {
     await this.poNumberInput.fill(poNumber);
   }
 
+  async fillPoNumber(poNumber: string): Promise<void> {
+    await this.fillInvoiceDetails(poNumber);
+  }
+
   async submitOrder(): Promise<void> {
     await this.checkoutBtn.click();
   }

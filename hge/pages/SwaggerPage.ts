@@ -63,23 +63,25 @@ export class SwaggerPage extends BasePage {
     await this.roleSelector.selectOption(role);
   }
 
-  async toggleEndpoint(header: Locator): Promise<void> {
-    await header.click();
+  private async ensureOpen(header: Locator, body: Locator): Promise<void> {
+    if (!await body.isVisible()) {
+      await header.click();
+    }
   }
 
   async executeLogin(bodyJson: string): Promise<void> {
-    await this.loginHeader.click();
+    await this.ensureOpen(this.loginHeader, this.loginBody);
     await this.loginBody.fill(bodyJson);
     await this.loginExecuteBtn.click();
   }
 
   async executeGetOrders(): Promise<void> {
-    await this.getOrdersHeader.click();
+    await this.ensureOpen(this.getOrdersHeader, this.getOrdersExecuteBtn);
     await this.getOrdersExecuteBtn.click();
   }
 
   async executePostOrder(bodyJson: string, idempotencyKey?: string): Promise<void> {
-    await this.postOrderHeader.click();
+    await this.ensureOpen(this.postOrderHeader, this.postOrderBody);
     if (idempotencyKey !== undefined) {
       await this.idempotencyKeyInput.fill(idempotencyKey);
     }
@@ -88,20 +90,20 @@ export class SwaggerPage extends BasePage {
   }
 
   async executeValidateCoupon(bodyJson: string): Promise<void> {
-    await this.validateCouponHeader.click();
+    await this.ensureOpen(this.validateCouponHeader, this.couponBody);
     await this.couponBody.fill(bodyJson);
     await this.validateCouponExecuteBtn.click();
   }
 
   async executePatchStatus(orderId: number, targetStatus: string): Promise<void> {
-    await this.patchStatusHeader.click();
+    await this.ensureOpen(this.patchStatusHeader, this.patchIdInput);
     await this.patchIdInput.fill(orderId.toString());
     await this.patchStatusSelect.selectOption(targetStatus);
     await this.patchExecuteBtn.click();
   }
 
   async executeDeleteOrder(orderId: number): Promise<void> {
-    await this.deleteOrderHeader.click();
+    await this.ensureOpen(this.deleteOrderHeader, this.deleteIdInput);
     await this.deleteIdInput.fill(orderId.toString());
     await this.deleteExecuteBtn.click();
   }
