@@ -89,11 +89,12 @@ $credContent = "https://bd2837.aiws:vjWYxhgBZmYO4l@bitbucket.astron.hu`n"
 Set-Content -Path "C:\Users\WDAGUtilityAccount\.git-credentials" -Value $credContent -Encoding ASCII
 
 
-# Workshop repo frissitese / a legfrissebb tananyag azonnali behuzasa
-Write-Host "      Legfrissebb tananyag szinkronizalasa a Bitbucketrol..." -ForegroundColor Yellow
+# Workshop repo biztonsag es kzs-aiws branch elokeszitese
+Write-Host "      Lokalis workshop repo elokeszitese (kzs-aiws branch)..." -ForegroundColor Yellow
+& $gitCmd config --global --add safe.directory "$shareDir\project"
 Set-Location "$shareDir\project"
-& $gitCmd pull origin main
-Write-Host "      Git SChannel es Bitbucket hozzaferes keszen all!" -ForegroundColor Green
+& $gitCmd checkout kzs-aiws
+Write-Host "      Git biztonsagi beallitasok es kzs-aiws branch keszen all!" -ForegroundColor Green
 
 Write-Host "==================================================" -ForegroundColor Green
 Write-Host "  MINDEN KESZEN ALL A WORKSHOPHOZ!               " -ForegroundColor Green
