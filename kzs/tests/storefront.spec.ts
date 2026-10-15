@@ -59,7 +59,7 @@ test.describe('1. Modul: Storefront & Checkout Webshop', () => {
     await checkoutBtn.click();
 
     // Assert: A megrendelés megjelenik a legfrissebb rendelések táblázatában
-    const recentOrdersTable = page.locator('#ui-recent-orders-tbody, table tbody');
+    const recentOrdersTable = page.locator('#ui-recent-orders-tbody');
     await expect(recentOrdersTable).toContainText(testEmail);
   });
 
@@ -70,12 +70,12 @@ test.describe('1. Modul: Storefront & Checkout Webshop', () => {
 
     // Act: Termék választása és céges fizetési mód
     await page.locator('.product-card-option').first().click();
-    await page.locator('#email-input, [data-testid="email-input"]').fill(corporateEmail);
+    await page.locator('#ui-email, #email-input, [data-testid="email-input"]').fill(corporateEmail);
 
     const poRadio = page.locator('#pm-invoice, input[value="invoice"]');
     if (await poRadio.isVisible()) {
       await poRadio.check();
-      const poInput = page.locator('#po-number, [data-testid="po-input"]');
+      const poInput = page.locator('#ui-po-number, #po-number, [data-testid="po-input"]');
       if (await poInput.isVisible()) {
         await poInput.fill(poNumber);
       }
@@ -85,7 +85,7 @@ test.describe('1. Modul: Storefront & Checkout Webshop', () => {
     await checkoutBtn.click();
 
     // Assert: A rendelés létrejött PENDING státusszal
-    const ordersBody = page.locator('#ui-recent-orders-tbody, table tbody');
+    const ordersBody = page.locator('#ui-recent-orders-tbody');
     await expect(ordersBody).toContainText(corporateEmail);
   });
 
@@ -131,7 +131,7 @@ test.describe('1. Modul: Storefront & Checkout Webshop', () => {
   });
 
   test('TC-SF-06 (Key 10): Országos adókulcsok kalkulációja (US 0%, DE 19%, HU 27%)', async ({ page }) => {
-    const countrySelect = page.locator('#country-select, [data-testid="country-select"]');
+    const countrySelect = page.locator('#ui-country, #country-select, [data-testid="country-select"]');
     if (await countrySelect.isVisible()) {
       // US adókulcs (0%)
       await countrySelect.selectOption('US');
@@ -139,32 +139,39 @@ test.describe('1. Modul: Storefront & Checkout Webshop', () => {
       await countrySelect.selectOption('DE');
       // HU adókulcs (27%)
       await countrySelect.selectOption('HU');
-      await expect(page.locator('#ui-sum-tax, .tax-row')).toBeVisible();
+      await expect(page.locator('#ui-sum-vat')).toBeVisible();
     }
   });
 
   test('TC-SF-07 (Key 11): EU VAT mentesítés (Reverse Charge) érvényes adószámmal', async ({ page }) => {
-    const vatInput = page.locator('#vat-input, [data-testid="vat-input"]');
+    const vatInput = page.locator('#ui-vat-number, #vat-input, [data-testid="vat-input"]');
+    const verifyBtn = page.locator('[data-testid="btn-validate-vat"], button:has-text("Verify VAT")');
     if (await vatInput.isVisible()) {
-      // Act: Érvényes német B2B adószám beírása
+      // Act: Érvényes német B2B adószám beírása és ellenőrzése
       await vatInput.fill('DE987654321');
-      await page.keyboard.press('Tab');
+      if (await verifyBtn.isVisible()) {
+        await verifyBtn.click();
+      }
 
       // Assert: Zöld jóváhagyó felirat vagy 0% ÁFA megjelenése
-      const vatStatus = page.locator('#vat-status, .vat-feedback');
+      // FIGYELEM: A webalkalmazásban lévő hiba (d{8,9} \d helyett) miatt ez a teszt jogosan bukik el!
+      const vatStatus = page.locator('#vat-feedback, #vat-status');
       await expect(vatStatus).toContainText(/mentesített|valid|reverse charge|0%/i);
     }
   });
 
   test('TC-SF-08 (Key 12): Érvénytelen EU VAT formátum elutasítása', async ({ page }) => {
-    const vatInput = page.locator('#vat-input, [data-testid="vat-input"]');
+    const vatInput = page.locator('#ui-vat-number, #vat-input, [data-testid="vat-input"]');
+    const verifyBtn = page.locator('[data-testid="btn-validate-vat"], button:has-text("Verify VAT")');
     if (await vatInput.isVisible()) {
       // Act: Szintaktikailag hibás kód
       await vatInput.fill('hibas_vat_99');
-      await page.keyboard.press('Tab');
+      if (await verifyBtn.isVisible()) {
+        await verifyBtn.click();
+      }
 
       // Assert: Hibajelzés, alap adókulcs megmaradása
-      const vatStatus = page.locator('#vat-status, .vat-feedback');
+      const vatStatus = page.locator('#vat-feedback, #vat-status');
       await expect(vatStatus).toContainText(/érvénytelen|hibás|invalid/i);
     }
   });

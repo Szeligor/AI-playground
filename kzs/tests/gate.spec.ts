@@ -24,7 +24,7 @@ test.describe('0. Modul: Biztonsági Kapu és Globális Vezérlők', () => {
 
     // Act: Érvénytelen jelszó beírása és ellenőrzés indítása
     const passInput = page.locator('#gate-pass');
-    const submitBtn = page.locator('#gate-submit, button[type="submit"]');
+    const submitBtn = page.locator('#gate-btn');
 
     if (await passInput.isVisible()) {
       await passInput.fill('hibas_jelszo_123');
@@ -63,7 +63,7 @@ test.describe('0. Modul: Biztonsági Kapu és Globális Vezérlők', () => {
 
     // Assert: Ellenőrizzük a sikeres alaphelyzetbe állítás visszajelzését
     // Auto-waiting asserció a Storefront termékek és alaprendelések meglétére
-    await expect(page.getByText('QA Automation Runner License')).toBeVisible();
+    await expect(page.locator('.product-card-option').getByText('QA Automation Runner License')).toBeVisible();
   });
 
   test('TC-00-04 (Key 4): Fő navigációs fülek közötti váltás és panelek megjelenése', async ({ page }) => {
@@ -73,29 +73,29 @@ test.describe('0. Modul: Biztonsági Kapu és Globális Vezérlők', () => {
     // Act & Assert 1: Storefront fül
     const storefrontBtn = page.getByRole('button', { name: /Storefront/i });
     await storefrontBtn.click();
-    await expect(page.locator('#tab-storefront, [data-panel="storefront"]')).toBeVisible();
+    await expect(page.locator('#view-ui')).toBeVisible();
 
     // Act & Assert 2: Order Management fül
     const ordersBtn = page.getByRole('button', { name: /Order Management/i });
     if (await ordersBtn.isVisible()) {
       await ordersBtn.click();
-      await expect(page.locator('#tab-orders, [data-panel="orders"]')).toBeVisible();
+      await expect(page.locator('#view-orders')).toBeVisible();
     }
 
     // Act & Assert 3: Selector & DOM Lab fül
     const selectorLabBtn = page.getByRole('button', { name: /Selector & DOM Lab/i });
     await selectorLabBtn.click();
-    await expect(page.locator('#tab-selectors, [data-panel="selectors"]')).toBeVisible();
+    await expect(page.locator('#view-selectors')).toBeVisible();
 
     // Act & Assert 4: API Swagger Console fül
     const swaggerBtn = page.getByRole('button', { name: /API Swagger/i });
     await swaggerBtn.click();
-    await expect(page.locator('#tab-swagger, [data-panel="swagger"]')).toBeVisible();
+    await expect(page.locator('#view-api')).toBeVisible();
 
     // Act & Assert 5: SQL Workbench fül
     const sqlBtn = page.getByRole('button', { name: /SQL|Database/i });
     await sqlBtn.click();
-    await expect(page.locator('#tab-sql, [data-panel="sql"]')).toBeVisible();
+    await expect(page.locator('#view-sql')).toBeVisible();
   });
 
   test('TC-NAV-01 (Key 64): Külső Guide link megnyitása érvényes céloldallal', async ({ page }) => {

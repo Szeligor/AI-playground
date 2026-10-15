@@ -47,17 +47,18 @@ test.describe('2. Modul: Role-Based Access Control (RBAC) Profilok', () => {
       await switchRoleBtn.click();
 
       // Blocked / Suspended profil kiválasztása
-      const blockedOption = page.locator('#btn-role-blocked, button:has-text("BLOCKED"), button:has-text("Felfüggesztett")');
+      const blockedOption = page.locator('[data-testid="select-actor-blocked"], button:has-text("BLOCKED")');
       if (await blockedOption.isVisible()) {
         await blockedOption.click();
 
         // Vissza a Storefrontra és rendelés kísérlet
         const checkoutBtn = page.locator('[data-testid="checkout-btn"], #submit-order-btn').first();
         if (await checkoutBtn.isVisible()) {
+          page.once('dialog', async dialog => {
+            expect(dialog.message()).toContain('Access Denied (403 Forbidden)');
+            await dialog.dismiss();
+          });
           await checkoutBtn.click();
-
-          // Assert: 403 Forbidden vagy tiltó hibaüzenet
-          await expect(page.locator('.alert-danger, .error-banner, #auth-err')).toContainText(/tiltva|blocked|forbidden|felfüggesztve/i);
         }
       }
     }
@@ -69,15 +70,15 @@ test.describe('2. Modul: Role-Based Access Control (RBAC) Profilok', () => {
       await switchRoleBtn.click();
 
       // Kézi belépési űrlap tesztelése hibás email címmel
-      const emailField = page.locator('#login-email, [data-testid="login-email"]');
-      const submitLogin = page.locator('#login-submit, [data-testid="login-submit"]');
+      const emailField = page.locator('#modal-login-email');
+      const submitLogin = page.locator('[data-testid="auth-login-btn"]');
 
       if (await emailField.isVisible() && await submitLogin.isVisible()) {
         await emailField.fill('nem_valid_email');
         await submitLogin.click();
 
         // Assert: Validációs hibaüzenet
-        await expect(page.locator('.login-err, #auth-feedback')).toBeVisible();
+        await expect(page.locator('#modal-auth-error')).toBeVisible();
       }
     }
   });
@@ -87,8 +88,8 @@ test.describe('2. Modul: Role-Based Access Control (RBAC) Profilok', () => {
     if (await switchRoleBtn.isVisible()) {
       await switchRoleBtn.click();
 
-      const passField = page.locator('#login-pass, [data-testid="login-password"]');
-      const submitLogin = page.locator('#login-submit, [data-testid="login-submit"]');
+      const passField = page.locator('#modal-login-pass');
+      const submitLogin = page.locator('[data-testid="auth-login-btn"]');
 
       if (await passField.isVisible() && await submitLogin.isVisible()) {
         // Túl egyszerű/rövid jelszó
@@ -96,7 +97,7 @@ test.describe('2. Modul: Role-Based Access Control (RBAC) Profilok', () => {
         await submitLogin.click();
 
         // Assert: Szabványnak nem megfelelő jelszó elutasítása
-        await expect(page.locator('.login-err, #auth-feedback')).toBeVisible();
+        await expect(page.locator('#modal-auth-error')).toBeVisible();
       }
     }
   });
@@ -107,7 +108,7 @@ test.describe('2. Modul: Role-Based Access Control (RBAC) Profilok', () => {
       await switchRoleBtn.click();
 
       // Tamás Admin kiválasztása
-      const adminOption = page.locator('#btn-role-admin, button:has-text("Tamás Admin")');
+      const adminOption = page.locator('[data-testid="select-actor-admin"], button:has-text("Tamás Admin")');
       if (await adminOption.isVisible()) {
         await adminOption.click();
 

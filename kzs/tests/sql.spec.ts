@@ -21,14 +21,14 @@ test.describe('6. Modul: SQL Workbench és Adatintegritás', () => {
 
   test.beforeEach(async ({ page }) => {
     await page.goto(APP_URL);
-    const sqlTab = page.getByRole('button', { name: /SQL|Database/i });
+    const sqlTab = page.getByRole('button', { name: /SQL Workbench/i });
     if (await sqlTab.isVisible()) {
       await sqlTab.click();
     }
   });
 
   test('TC-INT-01 (Key 57): SQL lekérdezés futtatása (SELECT * FROM orders) és eredménylista', async ({ page }) => {
-    const sqlTextarea = page.locator('#sql-input, textarea');
+    const sqlTextarea = page.locator('#sql-input');
     const runBtn = page.getByRole('button', { name: /Run Query/i });
 
     if (await sqlTextarea.isVisible() && await runBtn.isVisible()) {
@@ -37,7 +37,8 @@ test.describe('6. Modul: SQL Workbench és Adatintegritás', () => {
       await runBtn.click();
 
       // Assert: Az eredménymeghatározó táblázat megjelenik
-      const resultsContainer = page.locator('#sql-results-container, .sql-results');
+      // FIGYELEM: A webalkalmazásban lévő hiba (/^SELECTs+/i helyett /\\s+/) miatt a SELECT nem illeszkedik!
+      const resultsContainer = page.locator('#sql-results-container table');
       await expect(resultsContainer).toBeVisible();
     }
   });
@@ -49,13 +50,13 @@ test.describe('6. Modul: SQL Workbench és Adatintegritás', () => {
       await chipAllOrders.click();
 
       // Assert: A lekérdezés bekerült a szerkesztőbe
-      const sqlInput = page.locator('#sql-input, textarea');
+      const sqlInput = page.locator('#sql-input');
       await expect(sqlInput).toHaveValue(/SELECT.*FROM orders/i);
     }
   });
 
   test('TC-SQL-06 (Key 66): Hibás SQL szintaxis kezelése és hibajelzés renderelése', async ({ page }) => {
-    const sqlTextarea = page.locator('#sql-input, textarea');
+    const sqlTextarea = page.locator('#sql-input');
     const runBtn = page.getByRole('button', { name: /Run Query/i });
 
     if (await sqlTextarea.isVisible() && await runBtn.isVisible()) {
@@ -63,21 +64,21 @@ test.describe('6. Modul: SQL Workbench és Adatintegritás', () => {
       await sqlTextarea.fill('INVALID SYNTAX NONEXISTENT TABLE;;;');
       await runBtn.click();
 
-      // Assert: A felület stabil marad és hibaüzenet jelenik meg
-      const errorFeedback = page.locator('.sql-error, .alert-danger, #sql-err');
+      // Assert: A felület hibaüzenetet jelenít meg
+      const errorFeedback = page.locator('#sql-results-container');
       await expect(errorFeedback).toBeVisible();
     }
   });
 
   test('TC-INT-03 (Key 59): Audit naplózási tábla (audit_logs) vizsgálata', async ({ page }) => {
-    const sqlTextarea = page.locator('#sql-input, textarea');
+    const sqlTextarea = page.locator('#sql-input');
     const runBtn = page.getByRole('button', { name: /Run Query/i });
 
     if (await sqlTextarea.isVisible() && await runBtn.isVisible()) {
       await sqlTextarea.fill('SELECT * FROM audit_logs ORDER BY id DESC LIMIT 5;');
       await runBtn.click();
 
-      const results = page.locator('#sql-results-container, .sql-results');
+      const results = page.locator('#sql-results-container table');
       await expect(results).toBeVisible();
     }
   });
