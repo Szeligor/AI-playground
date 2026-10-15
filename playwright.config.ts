@@ -1,7 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
-  testDir: './tests',
+  testDir: '.',
   timeout: 30 * 1000,
   expect: {
     timeout: 5000,
@@ -34,11 +34,16 @@ export default defineConfig({
         baseURL: process.env.BASE_URL || 'https://testacademy.hu',
       },
     },
+    // Unit tests project
+    {
+      name: 'unit',
+      testMatch: 'kzs/tests/unit/**/*.spec.ts',
+    },
     // Main Chromium project
     {
       name: 'chromium',
-      testMatch: '**/*.spec.ts',
-      testIgnore: ['**/*api*.spec.ts'],
+      testMatch: ['tests/**/*.spec.ts', 'kzs/tests/**/*.spec.ts'],
+      testIgnore: ['**/*api*.spec.ts', 'kzs/tests/unit/**'],
       use: {
         ...devices['Desktop Chrome'],
       },
