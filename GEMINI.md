@@ -29,8 +29,8 @@
    - Treat all enterprise assets as high-security intellectual property under strict NDA.
 
 4. **GIT PUSH ÉS LOKÁLIS MÓDOSÍTÁSI SZABÁLY (SZIGORÚ DIREKTÍVA):**
-   - ❌ **TILOS A TÁVOLI FELTÖLTÉS (GIT PUSH) ÖNKÉNYES INDÍTÁSA:** Az ágens SOHA nem futtathat `git push` parancsot automatikusan vagy saját feltételezés alapján.
-   - Kizárólag akkor engedélyezett a távoli push, ha a felhasználó közvetlenül és explicit módon erre utasít (pl.: "pushold fel a távoli repóba").
+   - ❌ **TILOS A TÁVOLI FELTÖLTÉS (GIT PUSH) ÖNKÉNYES INDÍTÁSA:** Az ágens SOHA nem futtathat `git push` parancsot automatikusan vagy saját feltételezés alapján. Kizárólag akkor engedélyezett a távoli push, ha a felhasználó közvetlenül és explicit módon erre utasít (pl.: "pushold fel a távoli repóba").
+   - **KÖTELEZŐ AUTOMATIKUS LOKÁLIS COMMIT (LOKÁLIS PUSH):** Minden olyan lépésnél, ahol bármilyen fájlváltoztatás történik (új fájl létrehozása, meglévő módosítása vagy törlése), az ágensnek a módosítás után azonnal és automatikusan le kell mentenie a változtatásokat a helyi ágon egy lokális committal (`git add .` és `git commit -m "..."`).
    - Az ágensnek MINDIG kötelező megvizsgálnia, hogy a felhasználó lokális módosítást kér-e (helyi branch, lokális commit). Kétely esetén kizárólag lokálisan dolgozhat.
 
 ---
