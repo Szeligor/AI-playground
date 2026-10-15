@@ -28,6 +28,11 @@
    - ❌ **NEVER** print, log, or echo enterprise passwords, secrets, API tokens, or personal employee data in prompt replies or logs.
    - Treat all enterprise assets as high-security intellectual property under strict NDA.
 
+4. **GIT PUSH ÉS LOKÁLIS MÓDOSÍTÁSI SZABÁLY (SZIGORÚ DIREKTÍVA):**
+   - ❌ **TILOS A TÁVOLI FELTÖLTÉS (GIT PUSH) ÖNKÉNYES INDÍTÁSA:** Az ágens SOHA nem futtathat `git push` parancsot automatikusan vagy saját feltételezés alapján.
+   - Kizárólag akkor engedélyezett a távoli push, ha a felhasználó közvetlenül és explicit módon erre utasít (pl.: "pushold fel a távoli repóba").
+   - Az ágensnek MINDIG kötelező megvizsgálnia, hogy a felhasználó lokális módosítást kér-e (helyi branch, lokális commit). Kétely esetén kizárólag lokálisan dolgozhat.
+
 ---
 
 ## 📋 1. HIÁNYZÓ SPECIFIKÁCIÓ KEZELÉSE (KÖTELEZŐ PROTOKOLL)
