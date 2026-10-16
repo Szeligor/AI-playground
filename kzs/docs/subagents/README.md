@@ -7,13 +7,15 @@ Ez a dokumentum a keretrendszerhez kialakított specializált al-ágens (subagen
 
 ## 1. Architektúrális Áttekintés és Page Object Hozzáférési Térkép
 
-Az alábbi ábra szemlélteti, hogy melyik subagent milyen alkalmazáskomponensekhez, Page Object osztályokhoz fér hozzá, milyen feladatot végez rajtuk, és milyen kódolási és minőségi szabványokat köteles betartani:
+Az alábbi ábra szemlélteti a teljes 8 ágensből álló multi-agent csapatot, hogy melyik subagent milyen alkalmazáskomponensekhez, Page Object osztályokhoz fér hozzá, milyen feladatot végez rajtuk, és milyen kódolási és minőségi szabványokat köteles betartani:
 
 ```mermaid
 flowchart TD
-    subgraph Subagents["Specializált Subagensek"]
+    subgraph Subagents["Specializált Subagensek (8 Szerepkör)"]
         Orchestrator["QA Orchestrator\n(Fő Koordinátor)"]
         Planner["Test Planner\n(Specifikáció & Mátrix)"]
+        Generator["Test Generator\n(Automatizált Tesztíró)"]
+        Curator["Test Value Curator\n(Értékvizsgáló & Optimalizáló)"]
         E2ESpec["E2E Specialist\n(UI Automatizáló)"]
         APISpec["API Specialist\n(REST API Tesztelő)"]
         Hunter["Defect Hunter\n(Feltáró & OWASP Tesztelő)"]
@@ -27,7 +29,7 @@ flowchart TD
         Swagger["SwaggerPage.ts & API Endpoints\n(REST API, Auth, Orders)"]
         SqlConsole["SqlConsolePage.ts\n(SQL Workbench, Audit Napló)"]
         SpecsRepo["specs/ & kzs/specs/\n(Követelmények, BVA Mátrixok)"]
-        TestsRepo["tests/ & kzs/tests/\n(Minden *.spec.ts fájl)"]
+        TestsRepo["kzs/tests/*.spec.ts\n(Teljes Tesztkészlet)"]
     end
 
     subgraph Standards["Kötelező Szabványok és Szabályok"]
@@ -36,14 +38,26 @@ flowchart TD
         StdZeroWait["Zéró Manuális Várakozás\n(Nincs waitForTimeout / sleep)"]
         StdNoAssertPOM["Zéró Asserció POM-ban\n(expect kizárólag a tesztekben)"]
         StdDefect["Defect-Focused Mindset\n(Valós hiba assertálása, tilos maszkolni)"]
+        StdValue["Business Value & ROI\n(Tautológia- és redundanciamentesség)"]
         StdComment["Kezdőbarát Kommentálás\n(JSDoc és inline technikai miértek)"]
         StdGit["Lokális Git Fegyelem\n(Commit lépésenként, nincs push)"]
     end
 
     %% Kapcsolatok a célokhoz
     Orchestrator --> Planner
+    Orchestrator --> Generator
+    Orchestrator --> Curator
     Orchestrator --> Reviewer
     Planner --> SpecsRepo
+
+    Generator --> Storefront
+    Generator --> OrderMgmt
+    Generator --> SelectorLab
+    Generator --> TestsRepo
+
+    Curator --> TestsRepo
+    Curator --> Storefront
+    Curator --> OrderMgmt
 
     E2ESpec --> Storefront
     E2ESpec --> OrderMgmt
@@ -63,25 +77,28 @@ flowchart TD
     Reviewer --> TestsRepo
     Reviewer --> Storefront
     Reviewer --> OrderMgmt
-    Reviewer --> Swagger
 
     %% Szabványok hozzárendelése
+    Generator -.-> StdAAA
+    Generator -.-> StdWebFirst
+    Generator -.-> StdNoAssertPOM
+    Generator -.-> StdComment
+
+    Curator -.-> StdValue
+    Curator -.-> StdDefect
+    Curator -.-> StdWebFirst
+
     E2ESpec -.-> StdAAA
     E2ESpec -.-> StdWebFirst
     E2ESpec -.-> StdZeroWait
-    E2ESpec -.-> StdNoAssertPOM
-    E2ESpec -.-> StdComment
 
     APISpec -.-> StdAAA
     APISpec -.-> StdZeroWait
-    APISpec -.-> StdComment
 
     Hunter -.-> StdDefect
     Hunter -.-> StdWebFirst
-    Hunter -.-> StdComment
 
     Reviewer -.-> StdDefect
-    Reviewer -.-> StdNoAssertPOM
     Reviewer -.-> StdComment
 
     Orchestrator -.-> StdGit
@@ -89,33 +106,22 @@ flowchart TD
 
 ---
 
-## 2. Page Object és Komponens Hozzáférési Mátrix
+## 2. Részletes Szerepkör- és Hozzáférési Mátrix
 
-| Subagent | Hozzáférhető Page Objectek & Célok | Fő Műveletek és Felelősség | Kötelező Szabványok |
+| Subagent | Fájl / Útmutató | Hozzáférések | Fő Felelősség és Működés |
 |---|---|---|---|
-| **QA Orchestrator** | Teljes repository (`kzs/`, `pages/`, `tests/`) | Feladatbontás, prioritások, subagensek delegálása, záró szintézis. | Git izoláció, lokális commit ellenőrzés. |
-| **Test Planner** | `kzs/specs/`, `specs/` | Specifikációk elemzése, határérték-elemzés (BVA), ekvivalencia partícionálás. | ISTQB szabványos tesztleírások, trace-ability. |
-| **E2E Specialist** | `StorefrontPage`, `OrderManagementPage`, `SelectorLabPage` | Page Object osztályok metódusainak hívása, Happy path és negatív UI tesztek. | AAA minta, Web-First lokátorok, zéró `sleep`, zéró POM asserció. |
-| **API Specialist** | `SwaggerPage`, `/api/clients/`, Playwright `request` | REST API végpontok meghívása, HTTP státuszok, JSON payload és séma validáció. | Gyors böngészőmentes futtatás, AAA minta, kontraktus-validáció. |
-| **Defect Hunter** | `StorefrontPage`, `OrderManagementPage`, `SqlConsolePage`, `SelectorLabPage` | Érvénytelen bemenetek, peremértékek, állapotgép-bypass, adatbázis szinkronizáció, XSS/CSV injection. | Defect-Focused Mindset, soha nem maszkolja a hibát, szigorú elvárt üzleti asserciók. |
-| **Code Reviewer** | Minden `*.spec.ts`, `*Page.ts` | Kódminőség audit, laza regexek és feltételes asserciók kiszűrése, kommentelés ellenőrzése. | Maszkolás-mentesség, kezdőbarát kommentelési standard, TypeScript strict check. |
+| **QA Orchestrator** | [qa-orchestrator.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/docs/subagents/qa-orchestrator.md) | Teljes repository | Feladatbontás, koordináció, Plan Mode jóváhagyások, szintézis. |
+| **Test Planner** | [test-planner.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/docs/subagents/test-planner.md) | `kzs/specs/`, `specs/` | Követelményelemzés, BVA határértékek, ekvivalencia partícionálás, tesztmátrixok. |
+| **Test Generator** | [test-generator.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/docs/subagents/test-generator.md) | `kzs/pages/`, `kzs/tests/` | Új tesztek automatizált kódolása a `kzs/pages` POM osztályok használatával és kezdőbarát kommentekkel. |
+| **Test Value Curator**| [test-curator.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/docs/subagents/test-curator.md) | `kzs/tests/`, `kzs/pages/` | Tesztek értékének és értelmének vizsgálata (ROI), redundanciák törlése, gyenge asserciók élesítése, a tesztkészlet közvetlen módosítása. |
+| **E2E Specialist** | [e2e-specialist.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/docs/subagents/e2e-specialist.md) | `StorefrontPage`, `OrderManagementPage`, `SelectorLabPage` | Page Object osztályok metódusai, Happy path és negatív UI E2E tesztek. |
+| **API Specialist** | [api-specialist.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/docs/subagents/api-specialist.md) | `SwaggerPage`, `/api/clients/`, Playwright `request` | Böngésző nélküli gyors REST API tesztek, státuszkódok és JSON sémák validálása. |
+| **Defect Hunter** | [defect-hunter.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/docs/subagents/defect-hunter.md) | Valamennyi oldal és réteg | Exploratory tesztelés, negatív határesetek, állapotgép-rések, Stored XSS, CSV injekciók. |
+| **Code Reviewer** | [code-reviewer.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/docs/subagents/code-reviewer.md) | Minden `*.spec.ts`, `*Page.ts` | Kódminőség audit, laza regexek (`/valid/i`) és feltételes asserciók kiszűrése. |
 
 ---
 
-## 3. Részletes Subagent Útmutatók (How-To Dokumentációk)
-
-A subagensek részletes, lépésről lépésre követhető működési és kódolási útmutatói az alábbi fájlokban találhatók:
-
-1. [QA Orchestrator Részletes How-To](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/docs/subagents/qa-orchestrator.md)
-2. [Test Planner Részletes How-To](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/docs/subagents/test-planner.md)
-3. [E2E Specialist Részletes How-To](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/docs/subagents/e2e-specialist.md)
-4. [API Specialist Részletes How-To](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/docs/subagents/api-specialist.md)
-5. [Defect Hunter Részletes How-To](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/docs/subagents/defect-hunter.md)
-6. [Code & Assertion Reviewer Részletes How-To](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/docs/subagents/code-reviewer.md)
-
----
-
-## 4. Együttműködési Életciklus Példa (End-to-End Workflow)
+## 3. Együttműködési Életciklus a Generáló és Értékvizsgáló Ágensekkel
 
 ```mermaid
 sequenceDiagram
@@ -123,18 +129,19 @@ sequenceDiagram
     actor User as Felhasználó
     participant Orch as QA Orchestrator
     participant Plan as Test Planner
-    participant E2E as E2E Specialist
-    participant Hunt as Defect Hunter
+    participant Gen as Test Generator
+    participant Cur as Test Value Curator
     participant Rev as Code Reviewer
 
-    User->>Orch: Új funkció tesztelési igény (pl. Kuponkezelés)
-    Orch->>Plan: Követelmények átadása & elemzés kérése
-    Plan-->>Orch: specs/coupon_matrix.md (Pozitív, negatív, BVA esetek)
-    Orch->>E2E: E2E tesztesetek kódolása StorefrontPage alapján
-    E2E-->>Orch: tests/storefront-coupons.spec.ts elkészült
-    Orch->>Hunt: Feltáró vizsgálat megbízása (Bypass & Állapotgép)
-    Hunt-->>Orch: feltárt hiba (Termékváltásos SAVE100 bypass teszt hozzáadva)
-    Orch->>Rev: Kód átvizsgálása és asserció integritás audit
-    Rev-->>Orch: Audit jóváhagyva (nincs laza regex, kommentek rendben)
-    Orch->>User: Végrehajtási jelentés és hibalista átadása
+    User->>Orch: Új üzleti funkció tesztelési igénye
+    Orch->>Plan: Követelményelemzés és tesztmátrix készítés
+    Plan-->>Orch: specs/funkcio_matrix.md
+    Orch->>Gen: Tesztek legenerálása kzs/pages alapján
+    Gen-->>Orch: kzs/tests/uj-funkcio.spec.ts (elkészült)
+    Orch->>Cur: Teszt-érték és értelem vizsgálata
+    Note over Cur: Megvizsgálja: van-e értelme a teszteknek?<br/>Törli a duplikációt, élesíti az asserciókat
+    Cur-->>Orch: Tesztkészlet refaktorálva és optimalizálva
+    Orch->>Rev: Asserció-integritás és maszkolásmentességi audit
+    Rev-->>Orch: Audit jóváhagyva
+    Orch->>User: Minősített, magas értékű tesztkészlet átadása
 ```
