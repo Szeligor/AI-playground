@@ -36,6 +36,7 @@ A felhasználó munkájához és tesztelési folyamataihoz tartozó összes doku
 - **[kzs/docs/TEST_CASES.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/docs/TEST_CASES.md):** E2E és integrációs tesztesetek katalógusa.
 - **[kzs/docs/UNIT_TEST_CASES.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/docs/UNIT_TEST_CASES.md):** Független unit tesztek specifikációja és leírása.
 - **[kzs/docs/NEWTESTCASE.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/docs/NEWTESTCASE.md):** Sablon prompt új teszteset és Page Object generálásához.
+- **[kzs/docs/MASTER_PROMPT.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/docs/MASTER_PROMPT.md):** Összefoglaló master rendszerprompt új ágens indításához az eddigi eredmények és szabályok alapján.
 
 ---
 
