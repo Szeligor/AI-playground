@@ -1,85 +1,65 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from '../fixtures';
 
 /**
- * SQL Workbench & Adatintegritási E2E Tesztcsomag
+ * SQL Workbench & Adatintegritási E2E Tesztcsomag (POM & Custom Fixture Alapon)
  *
  * Lefedett tesztesetek:
- * - TC-INT-01 (Key 57): SQL Lekérdezések Futtatása
- * - TC-INT-02 (Key 58): SQL-ből Frissülő UI Állapot
- * - TC-INT-03 (Key 59): Audit Naplózás Konzisztencia
- * - TC-INT-04 (Key 60): Trainer UI Breaking Mode Követés
+ * - TC-INT-01 (Key 57): SQL Lekérdezések Futtatása (SELECT * FROM orders)
  * - TC-SQL-05 (Key 65): SQL Gyorslekérdezés Chipek Beillesztése
  * - TC-SQL-06 (Key 66): Hibás SQL Szintaxis Kezelése
+ * - TC-INT-03 (Key 59): Audit Naplózási Tábla (audit_logs) Vizsgálata
  *
- * Tervezési minta: AAA (Arrange - Act - Assert)
- * Cél: Az SQL konzol, a gyorslekérdezések és a reaktív adatbázis szinkronizáció ellenőrzése.
+ * Tervezési minta: Page Object Model (kzs/pages/SqlConsolePage) + Custom Fixtures (kzs/fixtures).
  */
-
-const APP_URL = 'https://testacademy.hu/qa-lab/e2e-app?pass=astron2026';
 
 test.describe('6. Modul: SQL Workbench és Adatintegritás', () => {
 
-  test.beforeEach(async ({ page }) => {
-    await page.goto(APP_URL);
-    const sqlTab = page.getByRole('button', { name: /SQL Workbench/i });
-    if (await sqlTab.isVisible()) {
-      await sqlTab.click();
+  test.beforeEach(async ({ sqlConsolePage }) => {
+    await sqlConsolePage.goto();
+    if (await sqlConsolePage.tabSql.isVisible()) {
+      await sqlConsolePage.tabSql.click();
     }
   });
 
-  test('TC-INT-01 (Key 57): SQL lekérdezés futtatása (SELECT * FROM orders) és eredménylista', async ({ page }) => {
-    const sqlTextarea = page.locator('#sql-input');
-    const runBtn = page.getByRole('button', { name: /Run Query/i });
-
-    if (await sqlTextarea.isVisible() && await runBtn.isVisible()) {
-      // Act: Lekérdezés megadása és futtatása
-      await sqlTextarea.fill('SELECT * FROM orders;');
-      await runBtn.click();
+  test('TC-INT-01 (Key 57): SQL lekérdezés futtatása (SELECT * FROM orders) és eredménylista', async ({ sqlConsolePage }) => {
+    if (await sqlConsolePage.sqlInput.isVisible()) {
+      // Act: Lekérdezés megadása és futtatása a Page Objecten keresztül
+      await sqlConsolePage.executeQuery('SELECT * FROM orders;');
 
       // Assert: Az eredménymeghatározó táblázat megjelenik
-      // FIGYELEM: A webalkalmazásban lévő hiba (/^SELECTs+/i helyett /\\s+/) miatt a SELECT nem illeszkedik!
-      const resultsContainer = page.locator('#sql-results-container table');
-      await expect(resultsContainer).toBeVisible();
+      // FIGYELEM: A webalkalmazásban lévő hiba (/^SELECTs+/i helyett /\s+/) miatt a SELECT nem illeszkedik!
+      await expect(sqlConsolePage.resultsTable).toBeVisible();
     }
   });
 
-  test('TC-SQL-05 (Key 65): Gyorslekérdezés chip gombok automatikus beillesztése', async ({ page }) => {
-    // Act: Kattintás az All Orders chipre
-    const chipAllOrders = page.getByRole('button', { name: 'All Orders' });
-    if (await chipAllOrders.isVisible()) {
-      await chipAllOrders.click();
+  test('TC-SQL-05 (Key 65): Gyorslekérdezés chip gombok automatikus beillesztése', async ({ sqlConsolePage }) => {
+    if (await sqlConsolePage.chipAllOrders.isVisible()) {
+      // Act: Kattintás az All Orders chipre
+      await sqlConsolePage.selectAllOrdersChip();
 
       // Assert: A lekérdezés bekerült a szerkesztőbe
-      const sqlInput = page.locator('#sql-input');
-      await expect(sqlInput).toHaveValue(/SELECT.*FROM orders/i);
+      await expect(sqlConsolePage.sqlInput).toHaveValue(/SELECT.*FROM orders/i);
     }
   });
 
-  test('TC-SQL-06 (Key 66): Hibás SQL szintaxis kezelése és hibajelzés renderelése', async ({ page }) => {
-    const sqlTextarea = page.locator('#sql-input');
-    const runBtn = page.getByRole('button', { name: /Run Query/i });
-
-    if (await sqlTextarea.isVisible() && await runBtn.isVisible()) {
+  test('TC-SQL-06 (Key 66): Hibás SQL szintaxis kezelése és hibajelzés renderelése', async ({ sqlConsolePage }) => {
+    if (await sqlConsolePage.sqlInput.isVisible()) {
       // Act: Hibás szintaxisú lekérdezés küldése
-      await sqlTextarea.fill('INVALID SYNTAX NONEXISTENT TABLE;;;');
-      await runBtn.click();
+      await sqlConsolePage.executeQuery('INVALID SYNTAX NONEXISTENT TABLE;;;');
 
       // Assert: A felület hibaüzenetet jelenít meg
-      const errorFeedback = page.locator('#sql-results-container');
-      await expect(errorFeedback).toBeVisible();
+      await expect(sqlConsolePage.resultsContainer).toBeVisible();
     }
   });
 
-  test('TC-INT-03 (Key 59): Audit naplózási tábla (audit_logs) vizsgálata', async ({ page }) => {
-    const sqlTextarea = page.locator('#sql-input');
-    const runBtn = page.getByRole('button', { name: /Run Query/i });
+  test('TC-INT-03 (Key 59): Audit naplózási tábla (audit_logs) vizsgálata', async ({ sqlConsolePage }) => {
+    if (await sqlConsolePage.sqlInput.isVisible()) {
+      // Act: Audit napló lekérdezése
+      await sqlConsolePage.executeQuery('SELECT * FROM audit_logs ORDER BY id DESC LIMIT 5;');
 
-    if (await sqlTextarea.isVisible() && await runBtn.isVisible()) {
-      await sqlTextarea.fill('SELECT * FROM audit_logs ORDER BY id DESC LIMIT 5;');
-      await runBtn.click();
-
-      const results = page.locator('#sql-results-container table');
-      await expect(results).toBeVisible();
+      // Assert: Eredménytábla megjelenése
+      // FIGYELEM: A webalkalmazásban lévő hiba (/FROMs+audit_logs/i) miatt ez a teszt jogosan elbukik!
+      await expect(sqlConsolePage.resultsTable).toBeVisible();
     }
   });
 

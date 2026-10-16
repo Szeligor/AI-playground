@@ -84,13 +84,13 @@ export class StorefrontPage extends BasePage {
     // Fizetes
     this.payMethodCardRadio = page.locator('#pm-card, #pay-method-card, input[value="card"]');
     this.payMethodInvoiceRadio = page.locator('#pm-invoice, #pay-method-invoice, input[value="invoice"]');
-    this.cardNumberInput = page.getByTestId('card-number-input').or(page.locator('#card-num, #ui-card-number'));
-    this.cardExpiryInput = page.getByTestId('card-expiry-input').or(page.locator('#card-exp, #ui-card-expiry'));
-    this.cardCvcInput = page.getByTestId('card-cvc-input').or(page.locator('#card-cvc, #ui-card-cvc'));
+    this.cardNumberInput = page.getByTestId('card-number-input').or(page.locator('#ui-card-num, #card-num, #ui-card-number'));
+    this.cardExpiryInput = page.getByTestId('card-expiry-input').or(page.locator('#ui-card-exp, #card-exp, #ui-card-expiry'));
+    this.cardCvcInput = page.getByTestId('card-cvc-input').or(page.locator('#ui-card-cvc, #card-cvc'));
     this.poNumberInput = page.getByTestId('po-number-input').or(page.locator('#ui-po-number, #po-number'));
 
     // Submit
-    this.checkoutBtn = page.locator('#btn-ui-submit, [data-testid="checkout-btn"]').first();
+    this.checkoutBtn = page.getByTestId('checkout-btn').or(page.locator('#btn-ui-submit, #submit-order-btn, button:has-text("Place Subscription Order")')).first();
 
     // Kosar osszegzo
     this.summaryProduct = page.locator('#ui-sum-product');

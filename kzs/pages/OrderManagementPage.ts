@@ -26,7 +26,7 @@ export class OrderManagementPage extends BasePage {
     this.searchInput = page.getByTestId('order-search-input').or(page.locator('#mgmt-search'));
     this.statusFilter = page.getByTestId('order-status-filter').or(page.locator('#mgmt-status-filter'));
     this.sortSelect = page.getByTestId('order-sort-select').or(page.locator('#mgmt-sort'));
-    this.ordersTable = page.getByTestId('mgmt-orders-table').or(page.locator('#mgmt-orders-table, #mgmt-orders-tbody'));
+    this.ordersTable = page.getByTestId('mgmt-orders-table').or(page.locator('#mgmt-orders-table'));
     this.orderRows = page.locator('#mgmt-orders-tbody tr');
     this.paginationInfo = page.locator('#mgmt-pagination-info');
     this.paginationPrevBtn = page.getByTestId('pagination-prev').or(page.locator('#mgmt-btn-prev'));

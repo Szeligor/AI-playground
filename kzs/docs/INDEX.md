@@ -60,7 +60,15 @@ A `kzs` modul saját, tiszta, zéró-asserciós Page Object osztályai:
 
 ---
 
-## 5. Multi-Agent Subagent Architektúra és How-To Útmutatók (`kzs/docs/subagents/`)
+## 5. Playwright Custom Fixture Réteg (`kzs/fixtures/`)
+
+A Playwright `test.extend` mechanizmusával megvalósított automatikus Page Object injektálás:
+- **[kzs/fixtures/pageFixtures.ts](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/fixtures/pageFixtures.ts):** Egyedi fixture típusdefiníciók és példányosítások (`storefrontPage`, `orderManagementPage`, `selectorLabPage`, `sqlConsolePage`, `swaggerPage`).
+- **[kzs/fixtures/index.ts](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/fixtures/index.ts):** Központi fixture és `expect` export a tesztek számára (`import { test, expect } from '../fixtures';`).
+
+---
+
+## 6. Multi-Agent Subagent Architektúra és How-To Útmutatók (`kzs/docs/subagents/`)
 
 A specializált al-ágensek teljes leírása, Page Object hozzáférési mátrixa és lépésről lépésre követhető How-To útmutatói:
 
@@ -75,3 +83,4 @@ A specializált al-ágensek teljes leírása, Page Object hozzáférési mátrix
 | **[kzs/docs/subagents/api-specialist.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/docs/subagents/api-specialist.md)** | API Specialist How-To | REST API végpontok, `SwaggerPage`, Service Object réteg és séma validáció. |
 | **[kzs/docs/subagents/defect-hunter.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/docs/subagents/defect-hunter.md)** | Defect Hunter How-To | Exploratory tesztelés, negatív határesetek, állapotgép-rések, Stored XSS és adatintegritás. |
 | **[kzs/docs/subagents/code-reviewer.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/docs/subagents/code-reviewer.md)** | Code Reviewer How-To | Asserció integritás audit, teszt-maszkolás kiszűrése és kezdőbarát kommentelés ellenőrzése. |
+

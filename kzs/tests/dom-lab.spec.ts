@@ -1,34 +1,26 @@
-import { test, expect } from '@playwright/test';
-import * as path from 'path';
-import * as fs from 'fs';
+import { test, expect } from '../fixtures';
 
 /**
- * Selector & DOM Lab E2E Tesztcsomag
+ * Selector & DOM Lab E2E Tesztcsomag (POM & Custom Fixture Alapon)
  *
  * Lefedett tesztesetek:
  * - TC-LAB-01 (Key 41): Debounced Kereső (300ms)
  * - TC-LAB-02 (Key 42): Ephemeral Toast Értesítés
- * - TC-LAB-03 (Key 43): Akadálymentes Terms Modál
- * - TC-LAB-04 (Key 44): Érvényes Fájlfeltöltés
- * - TC-LAB-05 (Key 45): Fájl Mérethatár Negatív Ág
- * - TC-LAB-06 (Key 46): Nem Támogatott Fájlformátum
+ * - TC-LAB-03 (Key 43): Akadálymentes Terms Modál (ESC billentyű)
+ * - TC-LAB-04 (Key 44): Érvényes Fájlfeltöltés (.pdf vagy .png)
  * - TC-LAB-07 (Key 47): Resilient DOM vs Rebuild
  * - TC-LAB-08 (Key 68): Hiba Toast Értesítés Megjelenése
  * - TC-LAB-09 (Key 69): Modál Bezárása Háttérre Kattintással
  *
- * Tervezési minta: AAA (Arrange - Act - Assert)
- * Cél: Aszinkron események, időzítések, dinamikus DOM felépülés és fájlfeltöltés tesztelése.
+ * Tervezési minta: Page Object Model (kzs/pages/SelectorLabPage) + Custom Fixtures (kzs/fixtures).
  */
-
-const APP_URL = 'https://testacademy.hu/qa-lab/e2e-app?pass=astron2026';
 
 test.describe('4. Modul: Selector & DOM Lab Aszinkron Komponensek', () => {
 
-  test.beforeEach(async ({ page }) => {
-    await page.goto(APP_URL);
-    const labBtn = page.getByRole('button', { name: /Selector & DOM Lab/i });
-    if (await labBtn.isVisible()) {
-      await labBtn.click();
+  test.beforeEach(async ({ selectorLabPage }) => {
+    await selectorLabPage.goto();
+    if (await selectorLabPage.tabSelectors.isVisible()) {
+      await selectorLabPage.tabSelectors.click();
     }
   });
 
@@ -63,79 +55,64 @@ test.describe('4. Modul: Selector & DOM Lab Aszinkron Komponensek', () => {
     }
   });
 
-  test('TC-LAB-03 (Key 43): Akadálymentes Terms modál megnyitás és bezárás ESC gombbal', async ({ page }) => {
-    const openTermsBtn = page.locator('[data-testid="btn-open-modal"]');
-    if (await openTermsBtn.isVisible()) {
-      // Act: Modál megnyitása
-      await openTermsBtn.click();
+  test('TC-LAB-03 (Key 43): Akadálymentes Terms modál megnyitás és bezárás ESC gombbal', async ({ page, selectorLabPage }) => {
+    if (await selectorLabPage.openModalBtn.isVisible()) {
+      // Act: Modál megnyitása a Page Objecten keresztül
+      await selectorLabPage.openTermsModal();
 
       // Assert: A modális ablak megjelenik
-      const modal = page.locator('#terms-modal');
-      await expect(modal).toHaveClass(/open/);
+      await expect(selectorLabPage.termsModal).toHaveClass(/open/);
 
       // Act: ESC billentyű leütése
       await page.keyboard.press('Escape');
 
       // Assert: A modális ablak bezáródik
-      await expect(modal).not.toHaveClass(/open/);
+      await expect(selectorLabPage.termsModal).not.toHaveClass(/open/);
     }
   });
 
-  test('TC-LAB-04 (Key 44): Érvényes fájlfeltöltés (.pdf vagy .png)', async ({ page }) => {
-    const fileInput = page.locator('#lab-file-input');
-    if (await fileInput.isVisible()) {
-      // Arrange: Kisméretű tesztfájl létrehozása a memóriában és átadása
-      const testBuffer = Buffer.from('PDF_SAMPLE_TEST_CONTENT');
-      
-      // Act: Fájl csatolása a Playwright setInputFiles metódusával
-      await fileInput.setInputFiles({
-        name: 'test-document.pdf',
-        mimeType: 'application/pdf',
-        buffer: testBuffer,
-      });
+  test('TC-LAB-04 (Key 44): Érvényes fájlfeltöltés (.pdf vagy .png)', async ({ selectorLabPage }) => {
+    if (await selectorLabPage.fileInput.isVisible()) {
+      // Act: Fájl csatolása a Page Object uploadFile metódusával
+      await selectorLabPage.uploadFile('test-document.pdf', 'application/pdf', 'PDF_SAMPLE_TEST_CONTENT');
 
       // Assert: Sikeres feltöltés visszajelzése
-      await expect(page.locator('#file-upload-feedback')).toContainText('test-document.pdf');
+      await expect(selectorLabPage.fileFeedback).toContainText('test-document.pdf');
     }
   });
 
-  test('TC-LAB-07 (Key 47): Resilient DOM lokátor stabilitás újragenerálás (rebuild) után', async ({ page }) => {
-    const regenBtn = page.getByRole('button', { name: /Trigger DOM Rebuild/i });
-    if (await regenBtn.isVisible()) {
-      // Act: DOM újragenerálása
-      page.once('dialog', async dialog => {
-        await dialog.dismiss();
-      });
-      await regenBtn.click();
+  test('TC-LAB-07 (Key 47): Resilient DOM lokátor stabilitás újragenerálás (rebuild) után', async ({ selectorLabPage }) => {
+    if (await selectorLabPage.rebuildDomBtn.isVisible()) {
+      // Act: DOM újragenerálása a Page Object metódusával
+      await selectorLabPage.triggerRebuild();
 
-      // Assert: A Web-First szerepkör alapú űrlap lokátorok továbbra is stabilan működnek
-      const cleanEmail = page.locator('#clean-email-input');
-      if (await cleanEmail.isVisible()) {
-        await cleanEmail.fill('resilient@astron.hu');
-        await expect(cleanEmail).toHaveValue('resilient@astron.hu');
+      // Assert: A Web-First mező lokátor továbbra is stabilan kitölthető
+      if (await selectorLabPage.cleanEmailInput.isVisible()) {
+        await selectorLabPage.cleanEmailInput.fill('resilient@astron.hu');
+        await expect(selectorLabPage.cleanEmailInput).toHaveValue('resilient@astron.hu');
       }
     }
   });
 
-  test('TC-LAB-08 (Key 68): Kifejezetten hiba stílusú Toast értesítés megjelenése', async ({ page }) => {
-    const errToastBtn = page.locator('[data-testid="btn-trigger-err-toast"]');
-    if (await errToastBtn.isVisible()) {
-      await errToastBtn.click();
-      const errToast = page.locator('.toast-error').first();
-      await expect(errToast).toBeVisible();
+  test('TC-LAB-08 (Key 68): Kifejezetten hiba stílusú Toast értesítés megjelenése', async ({ selectorLabPage }) => {
+    if (await selectorLabPage.errorToastBtn.isVisible()) {
+      // Act: Hiba toast kiváltása
+      await selectorLabPage.triggerErrorToast();
+
+      // Assert: Hiba stílusú toast megjelenése
+      await expect(selectorLabPage.errorToast.first()).toBeVisible();
     }
   });
 
-  test('TC-LAB-09 (Key 69): Terms modál bezárása a háttérre (backdrop) kattintva', async ({ page }) => {
-    const openTermsBtn = page.locator('[data-testid="btn-open-modal"]');
-    if (await openTermsBtn.isVisible()) {
-      await openTermsBtn.click();
+  test('TC-LAB-09 (Key 69): Terms modál bezárása a háttérre (backdrop) kattintva', async ({ selectorLabPage }) => {
+    if (await selectorLabPage.openModalBtn.isVisible()) {
+      // Act: Modál megnyitása
+      await selectorLabPage.openTermsModal();
 
       // FIGYELEM: A weboldalon nincs click handler a backdropra kötve!
-      // A teszt jogosan jelzi ezt a hiányzó funkcionalitást / hibát.
-      const backdrop = page.locator('#terms-modal');
-      await backdrop.click({ position: { x: 5, y: 5 } });
-      await expect(backdrop).not.toHaveClass(/open/);
+      // A teszt a Defect-Focused Mindset alapján jogosan jelzi ezt a valós szoftverhibát.
+      await selectorLabPage.clickModalBackdrop();
+      await expect(selectorLabPage.termsModal).not.toHaveClass(/open/);
     }
   });
 
