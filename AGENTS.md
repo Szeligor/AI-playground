@@ -84,7 +84,7 @@ flowchart TD
 - `/api/clients/`: REST API Service Object osztályok.
 - `/tests/` vagy `/kzs/tests/`: E2E és API tesztcsomagok (`*.spec.ts`).
 - `/specs/`: Formális követelmények és teszteset specifikációk.
-- `/docs/`: Architektúra dokumentáció, tanulságok ([LESSONS_LEARNED.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/docs/LESSONS_LEARNED.md)) és multi-agent struktúra ([subagents/](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/docs/subagents/README.md)).
+- `/kzs/docs/`: Architektúra dokumentáció, tanulságok ([LESSONS_LEARNED.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/docs/LESSONS_LEARNED.md)) és multi-agent struktúra ([subagents/](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/docs/subagents/README.md)).
 
 ---
 
@@ -107,6 +107,7 @@ flowchart TD
 ## 7. Kapcsolódó Dokumentáció és Navigáció
 
 - Felhasználói profil és kommunikációs stílus: [PROFILE.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/PROFILE.md)
-- QA Tanulságok és feltárt hibák elemzése: [docs/LESSONS_LEARNED.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/docs/LESSONS_LEARNED.md)
-- Multi-Agent subagent struktúra: [docs/subagents/README.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/docs/subagents/README.md)
+- QA Tanulságok és feltárt hibák elemzése: [kzs/docs/LESSONS_LEARNED.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/docs/LESSONS_LEARNED.md)
+- Multi-Agent subagent struktúra: [kzs/docs/subagents/README.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/docs/subagents/README.md)
+- Teljes Master Dokumentációs Index: [kzs/docs/INDEX.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/docs/INDEX.md)
 - Gemini & Antigravity specifikus konfiguráció: [GEMINI.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/GEMINI.md)

@@ -64,7 +64,7 @@ flowchart TD
     Gemini --> CodeReviewer["Code Reviewer Subagent"]
 ```
 
-- **Al-ágens szerepkörök dokumentációja:** [docs/subagents/README.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/docs/subagents/README.md)
+- **Al-ágens szerepkörök dokumentációja:** [kzs/docs/subagents/README.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/docs/subagents/README.md)
 - **Token- és Kontextus-gazdálkodás:**
   - Nagy volumenű kutatásokhoz és kódáttekintéshez a `research` subagenst kell használni, megóvva a fő kontextus méretét.
   - A transzkriptek kompakt naplóját (`transcript.jsonl`) kell alapértelmezésben vizsgálni.
@@ -86,5 +86,5 @@ A Gemini javasolhatja az alábbi Antigravity slash parancsokat a felhasználóna
 
 - Általános QA Alkotmány & Architektúra: [AGENTS.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/AGENTS.md)
 - Felhasználói profil és kommunikációs direktíva: [PROFILE.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/PROFILE.md)
-- Tanulságok és feltárt hibák tárháza: [docs/LESSONS_LEARNED.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/docs/LESSONS_LEARNED.md)
-- Teljes Markdown Architektúra Index: [docs/INDEX.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/docs/INDEX.md)
+- Tanulságok és feltárt hibák tárháza: [kzs/docs/LESSONS_LEARNED.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/docs/LESSONS_LEARNED.md)
+- Teljes Markdown Architektúra Index: [kzs/docs/INDEX.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/docs/INDEX.md)
