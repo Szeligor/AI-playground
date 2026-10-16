@@ -1,163 +1,90 @@
-# 🛡️ Antigravity & Gemini AI Project Constitution & Architecture Rules
+# Google Gemini & Antigravity Rendszerkonfiguráció és Direktívák
 ### Playwright TypeScript QA Automation Workspace | Astron Edition
-### STRICT ISOLATION, REAL ARCHITECTURE, BEST PRACTICES, CODE COMMENTING & MCP DIRECTIVE
+### SPECIALIZÁLT GEMINI & ANTIGRAVITY RUNTIME UTASÍTÁSOK
 
-> ⚠️ **CRITICAL SECURITY DIRECTIVE FOR AI AGENTS (ANTIGRAVITY & GEMINI):**  
-> You are operating within an enterprise client workspace for **Astron Informatikai Kft.**.  
-> You must strictly respect privacy, confidentiality, and host filesystem isolation boundaries.  
-> Any violation of these isolation rules will result in immediate termination of the session.
-
----
-
-## 🔒 0. ABSOLUTE WORKSPACE ISOLATION & HOST BOUNDARIES (STRICT)
-
-1. **NO OUT-OF-WORKSPACE ACCESS (ZÉRÓ KILÉPÉS A MAPPÁBÓL):**
-   - You are **STRICTLY FORBIDDEN** from reading, searching, indexing, listing, modifying, or deleting ANY files, folders, or environment variables outside the current repository directory.
-   - **Absolute Boundaries:**
-     - ❌ **NEVER** touch `C:\Users\*` outside this specific repo folder.
-     - ❌ **NEVER** inspect `%APPDATA%`, `%LOCALAPPDATA%`, `%USERPROFILE%`, or Windows System directories.
-     - ❌ **NEVER** inspect SSH keys, Git credentials, VPN configurations, or browser history/cookies.
-   - All tools must operate **EXCLUSIVELY within the current workspace root**.
-
-2. **COMMAND EXECUTION RESTRICTIONS (PARANCS-KORLÁTOK):**
-   - All terminal commands MUST execute strictly with `cwd` set to the repository root.
-   - ❌ **NEVER** execute commands that navigate out (no `cd ..`).
-   - Allowed commands are strictly scoped to QA development: `npm install`, `npx playwright test`, `npx playwright codegen`, `git status`, `git add`, `git commit`, `git push`, `git pull`.
-
-3. **CONFIDENTIALITY & CREDENTIAL PROTECTION:**
-   - ❌ **NEVER** print, log, or echo enterprise passwords, secrets, API tokens, or personal employee data in prompt replies or logs.
-   - Treat all enterprise assets as high-security intellectual property under strict NDA.
-
-4. **GIT PUSH ÉS LOKÁLIS MÓDOSÍTÁSI SZABÁLY (SZIGORÚ DIREKTÍVA):**
-   - ❌ **TILOS A TÁVOLI FELTÖLTÉS (GIT PUSH) ÖNKÉNYES INDÍTÁSA:** Az ágens SOHA nem futtathat `git push` parancsot automatikusan vagy saját feltételezés alapján. Kizárólag akkor engedélyezett a távoli push, ha a felhasználó közvetlenül és explicit módon erre utasít (pl.: "pushold fel a távoli repóba").
-   - **KÖTELEZŐ AUTOMATIKUS LOKÁLIS COMMIT (LOKÁLIS PUSH):** Minden olyan lépésnél, ahol bármilyen fájlváltoztatás történik (új fájl létrehozása, meglévő módosítása vagy törlése), az ágensnek a módosítás után azonnal és automatikusan le kell mentenie a változtatásokat a helyi ágon egy lokális committal (`git add .` és `git commit -m "..."`).
-   - Az ágensnek MINDIG kötelező megvizsgálnia, hogy a felhasználó lokális módosítást kér-e (helyi branch, lokális commit). Kétely esetén kizárólag lokálisan dolgozhat.
+> RENDSZERDIREKTÍVA A GOOGLE GEMINI ÉS ANTIGRAVITY ÁGENSEKNEK:
+> Ez a konfigurációs fájl kifejezetten a Google Gemini modellek működését, az Antigravity SDK környezetet, az MCP protokollokat és az autonóm feladatvégrehajtást szabályozza.
+> Az általános QA keretrendszer szabályokat az [AGENTS.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/AGENTS.md) tartalmazza.
 
 ---
 
-## 📋 1. HIÁNYZÓ SPECIFIKÁCIÓ KEZELÉSE (KÖTELEZŐ PROTOKOLL)
+## 0. Vállalati Izolációs és Futtatási Határok a Gemini Runtime Szintjén
 
-Ha egy feladathoz, funkcióhoz vagy tesztelendő területhez **nem áll rendelkezésre egyértelmű specifikáció** (hiányoznak az elfogadási kritériumok, felhasználói forgatókönyvek vagy API leírások):
-- Az ágens **nem hozhat önkényes döntést** a követelményekről.
-- Az ágensnek **kötelező megállnia és rákérdeznie a felhasználónál**, az alábbi két opciót felajánlva:
-  1. **Az ágens készítsen-e egy kiindulási alapot/javaslatot a tesztekhez és követelményekhez**, VAGY
-  2. **A felhasználó ad-e konkrét bemenetet/specifikációt (inputot) a folytatáshoz.**
-
----
-
-## 🛑 1.1 TERVEZÉSI MÓD ÉS KÖTELEZŐ MANUÁLIS JÓVÁHAGYÁS (PLAN MODE DIRECTIVE)
-
-- **SZIGORÚ MANUÁLIS JÓVÁHAGYÁSI KÖVETELMÉNY:**
-  - Mostantól még akkor sem kezdek semmilyen kódmódosításba vagy parancsfuttatásba, ha a rendszer belső jóváhagyási hookja azt jelzi!
-  - Kizárólag akkor lépek tovább, ha te a chatben közvetlenül és egyértelműen beírod (pl.: "Jóváhagyom, kezdheted").
-  - Plan módban szigorúan tilos bármilyen automatikus vagy burkolt jóváhagyást elfogadni.
+1. **Host és Környezetvédelem:**
+   - A Gemini kizárólag a jelenlegi munkakönyvtárban (`c:\Users\WDAGUtilityAccount\Desktop\AstronWorkshop\project`) hajthat végre eszközhívásokat.
+   - Szigorúan tilos a felhasználói profil, `%APPDATA%`, `%LOCALAPPDATA%` vagy a Windows rendszerkönyvtárak vizsgálata.
+2. **Környezeti Parancsfuttatás:**
+   - PowerShell szintaxis alkalmazása kötelező (parancselválasztó: `;`, tilos a POSIX `&&`).
+   - A `git.exe` és egyéb segédeszközök abszolút elérési úttal való hívása javasolt a megbízhatóság érdekében.
 
 ---
 
-## 🎯 1.2 TESZTELÉSI FILOZÓFIA ÉS HIBAKERESÉSI SZEMLÉLETMÓD (DEFECT-FOCUSED TESTING MINDSET)
+## 1. Kötelező Playwright MCP Protokoll Használat
 
-- **A TESZTELÉS ELSŐDLEGES CÉLJA VALÓS HIBÁK FELTÁRÁSA:**
-  - Az összes tesztelés alapvető célja, hogy a szoftverben meglévő, valós hibákat találjunk.
-  - Tilos a teszteket úgy megírni vagy módosítani, hogy azok elfedjék vagy elfogadják az alkalmazás hibás viselkedését csupán azért, hogy a tesztfutás zöld ("passed") legyen.
-  - A teszteseteknek mindig a helyes, elvárt üzleti specifikációt és adatintegritási szabályokat kell megkövetelniük (assertálniuk). Amennyiben az alkalmazásban valós hiba van jelen, a tesztnek el kell buknia, ezáltal dokumentálva és reprodukálva a hibát.
-  - A tesztelői szemléletnek folyamatosan keresnie kell a peremeseteket, logikai réseket, állapotgép-anomáliákat és biztonsági hiányosságokat.
-
----
-
-## 🔌 2. KÖTELEZŐ MCP PROTOKOLL HASZNÁLAT PLAYWRIGHTNÁL (SZIGORÚ SZABÁLY)
-
-1. **KÖTELEZŐ MCP ALKALMAZÁS:**
-   - Playwrighttal, böngészővezérléssel és felületi interakciókkal kapcsolatos feladatoknál az ágensnek **kivétel nélkül és kötelezően a Playwright MCP szervert kell használnia**.
-2. **TILOS AZ ÉRVELÉS ÉS A FELÜLBÍRÁLAT:**
-   - Az ágens számára szigorúan tilos az elmélkedés, vitatkozás, vagy a felhasználói döntés felülbírálata arra vonatkozóan, hogy van-e értelme vagy hatékonyabb-e az MCP használata a közvetlen kódhoz képest.
-   - A felhasználó kérésének megfelelően a Playwright műveleteket közvetlenül az MCP szerveren keresztül kell végrehajtani.
+1. **Kizárólagos MCP Eszközhasználat:**
+   - A Playwrighttal, böngészővezérléssel és felületi interakciókkal kapcsolatos feladatoknál a Gemini köteles a **Playwright MCP szervert** (`call_mcp_tool`) használni.
+2. **Tilos az érvelés és felülbírálat:**
+   - Szigorúan tilos az elmélkedés vagy vitatkozás arról, hogy hatékonyabb-e a közvetlen kód az MCP-hez képest. A felületi műveleteket az MCP eszközökön keresztül kell végrehajtani.
 
 ---
 
-## 📝 3. KÓDKOMMENTELÉSI ÉS KEZDŐBARÁT MAGYARÁZATI SZABÁLY (KIEMELT SZABÁLY)
+## 2. Tervezési Mód és Manuális Jóváhagyási Protokoll (Plan Mode Directive)
 
-Minden kódmódosításnál és új komponens létrehozásakor **kötelező a kódot magyarázó kommentekkel ellátni**.
-
-### Elvárások a kommentekkel szemben:
-1. **Érthető és kezdőbarát:**
-   - A kommentek magyarázzák el a technikai döntések „miért”-jét és működési mechanizmusát (pl. immutabilitás, auto-waiting, fixture isolation, AAA minta, Page Object elkülönítés).
-   - Kerülni kell a magyarázat nélküli szakzsargont; az alapfogalmakat szükség szerint röviden tisztázni kell.
-2. **Tömör és lényegretörő:**
-   - Tilos a redundáns szövegezés, a felesleges körítés vagy a kedélyeskedő megfogalmazás.
-   - Szigorúan pontos, objektív technikai leírást kell alkalmazni.
-3. **Beágyazott jelleg:**
-   - A magyarázatok közvetlenül a forrásfájlokban (függvények, osztályok, lokátorok, tesztlépések felett) szerepeljenek JSDoc (`/** ... */`) vagy inline (`//`) kommentekként.
+1. **Szigorú manuális jóváhagyási követelmény:**
+   - Új feladat, architektúrális módosítás vagy kiterjedt kódváltoztatás előtt a Gemini tervet készít.
+   - Tilos kódmódosításba vagy parancsfuttatásba kezdeni, amíg a felhasználó a chatben közvetlenül és egyértelműen be nem írja (pl. "Jóváhagyom, kezdheted").
+   - Plan módban tilos az automatikus vagy burkolt jóváhagyások elfogadása.
 
 ---
 
-## 🏛️ 4. A Keretrendszer Architektúrája & 5 Alappillére
+## 3. Antigravity Munkafolyamat és Eszközhasználati Szabályok
+
+1. **Reaktív Ébredés (Reactive Wakeup):**
+   - Aszinkron háttértaskok vagy subagensek indítása után a Gemini nem futtathat fölösleges lekérdezési hurkot (polling loop).
+   - A futtatást be kell fejezni eszközhívás nélkül; az Antigravity üzenetkezelő rendszere automatikusan felébreszti az ágenst, amint a háttérfolyamat lefut.
+2. **Időzítők és Értesítések:**
+   - Tilos a shell `sleep` parancs használata; helyette az Antigravity `schedule` eszközt kell alkalmazni.
+3. **Dokumentáció és Eredmények Prezentálása (Artifacts):**
+   - Hosszú jelentésekhez, kódtervekhez az Antigravity Artifact mechanizmust (`write_to_file` a brain mappába) kell használni.
+   - Emojik használata a kimenetekben, válaszokban és commitokban szigorúan tilos.
+
+---
+
+## 4. Multi-Agent Koordináció és Subagent Delegálás
+
+A Gemini az alábbi specializált al-ágensek delegálásával oldja meg az összetett feladatokat:
 
 ```mermaid
 flowchart TD
-    A["1. Technológiai Stack & Eszközök\n(Playwright + TypeScript / Node.js)"] --> B["2. Mappastruktúra, POM & API Kliensek\n(pages/common, pages/domain, api/clients)"]
-    B --> C["3. Konfiguráció & Multi-Project\n(playwright.config.ts: setup, api, chromium)"]
-    C --> D["4. Tesztek & Web-First Asserciók\n(Unit AAA, API tests, E2E POM tests)"]
-    D --> E["5. CI/CD & Riporting\n(HTML Report, Trace on retry, Screenshot on failure)"]
+    Gemini["Google Gemini (Fő ágens)"] --> Orchestrator["QA Orchestrator"]
+    Gemini --> TestPlanner["Test Planner Subagent"]
+    Gemini --> E2ESpecialist["E2E Specialist Subagent"]
+    Gemini --> APISpecialist["API Specialist Subagent"]
+    Gemini --> DefectHunter["Defect Hunter Subagent"]
+    Gemini --> CodeReviewer["Code Reviewer Subagent"]
 ```
 
----
-
-## 🏗️ 5. Mappastruktúra & Tervezési Minták (POM & Komponensek)
-
-### 📌 5.1 Könyvtárstruktúra
-* `/pages/common/`: Közös alaposztályok és újrahasznosítható komponensek:
-  - `BasePage.ts`: Közös navigáció (`goto()`), URL és query-paraméter kezelés.
-  - `NavbarComponent.ts`, `TrainerToolbar.ts`: Oldalakon átívelő önálló UI komponensek.
-* `/pages/<domain>/`: Üzleti logikát és nézeteket leképező Page Objectek (pl. `pages/storefront/StorefrontPage.ts`).
-* `/api/clients/` vagy `/tests/api/clients/`: API Service Object osztályok a REST végpontok enkapszulációjára.
-* `/tests/`: Tesztfájlok:
-  - `auth.setup.ts`: Globális autentikációs állapotot előállító setup teszt (`storageState`).
-  - `*api*.spec.ts`: Böngésző nélküli, gyors API integrációs tesztek (`request` fixture, API Client használatával).
-  - `*.spec.ts`: UI E2E tesztek Page Objectekkel.
-  - `*mcp*.test.js`: Playwright MCP protokoll tesztek.
-* `/specs/`: Követelmények és specifikációk.
-
-### 📌 5.2 Page Object & Komponens Tervezési Szabályok (POM Design)
-* **Öröklődés:** Minden fő Page Object a `BasePage`-ből származik le.
-* **Kompozíció:** A közös komponenseket (pl. `NavbarComponent`) a Page Object constructorában kell példányosítani.
-* **Lokátorok:** A lokátorokat a `constructor`-ban kell definiálni `readonly Locator` típussal.
-* **Műveletek:** Kizárólag async metódusokban valósítsd meg az interakciókat (pl. `submitOrder()`).
-* ❌ **SZIGORÚAN TILOS asserciót (`expect()`) tenni a Page Object vagy Komponens osztály belsejébe!** Az asserciók kizárólag a `*.spec.ts` tesztfájlokban élhetnek.
+- **Al-ágens szerepkörök dokumentációja:** [docs/subagents/README.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/docs/subagents/README.md)
+- **Token- és Kontextus-gazdálkodás:**
+  - Nagy volumenű kutatásokhoz és kódáttekintéshez a `research` subagenst kell használni, megóvva a fő kontextus méretét.
+  - A transzkriptek kompakt naplóját (`transcript.jsonl`) kell alapértelmezésben vizsgálni.
 
 ---
 
-## 🎭 6. Playwright Tesztelési Szabályok
+## 5. Támogatott Slash Parancsok Integrációja
 
-### 📌 6.1 Lokátor Stratégia (Web-First)
-* **Szabály:** Mindig web-first, szerepkör alapú lokátorokat használj:
-  1. Elsődleges: `page.getByRole(...)`
-  2. Másodlagos: `page.getByLabel(...)`, `page.getByPlaceholder(...)`, `page.getByTestId(...)`
-* ❌ **TILOS:** SOHA ne használj nyers XPath-ot (pl. `//div[2]/button`) vagy törékeny CSS osztályokat (pl. `.btn-primary-2b`).
-* ❌ **TILOS:** SOHA ne használj elavult `$` vagy `$$` függvényeket.
-
----
-
-### 📌 6.2 Asserciók és Ellenőrzések (Assertions)
-* **Szabály:** Mindig auto-waiting asserciókat használj:
-  `await expect(locator).toBeVisible()`, `await expect(locator).toHaveText()`
-* ❌ **TILOS:** SOHA ne használj manuális logikai boolean asserciót (pl. `expect(await locator.isVisible()).toBe(true)`).
+A Gemini javasolhatja az alábbi Antigravity slash parancsokat a felhasználónak:
+- `/goal`: Hosszú lefutású, autonóm hibakeresési és javítási ciklusokhoz.
+- `/plan`: Lépésről lépésre kidolgozott tesztelési stratégia felállításához.
+- `/browser`: Böngészős feltáró műveletek indításához a Playwright MCP szerverrel.
+- `/schedule`: Rendszeres regressziós tesztfuttatások ütemezéséhez.
+- `/compact`: Kontextus-tömörítéshez nagy volumenű munkamenet esetén.
 
 ---
 
-### 📌 6.3 Várakozások Tiltása (No Manual Waits)
-* ❌ **TILOS:** Szigorúan TILOS a `page.waitForTimeout()` vagy manuális alvás (`sleep()`).
-* A Playwright beépített auto-waiting mechanizmusára kell támaszkodni.
+## 6. Kapcsolódó Rendszerdokumentumok
 
----
-
-### 📌 6.4 API és Autentikációs Szabályok
-* **API Tesztek:** A `request` fixture-t és az API Client réteget használd. Mindig ellenőrizd a HTTP státuszkódot (`expect(res.status()).toBe(...)`) és a JSON válaszstruktúrát.
-* **Tesztizoláció:** Minden teszt előtt (`beforeEach`) tiszta, ismert állapotot kell biztosítani (pl. reset hívással).
-* **UI Tesztek Autentikációja:** Ahol releváns, használd a `storageState` beállítást (`playwright/.auth/user.json`), hogy a tesztek kihagyhassák a lassú UI-s bejelentkezést.
-
----
-
-## 📝 7. Kódolási Stílus & TypeScript
-
-* Tiszta, szigorúan típusos TypeScript (mindig definiáld a paraméterek és visszatérési értékek típusait).
-* Mindig azonnal futtatható, drop-in kódblokkokat és teljes fájlokat generálj (ne hagyj hátra `// todo` vagy félkész kódrészeket).
+- Általános QA Alkotmány & Architektúra: [AGENTS.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/AGENTS.md)
+- Felhasználói profil és kommunikációs direktíva: [PROFILE.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/PROFILE.md)
+- Tanulságok és feltárt hibák tárháza: [docs/LESSONS_LEARNED.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/docs/LESSONS_LEARNED.md)
+- Teljes Markdown Architektúra Index: [docs/INDEX.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/docs/INDEX.md)

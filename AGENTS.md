@@ -1,163 +1,112 @@
-# 🛡️ Antigravity & Gemini AI Project Constitution & Architecture Rules
+# QA Automation Framework Alkotmány & Architektúra Szabályzat
 ### Playwright TypeScript QA Automation Workspace | Astron Edition
-### STRICT ISOLATION, REAL ARCHITECTURE, BEST PRACTICES, CODE COMMENTING & MCP DIRECTIVE
+### ÁLTALÁNOS ÁGENS-AGNOSZTIKUS SZABÁLYZAT (CURSOR, COPILOT, CLAUDE, ANTIGRAVITY)
 
-> ⚠️ **CRITICAL SECURITY DIRECTIVE FOR AI AGENTS (ANTIGRAVITY & GEMINI):**  
-> You are operating within an enterprise client workspace for **Astron Informatikai Kft.**.  
-> You must strictly respect privacy, confidentiality, and host filesystem isolation boundaries.  
-> Any violation of these isolation rules will result in immediate termination of the session.
-
----
-
-## 🔒 0. ABSOLUTE WORKSPACE ISOLATION & HOST BOUNDARIES (STRICT)
-
-1. **NO OUT-OF-WORKSPACE ACCESS (ZÉRÓ KILÉPÉS A MAPPÁBÓL):**
-   - You are **STRICTLY FORBIDDEN** from reading, searching, indexing, listing, modifying, or deleting ANY files, folders, or environment variables outside the current repository directory.
-   - **Absolute Boundaries:**
-     - ❌ **NEVER** touch `C:\Users\*` outside this specific repo folder.
-     - ❌ **NEVER** inspect `%APPDATA%`, `%LOCALAPPDATA%`, `%USERPROFILE%`, or Windows System directories.
-     - ❌ **NEVER** inspect SSH keys, Git credentials, VPN configurations, or browser history/cookies.
-   - All tools must operate **EXCLUSIVELY within the current workspace root**.
-
-2. **COMMAND EXECUTION RESTRICTIONS (PARANCS-KORLÁTOK):**
-   - All terminal commands MUST execute strictly with `cwd` set to the repository root.
-   - ❌ **NEVER** execute commands that navigate out (no `cd ..`).
-   - Allowed commands are strictly scoped to QA development: `npm install`, `npx playwright test`, `npx playwright codegen`, `git status`, `git add`, `git commit`, `git push`, `git pull`.
-
-3. **CONFIDENTIALITY & CREDENTIAL PROTECTION:**
-   - ❌ **NEVER** print, log, or echo enterprise passwords, secrets, API tokens, or personal employee data in prompt replies or logs.
-   - Treat all enterprise assets as high-security intellectual property under strict NDA.
-
-4. **GIT PUSH ÉS LOKÁLIS MÓDOSÍTÁSI SZABÁLY (SZIGORÚ DIREKTÍVA):**
-   - ❌ **TILOS A TÁVOLI FELTÖLTÉS (GIT PUSH) ÖNKÉNYES INDÍTÁSA:** Az ágens SOHA nem futtathat `git push` parancsot automatikusan vagy saját feltételezés alapján. Kizárólag akkor engedélyezett a távoli push, ha a felhasználó közvetlenül és explicit módon erre utasít (pl.: "pushold fel a távoli repóba").
-   - **KÖTELEZŐ AUTOMATIKUS LOKÁLIS COMMIT (LOKÁLIS PUSH):** Minden olyan lépésnél, ahol bármilyen fájlváltoztatás történik (új fájl létrehozása, meglévő módosítása vagy törlése), az ágensnek a módosítás után azonnal és automatikusan le kell mentenie a változtatásokat a helyi ágon egy lokális committal (`git add .` és `git commit -m "..."`).
-   - Az ágensnek MINDIG kötelező megvizsgálnia, hogy a felhasználó lokális módosítást kér-e (helyi branch, lokális commit). Kétely esetén kizárólag lokálisan dolgozhat.
+> BIZTONSÁGI DIREKTÍVA MINDEN AI ÁGENS SZÁMÁRA:
+> Az Astron Informatikai Kft. vállalati ügyfélkörnyezetében dolgozol.
+> Szigorúan tiszteletben kell tartanod a bizalmassági és gazdagép-izolációs határokat.
 
 ---
 
-## 📋 1. HIÁNYZÓ SPECIFIKÁCIÓ KEZELÉSE (KÖTELEZŐ PROTOKOLL)
+## 0. Abszolút Munkakönyvtár Izoláció és Gazdagép Határok (Szigorú Szabály)
 
-Ha egy feladathoz, funkcióhoz vagy tesztelendő területhez **nem áll rendelkezésre egyértelmű specifikáció** (hiányoznak az elfogadási kritériumok, felhasználói forgatókönyvek vagy API leírások):
-- Az ágens **nem hozhat önkényes döntést** a követelményekről.
-- Az ágensnek **kötelező megállnia és rákérdeznie a felhasználónál**, az alábbi két opciót felajánlva:
-  1. **Az ágens készítsen-e egy kiindulási alapot/javaslatot a tesztekhez és követelményekhez**, VAGY
-  2. **A felhasználó ad-e konkrét bemenetet/specifikációt (inputot) a folytatáshoz.**
-
----
-
-## 🛑 1.1 TERVEZÉSI MÓD ÉS KÖTELEZŐ MANUÁLIS JÓVÁHAGYÁS (PLAN MODE DIRECTIVE)
-
-- **SZIGORÚ MANUÁLIS JÓVÁHAGYÁSI KÖVETELMÉNY:**
-  - Mostantól még akkor sem kezdek semmilyen kódmódosításba vagy parancsfuttatásba, ha a rendszer belső jóváhagyási hookja azt jelzi!
-  - Kizárólag akkor lépek tovább, ha te a chatben közvetlenül és egyértelműen beírod (pl.: "Jóváhagyom, kezdheted").
-  - Plan módban szigorúan tilos bármilyen automatikus vagy burkolt jóváhagyást elfogadni.
+1. **Zéró kilépés a mappából (No Out-of-Workspace Access):**
+   - Szigorúan tilos a jelenlegi repository gyökerén kívül bármilyen fájlt, mappát vagy környezeti változót olvasni, keresni, listázni, módosítani vagy törölni.
+   - Tiltott zónák: `C:\Users\*` a jelenlegi mappa kivételével, `%APPDATA%`, `%LOCALAPPDATA%`, Windows rendszermappák, SSH kulcsok, Git hitelesítő adatok, böngészési előzmények.
+2. **Parancsfuttatási határok:**
+   - Minden terminálparancs kizárólag a repository gyökerében (`cwd`) futhat. Tilos a kilépés (`cd ..`).
+   - Engedélyezett parancsok: `npm install`, `npx playwright test`, `npx playwright codegen`, `git status`, `git add`, `git commit`.
+3. **Titoktartás és hitelesítő adatok védelme:**
+   - Tilos jelszavak, tokenek, API kulcsok vagy személyes adatok naplózása, kiírása.
 
 ---
 
-## 🎯 1.2 TESZTELÉSI FILOZÓFIA ÉS HIBAKERESÉSI SZEMLÉLETMÓD (DEFECT-FOCUSED TESTING MINDSET)
+## 1. Verziókezelési Szabályzat (Git Fegyelem)
 
-- **A TESZTELÉS ELSŐDLEGES CÉLJA VALÓS HIBÁK FELTÁRÁSA:**
-  - Az összes tesztelés alapvető célja, hogy a szoftverben meglévő, valós hibákat találjunk.
-  - Tilos a teszteket úgy megírni vagy módosítani, hogy azok elfedjék vagy elfogadják az alkalmazás hibás viselkedését csupán azért, hogy a tesztfutás zöld ("passed") legyen.
-  - A teszteseteknek mindig a helyes, elvárt üzleti specifikációt és adatintegritási szabályokat kell megkövetelniük (assertálniuk). Amennyiben az alkalmazásban valós hiba van jelen, a tesztnek el kell buknia, ezáltal dokumentálva és reprodukálva a hibát.
-  - A tesztelői szemléletnek folyamatosan keresnie kell a peremeseteket, logikai réseket, állapotgép-anomáliákat és biztonsági hiányosságokat.
-
----
-
-## 🔌 2. KÖTELEZŐ MCP PROTOKOLL HASZNÁLAT PLAYWRIGHTNÁL (SZIGORÚ SZABÁLY)
-
-1. **KÖTELEZŐ MCP ALKALMAZÁS:**
-   - Playwrighttal, böngészővezérléssel és felületi interakciókkal kapcsolatos feladatoknál az ágensnek **kivétel nélkül és kötelezően a Playwright MCP szervert kell használnia**.
-2. **TILOS AZ ÉRVELÉS ÉS A FELÜLBÍRÁLAT:**
-   - Az ágens számára szigorúan tilos az elmélkedés, vitatkozás, vagy a felhasználói döntés felülbírálata arra vonatkozóan, hogy van-e értelme vagy hatékonyabb-e az MCP használata a közvetlen kódhoz képest.
-   - A felhasználó kérésének megfelelően a Playwright műveleteket közvetlenül az MCP szerveren keresztül kell végrehajtani.
+1. **Tilos a távoli feltöltés (Git Push) önkényes indítása:**
+   - Az ágens SOHA nem futtathat `git push` parancsot automatikusan vagy saját feltételezés alapján. Kizárólag akkor engedélyezett a távoli push, ha a felhasználó közvetlenül és explicit módon erre utasít.
+2. **Kötelező automatikus lokális commit:**
+   - Minden olyan lépésnél, ahol bármilyen fájlváltoztatás történik (új fájl létrehozása, meglévő módosítása vagy törlése), a módosítás után azonnal és automatikusan le kell menteni a változtatásokat a helyi ágon (`git add .` és `git commit -m "..."`).
+3. **Commit üzenetek formátuma:**
+   - Szabványos Conventional Commits konvenció (`feat:`, `fix:`, `docs:`, `test:`, `refactor:`). Emojik használata a commit üzenetekben szigorúan tilos.
 
 ---
 
-## 📝 3. KÓDKOMMENTELÉSI ÉS KEZDŐBARÁT MAGYARÁZATI SZABÁLY (KIEMELT SZABÁLY)
+## 2. Hiányzó Specifikáció Kezelése (Kötelező Protokoll)
 
-Minden kódmódosításnál és új komponens létrehozásakor **kötelező a kódot magyarázó kommentekkel ellátni**.
+Ha egy feladathoz nem áll rendelkezésre egyértelmű specifikáció (hiányoznak az elfogadási kritériumok vagy API leírások):
+- Az ágens nem hozhat önkényes döntést a követelményekről.
+- Kötelező megállni és rákérdezni a felhasználónál az alábbi két opciót felajánlva:
+  1. Az ágens készítsen-e egy kiindulási alapot/javaslatot a tesztekhez és követelményekhez, VAGY
+  2. A felhasználó ad-e konkrét bemenetet/specifikációt a folytatáshoz.
 
-### Elvárások a kommentekkel szemben:
+---
+
+## 3. Tesztelési Filozófia: Defect-Focused Testing Mindset
+
+1. **A tesztelés elsődleges célja a valós hibák feltárása:**
+   - Az összes tesztelés alapvető célja, hogy a szoftverben meglévő, valós hibákat találjunk.
+   - Tilos a teszteket úgy megírni vagy módosítani, hogy azok elfedjék vagy elfogadják az alkalmazás hibás viselkedését csupán azért, hogy a tesztfutás zöld ("passed") legyen.
+2. **Szigorú asserció-integritás (Maszkolás tilalma):**
+   - A teszteseteknek mindig a helyes, elvárt üzleti specifikációt kell megkövetelniük.
+   - Tilos a laza regexek használata (pl. `/valid/i`, ami illeszkedik az `Invalid` hibaszövegre is).
+   - Tilos a feltételes asserció (`if (await isVisible())`), ami hiba esetén némán átugorja az ellenőrzést.
+   - Ha a szoftverben valós hiba van jelen, a tesztnek el kell buknia, ezáltal dokumentálva és reprodukálva a hibát.
+
+---
+
+## 4. Kódkommentelési és Kezdőbarát Magyarázati Szabály
+
+Minden kódmódosításnál és új komponensnél kötelező a forráskódot magyarázó kommentekkel ellátni:
 1. **Érthető és kezdőbarát:**
-   - A kommentek magyarázzák el a technikai döntések „miért”-jét és működési mechanizmusát (pl. immutabilitás, auto-waiting, fixture isolation, AAA minta, Page Object elkülönítés).
-   - Kerülni kell a magyarázat nélküli szakzsargont; az alapfogalmakat szükség szerint röviden tisztázni kell.
+   - A kommentek magyarázzák el a technikai döntések „miért”-jét és működési mechanizmusát (pl. immutabilitás, auto-waiting, AAA minta, Page Object szétválasztás).
+   - Kerülni kell a magyarázat nélküli szakzsargont.
 2. **Tömör és lényegretörő:**
-   - Tilos a redundáns szövegezés, a felesleges körítés vagy a kedélyeskedő megfogalmazás.
-   - Szigorúan pontos, objektív technikai leírást kell alkalmazni.
+   - Tilos a redundáns szövegezés vagy kedélyeskedő körítés; pontos, objektív technikai leírás szükséges.
 3. **Beágyazott jelleg:**
-   - A magyarázatok közvetlenül a forrásfájlokban (függvények, osztályok, lokátorok, tesztlépések felett) szerepeljenek JSDoc (`/** ... */`) vagy inline (`//`) kommentekként.
+   - JSDoc (`/** ... */`) a függvények, osztályok felett, és inline (`//`) magyarázatok a kulcsfontosságú tesztlépések felett.
 
 ---
 
-## 🏛️ 4. A Keretrendszer Architektúrája & 5 Alappillére
+## 5. A Keretrendszer Architektúrája & Mappastruktúra
 
 ```mermaid
 flowchart TD
-    A["1. Technológiai Stack & Eszközök\n(Playwright + TypeScript / Node.js)"] --> B["2. Mappastruktúra, POM & API Kliensek\n(pages/common, pages/domain, api/clients)"]
-    B --> C["3. Konfiguráció & Multi-Project\n(playwright.config.ts: setup, api, chromium)"]
-    C --> D["4. Tesztek & Web-First Asserciók\n(Unit AAA, API tests, E2E POM tests)"]
-    D --> E["5. CI/CD & Riporting\n(HTML Report, Trace on retry, Screenshot on failure)"]
+    A["1. Technológiai Stack\n(Playwright + TypeScript / Node.js)"] --> B["2. Mappastruktúra & POM\n(pages/common, pages/domain, api/clients)"]
+    B --> C["3. Konfiguráció & Multi-Project\n(playwright.config.ts: chromium, api, unit)"]
+    C --> D["4. Tesztek & Web-First Asserciók\n(E2E, API, Unit AAA, Exploratory)"]
+    D --> E["5. Riporting & CI/CD\n(HTML Report, Trace on retry, Bug Report)"]
 ```
 
----
-
-## 🏗️ 5. Mappastruktúra & Tervezési Minták (POM & Komponensek)
-
-### 📌 5.1 Könyvtárstruktúra
-* `/pages/common/`: Közös alaposztályok és újrahasznosítható komponensek:
-  - `BasePage.ts`: Közös navigáció (`goto()`), URL és query-paraméter kezelés.
-  - `NavbarComponent.ts`, `TrainerToolbar.ts`: Oldalakon átívelő önálló UI komponensek.
-* `/pages/<domain>/`: Üzleti logikát és nézeteket leképező Page Objectek (pl. `pages/storefront/StorefrontPage.ts`).
-* `/api/clients/` vagy `/tests/api/clients/`: API Service Object osztályok a REST végpontok enkapszulációjára.
-* `/tests/`: Tesztfájlok:
-  - `auth.setup.ts`: Globális autentikációs állapotot előállító setup teszt (`storageState`).
-  - `*api*.spec.ts`: Böngésző nélküli, gyors API integrációs tesztek (`request` fixture, API Client használatával).
-  - `*.spec.ts`: UI E2E tesztek Page Objectekkel.
-  - `*mcp*.test.js`: Playwright MCP protokoll tesztek.
-* `/specs/`: Követelmények és specifikációk.
-
-### 📌 5.2 Page Object & Komponens Tervezési Szabályok (POM Design)
-* **Öröklődés:** Minden fő Page Object a `BasePage`-ből származik le.
-* **Kompozíció:** A közös komponenseket (pl. `NavbarComponent`) a Page Object constructorában kell példányosítani.
-* **Lokátorok:** A lokátorokat a `constructor`-ban kell definiálni `readonly Locator` típussal.
-* **Műveletek:** Kizárólag async metódusokban valósítsd meg az interakciókat (pl. `submitOrder()`).
-* ❌ **SZIGORÚAN TILOS asserciót (`expect()`) tenni a Page Object vagy Komponens osztály belsejébe!** Az asserciók kizárólag a `*.spec.ts` tesztfájlokban élhetnek.
+### Könyvtárstruktúra:
+- `/pages/common/`: Újrahasznosítható alaposztályok (`BasePage.ts`) és globális komponensek.
+- `/pages/<domain>/`: Üzleti oldalakat leképező Page Objectek (pl. `StorefrontPage.ts`).
+- `/api/clients/`: REST API Service Object osztályok.
+- `/tests/` vagy `/kzs/tests/`: E2E és API tesztcsomagok (`*.spec.ts`).
+- `/specs/`: Formális követelmények és teszteset specifikációk.
+- `/docs/`: Architektúra dokumentáció, tanulságok ([LESSONS_LEARNED.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/docs/LESSONS_LEARNED.md)) és multi-agent struktúra ([subagents/](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/docs/subagents/README.md)).
 
 ---
 
-## 🎭 6. Playwright Tesztelési Szabályok
+## 6. Page Object Model (POM) & Playwright Szabályok
 
-### 📌 6.1 Lokátor Stratégia (Web-First)
-* **Szabály:** Mindig web-first, szerepkör alapú lokátorokat használj:
-  1. Elsődleges: `page.getByRole(...)`
-  2. Másodlagos: `page.getByLabel(...)`, `page.getByPlaceholder(...)`, `page.getByTestId(...)`
-* ❌ **TILOS:** SOHA ne használj nyers XPath-ot (pl. `//div[2]/button`) vagy törékeny CSS osztályokat (pl. `.btn-primary-2b`).
-* ❌ **TILOS:** SOHA ne használj elavult `$` vagy `$$` függvényeket.
-
----
-
-### 📌 6.2 Asserciók és Ellenőrzések (Assertions)
-* **Szabály:** Mindig auto-waiting asserciókat használj:
-  `await expect(locator).toBeVisible()`, `await expect(locator).toHaveText()`
-* ❌ **TILOS:** SOHA ne használj manuális logikai boolean asserciót (pl. `expect(await locator.isVisible()).toBe(true)`).
+1. **Page Object Szabályok:**
+   - Minden fő Page Object a `BasePage`-ből származik le.
+   - A lokátorokat a `constructor`-ban kell deklarálni `readonly Locator` típussal.
+   - Az interakciókat async metódusok valósítják meg.
+   - **SZIGORÚ TILALOM:** Zéró asserció (`expect()`) a Page Object belsejében! Az asserciók kizárólag a `*.spec.ts` fájlokban szerepelhetnek.
+2. **Web-First Lokátor Stratégia:**
+   - Elsődleges: `page.getByRole(...)`, `page.getByLabel(...)`, `page.getByTestId(...)`.
+   - Tilos a törékeny CSS selector és a nyers XPath használata.
+3. **Asserciók és Várakozások:**
+   - Mindig automatikusan várakozó web-first asserciót kell használni: `await expect(locator).toBeVisible()`.
+   - Szigorúan tilos a manuális alvás (`waitForTimeout`, `sleep`) és a boolean asserció (`expect(await ...).toBe(true)`).
 
 ---
 
-### 📌 6.3 Várakozások Tiltása (No Manual Waits)
-* ❌ **TILOS:** Szigorúan TILOS a `page.waitForTimeout()` vagy manuális alvás (`sleep()`).
-* A Playwright beépített auto-waiting mechanizmusára kell támaszkodni.
+## 7. Kapcsolódó Dokumentáció és Navigáció
 
----
-
-### 📌 6.4 API és Autentikációs Szabályok
-* **API Tesztek:** A `request` fixture-t és az API Client réteget használd. Mindig ellenőrizd a HTTP státuszkódot (`expect(res.status()).toBe(...)`) és a JSON válaszstruktúrát.
-* **Tesztizoláció:** Minden teszt előtt (`beforeEach`) tiszta, ismert állapotot kell biztosítani (pl. reset hívással).
-* **UI Tesztek Autentikációja:** Ahol releváns, használd a `storageState` beállítást (`playwright/.auth/user.json`), hogy a tesztek kihagyhassák a lassú UI-s bejelentkezést.
-
----
-
-## 📝 7. Kódolási Stílus & TypeScript
-
-* Tiszta, szigorúan típusos TypeScript (mindig definiáld a paraméterek és visszatérési értékek típusait).
-* Mindig azonnal futtatható, drop-in kódblokkokat és teljes fájlokat generálj (ne hagyj hátra `// todo` vagy félkész kódrészeket).
+- Felhasználói profil és kommunikációs stílus: [PROFILE.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/PROFILE.md)
+- QA Tanulságok és feltárt hibák elemzése: [docs/LESSONS_LEARNED.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/docs/LESSONS_LEARNED.md)
+- Multi-Agent subagent struktúra: [docs/subagents/README.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/docs/subagents/README.md)
+- Gemini & Antigravity specifikus konfiguráció: [GEMINI.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/GEMINI.md)
