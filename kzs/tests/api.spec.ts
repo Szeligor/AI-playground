@@ -22,8 +22,10 @@ import { test, expect } from '@playwright/test';
  * - TC-API-16 (Key 86): DELETE /api/orders/{id}: Törlés engedélyezése Adminnal (200 OK)
  * - TC-API-17 (Key 87): POST /api/coupons/validate: Kupon érvényesítés vizsgálata
  *
- * Módszertan: Playwright beépített `request` fixture használata, böngésző nélküli, gyors HTTP hívások.
+ * Módszertan: Hibrid tesztelés: távoli serverless végpontok hívása és a beépített Swagger konzol automatizálása.
  */
+
+const APP_URL = 'https://testacademy.hu/qa-lab/e2e-app?pass=astron2026';
 
 test.describe('5. Modul: REST API Integrációs Tesztek', () => {
 
@@ -37,10 +39,12 @@ test.describe('5. Modul: REST API Integrációs Tesztek', () => {
     expect(body.status).toBe('healthy');
   });
 
-  test('TC-API-05 (Key 75): Adatbázis reset végpont hívása (200 OK)', async ({ request }) => {
-    const response = await request.post('/api/reset');
-    // Sikeres visszaállítás esetén 200 OK választ várunk
-    expect([200, 204]).toContain(response.status());
+  test('TC-API-05 (Key 75): Adatbázis reset végpont hívása (200 OK)', async ({ page }) => {
+    await page.goto(APP_URL);
+    const resetBtn = page.locator('[data-testid="btn-reset-db"], button:has-text("Reset DB Seed")');
+    await resetBtn.click();
+    const toast = page.locator('[data-testid="toast-notification"]');
+    await expect(toast).toContainText(/Database restored to baseline seed/i);
   });
 
   test('TC-API-01 (Key 71): Sikeres autentikáció standard fiókkal és JWT token generálás', async ({ request }) => {
@@ -165,29 +169,40 @@ test.describe('5. Modul: REST API Integrációs Tesztek', () => {
     expect([200, 201, 409]).toContain(duplicateRes.status());
   });
 
-  test('TC-API-15 (Key 85): Törlés elutasítása normál User szerepkörrel (403 Forbidden)', async ({ request }) => {
-    const loginRes = await request.post('/api/login', {
-      data: { email: 'standard_user@astron.hu', password: 'secret123' },
-    });
-    const { token } = await loginRes.json();
+  test('TC-API-15 (Key 85): Törlés elutasítása normál User szerepkörrel (403 Forbidden)', async ({ page }) => {
+    await page.goto(APP_URL);
+    await page.getByRole('button', { name: /API Swagger/i }).click();
 
-    // Törlés kísérlete normál felhasználói tokennel
-    const deleteRes = await request.delete('/api/orders/101', {
-      headers: { Authorization: `Bearer ${token}` },
-    });
+    // Szerepkör beállítása: user
+    await page.locator('#api-active-role').selectOption('user');
 
-    expect(deleteRes.status()).toBe(403);
+    // Törlés kísérlete normál felhasználói szerepkörrel
+    await page.locator('#api-delete-id').fill('102');
+    await page.locator('[data-testid="btn-api-delete-order"]').click();
+
+    // Assert: A beépített Swagger konzol 403 Forbidden hibaüzenetet ad
+    const resBox = page.locator('#res-ep4');
+    await expect(resBox).toBeVisible();
+    await expect(resBox).toContainText(/403 Forbidden/i);
+    await expect(resBox).toContainText(/Access Denied/i);
   });
 
-  test('TC-API-17 (Key 87): Kupon érvényesítő végpont ellenőrzése', async ({ request }) => {
-    const response = await request.post('/api/coupons/validate', {
-      data: { code: 'AIWS25', cart_total: 250 },
-    });
+  test('TC-API-17 (Key 87): Kupon érvényesítő végpont ellenőrzése a Swagger felületen', async ({ page }) => {
+    await page.goto(APP_URL);
+    await page.getByRole('button', { name: /API Swagger/i }).click();
 
-    // Ha létezik a dedikált végpont, ellenőrizzük a válaszát
-    if (response.status() !== 404) {
-      expect([200, 422]).toContain(response.status());
-    }
+    // Érvényes kupon megadása
+    await page.locator('#api-coupon-body').fill(JSON.stringify({
+      code: 'AIWS25',
+      cart_total: 500,
+    }));
+    await page.locator('[data-testid="btn-api-validate-coupon"]').click();
+
+    // Assert: A Swagger konzol 200 OK választ és VALID státuszt jelenít meg
+    const resBox = page.locator('#res-ep2b');
+    await expect(resBox).toBeVisible();
+    await expect(resBox).toContainText(/200 OK/i);
+    await expect(resBox).toContainText(/VALID/i);
   });
 
 });
