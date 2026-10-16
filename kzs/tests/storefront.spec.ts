@@ -156,7 +156,7 @@ test.describe('1. Modul: Storefront & Checkout Webshop', () => {
       // Assert: Zöld jóváhagyó felirat vagy 0% ÁFA megjelenése
       // FIGYELEM: A webalkalmazásban lévő hiba (d{8,9} \d helyett) miatt ez a teszt jogosan bukik el!
       const vatStatus = page.locator('#vat-feedback, #vat-status');
-      await expect(vatStatus).toContainText(/mentesített|valid|reverse charge|0%/i);
+      await expect(vatStatus).toContainText(/0% Reverse Charge B2B|\bValid EU\b/i);
     }
   });
 
