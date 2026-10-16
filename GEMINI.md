@@ -54,6 +54,16 @@ Ha egy feladathoz, funkcióhoz vagy tesztelendő területhez **nem áll rendelke
 
 ---
 
+## 🎯 1.2 TESZTELÉSI FILOZÓFIA ÉS HIBAKERESÉSI SZEMLÉLETMÓD (DEFECT-FOCUSED TESTING MINDSET)
+
+- **A TESZTELÉS ELSŐDLEGES CÉLJA VALÓS HIBÁK FELTÁRÁSA:**
+  - Az összes tesztelés alapvető célja, hogy a szoftverben meglévő, valós hibákat találjunk.
+  - Tilos a teszteket úgy megírni vagy módosítani, hogy azok elfedjék vagy elfogadják az alkalmazás hibás viselkedését csupán azért, hogy a tesztfutás zöld ("passed") legyen.
+  - A teszteseteknek mindig a helyes, elvárt üzleti specifikációt és adatintegritási szabályokat kell megkövetelniük (assertálniuk). Amennyiben az alkalmazásban valós hiba van jelen, a tesztnek el kell buknia, ezáltal dokumentálva és reprodukálva a hibát.
+  - A tesztelői szemléletnek folyamatosan keresnie kell a peremeseteket, logikai réseket, állapotgép-anomáliákat és biztonsági hiányosságokat.
+
+---
+
 ## 🔌 2. KÖTELEZŐ MCP PROTOKOLL HASZNÁLAT PLAYWRIGHTNÁL (SZIGORÚ SZABÁLY)
 
 1. **KÖTELEZŐ MCP ALKALMAZÁS:**
