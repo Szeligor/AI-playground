@@ -176,8 +176,15 @@ test.describe('5. Modul: REST API Integrációs Tesztek', () => {
     // Szerepkör beállítása: user
     await page.locator('#api-active-role').selectOption('user');
 
+    // Accordion kinyitása a DELETE végponthoz
+    const deleteHeader = page.locator('.endpoint-header', { hasText: '/api/v1/orders/{id}' }).last();
+    const deleteIdInput = page.locator('#api-delete-id');
+    if (!await deleteIdInput.isVisible()) {
+      await deleteHeader.click();
+    }
+
     // Törlés kísérlete normál felhasználói szerepkörrel
-    await page.locator('#api-delete-id').fill('102');
+    await deleteIdInput.fill('102');
     await page.locator('[data-testid="btn-api-delete-order"]').click();
 
     // Assert: A beépített Swagger konzol 403 Forbidden hibaüzenetet ad
@@ -191,8 +198,15 @@ test.describe('5. Modul: REST API Integrációs Tesztek', () => {
     await page.goto(APP_URL);
     await page.getByRole('button', { name: /API Swagger/i }).click();
 
+    // Accordion kinyitása a kupon végponthoz
+    const couponHeader = page.locator('.endpoint-header', { hasText: '/api/v1/coupons/validate' });
+    const couponBodyInput = page.locator('#api-coupon-body');
+    if (!await couponBodyInput.isVisible()) {
+      await couponHeader.click();
+    }
+
     // Érvényes kupon megadása
-    await page.locator('#api-coupon-body').fill(JSON.stringify({
+    await couponBodyInput.fill(JSON.stringify({
       code: 'AIWS25',
       cart_total: 500,
     }));
