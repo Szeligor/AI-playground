@@ -1,7 +1,7 @@
 # Astron QA Automation Workspace - Master Dokumentációs Térkép & Index
 ### Astron Informatikai Kft. | Playwright QA Automation Framework | kzs Modul
 
-Ez a master index fogja össze a teljes tesztelési keretrendszer dokumentációs struktúráját, elválasztva a gyökérbeli rendszerkonfigurációkat és a felhasználói (`kzs/`) modul dokumentumait.
+Ez a master index fogja össze a teljes tesztelési keretrendszer dokumentációs struktúráját, elválasztva a gyökérbeli rendszerkonfigurációkat és a felhasználói (`kzs/`) modul dokumentumait, Page Objectjeit és riportjait.
 
 ---
 
@@ -26,7 +26,12 @@ A felhasználó munkájához és tesztelési folyamataihoz tartozó összes doku
   - Feltáró (exploratory) tesztelési minták és 20 valós hiba technikai okai.
   - Adatintegritási szakadék a UI és az SQL adatbázis között.
 
-### 2.2 Tesztmagyarázatok és Esettárak
+### 2.2 Szelektorok és Lokátorok Katalógusa
+- **[kzs/docs/LOCATORS_AND_SELECTORS.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/docs/LOCATORS_AND_SELECTORS.md):**
+  - Web-First lokátor prioritások és lokátortáblák az összes nézethez (Storefront, ERP, Selector Lab, SQL, Swagger).
+  - Tartalék (fallback) szelektorok és helyes használati minták.
+
+### 2.3 Tesztmagyarázatok és Esettárak
 - **[kzs/docs/TESTS_EXPLAINED.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/docs/TESTS_EXPLAINED.md):** A keretrendszerben lévő tesztek részletes, kódblokkokkal illusztrált magyarázata.
 - **[kzs/docs/TEST_CASES.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/docs/TEST_CASES.md):** E2E és integrációs tesztesetek katalógusa.
 - **[kzs/docs/UNIT_TEST_CASES.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/docs/UNIT_TEST_CASES.md):** Független unit tesztek specifikációja és leírása.
@@ -34,7 +39,28 @@ A felhasználó munkájához és tesztelési folyamataihoz tartozó összes doku
 
 ---
 
-## 3. Multi-Agent Subagent Architektúra és How-To Útmutatók (`kzs/docs/subagents/`)
+## 3. Hibariportok és Eredmények (`kzs/reports/`)
+
+A tesztelési és feltárási eredmények, hibakatalógusok a `kzs/reports/` mappában érhetők el:
+- **[kzs/reports/exploratory-bug-report.html](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/reports/exploratory-bug-report.html):** Reszponzív, interaktív HTML hibakatalógus KPI dashboarddal mind a 20 feltárt hibáról.
+- **[kzs/reports/BUG_REPORT.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/reports/BUG_REPORT.md):** Strukturált Markdown formátumú hibajelentés.
+
+---
+
+## 4. Page Object Model (POM) Réteg (`kzs/pages/`)
+
+A `kzs` modul saját, tiszta, zéró-asserciós Page Object osztályai:
+- **[kzs/pages/BasePage.ts](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/pages/BasePage.ts):** Közös alaposztály, tab- és szerepkörváltás.
+- **[kzs/pages/StorefrontPage.ts](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/pages/StorefrontPage.ts):** Webshop és pénztár műveletek.
+- **[kzs/pages/OrderManagementPage.ts](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/pages/OrderManagementPage.ts):** ERP táblázat és rendelés életciklus.
+- **[kzs/pages/SelectorLabPage.ts](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/pages/SelectorLabPage.ts):** Dinamikus DOM elemek, feltöltés, modálok.
+- **[kzs/pages/SqlConsolePage.ts](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/pages/SqlConsolePage.ts):** SQL konzol és lekérdezések.
+- **[kzs/pages/SwaggerPage.ts](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/pages/SwaggerPage.ts):** In-page API konzol.
+- **[kzs/pages/index.ts](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/pages/index.ts):** Barrel export a tiszta importáláshoz.
+
+---
+
+## 5. Multi-Agent Subagent Architektúra és How-To Útmutatók (`kzs/docs/subagents/`)
 
 A specializált al-ágensek teljes leírása, Page Object hozzáférési mátrixa és lépésről lépésre követhető How-To útmutatói:
 
@@ -47,11 +73,3 @@ A specializált al-ágensek teljes leírása, Page Object hozzáférési mátrix
 | **[kzs/docs/subagents/api-specialist.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/docs/subagents/api-specialist.md)** | API Specialist How-To | REST API végpontok, `SwaggerPage`, Service Object réteg és séma validáció. |
 | **[kzs/docs/subagents/defect-hunter.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/docs/subagents/defect-hunter.md)** | Defect Hunter How-To | Exploratory tesztelés, negatív határesetek, állapotgép-rések, Stored XSS és adatintegritás. |
 | **[kzs/docs/subagents/code-reviewer.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/docs/subagents/code-reviewer.md)** | Code Reviewer How-To | Asserció integritás audit, teszt-maszkolás kiszűrése és kezdőbarát kommentelés ellenőrzése. |
-
----
-
-## 4. Vállalati Specifikációk és Követelmények
-
-- **[kzs/specs/E2E_ENTERPRISE_SPECIFICATION.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/kzs/specs/E2E_ENTERPRISE_SPECIFICATION.md):** A teljes vállalati E2E teszteset specifikáció (TC-01 .. TC-70).
-- **[specs/storefront_order.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/specs/storefront_order.md):** Webshop rendelési folyamat alapkövetelményei.
-- **[specs/e2e_architecture_map.md](file:///c:/Users/WDAGUtilityAccount/Desktop/AstronWorkshop/project/specs/e2e_architecture_map.md):** E2E architektúra térkép.
